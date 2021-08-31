@@ -1,4 +1,4 @@
-<h1 align='center'> Komaroad </h1>
+<h1 align='center'> Komaroad - Экстериоризация</h1>
 <ul>
 <li></li>
 
