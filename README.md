@@ -5,7 +5,8 @@
 <li>Разделить на Sections и Components?</li>
 <li>Прототип в Figma - https://www.figma.com/file/DmFqwx0UGhpnknlnbKpSLp/Komaroad?node-id=0%3A1</li>
 <li>Придумать как соединить компоненты линиями</li>
-<li></li>
+<li>AntD - User Interface?</li>
+<li>В первой версии написать API вручную</li>
 
 
 </ul>
