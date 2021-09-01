@@ -1,0 +1,38 @@
+.stars::before,
+.stars::after,
+.stars::before,
+.stars::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: .4vmin;
+  height: .4vmin;
+  border-radius: 50%;
+  color: transparent;
+}
+
+
+.stars::after {
+  box-shadow: 80vw 14vh .1vmin rgb(255, 255, 255),
+              88vw 18vh .1vmin rgb(255, 255, 255),
+              77vw 11vh .1vmin rgb(255, 255, 255),
+              85vw 31vh .1vmin rgb(255, 255, 255),
+              91vw 14vh .1vmin rgb(255, 255, 255),
+              98vw 19vh .1vmin rgb(255, 255, 255),
+              94vw 29vh .1vmin rgb(255, 255, 255),
+              38vw 19vh .1vmin rgb(255, 255, 255),
+              94vw 12vh .1vmin rgb(255, 255, 255),
+              34vw 6vh .1vmin rgb(255, 255, 255),
+              15vw 1vh .1vmin rgb(255, 255, 255),
+              12vw 16vh .1vmin rgb(255, 255, 255),
+              64vw 15vh .1vmin rgb(255, 255, 255),
+              24vw 21vh .1vmin rgb(255, 255, 255),
+              23vw 31vh .1vmin rgb(255, 255, 255),
+              12vw 31vh .1vmin rgb(255, 255, 255),
+              65vw 8vh .1vmin rgb(255, 255, 255),
+              66vw 28vh .1vmin rgb(255, 255, 255);
+                     
+}
+

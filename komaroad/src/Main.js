@@ -14,21 +14,11 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import Header from './Components/Header';
+import Footer from './Components/Footer';
 
 
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://github.com/Ivan-Corporation">
-        Komaroad
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -55,10 +45,7 @@ const useStyles = makeStyles((theme) => ({
   cardContent: {
     flexGrow: 1,
   },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
-  },
+  
 }));
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -107,18 +94,7 @@ export default function Main() {
           </Grid>
         </Container>
       
-
-      {/* Footer */}
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          <Link color="inherit" href='https://ivan-corporation.github.io/Komolio/'>About Author</Link>
-        </Typography>
-        <Copyright />
-      </footer>
-      {/* End footer */}
+      <Footer/>
 
     </React.Fragment>
   );

@@ -4,8 +4,8 @@
 <ul>
 <li>Сами Roadmaps в виде изображений</li>
 <li>Прототип в Figma - https://www.figma.com/file/DmFqwx0UGhpnknlnbKpSLp/Komaroad?node-id=0%3A1</li>
-<li>NextJS</li>
-<li>Рендеринг на стороне сервера</li>
+<li>ReactJS</li>
+<li>MaterialUI</li>
 
 
 </ul>
