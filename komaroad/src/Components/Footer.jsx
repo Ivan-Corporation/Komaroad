@@ -9,6 +9,11 @@ import Icon from '@material-ui/core/Icon';
 import SendIcon from '@material-ui/icons/Send';
 import Brightness3Icon from '@material-ui/icons/Brightness3';
 import logo from '../Images/logo-koma.png'
+import Divider from '@material-ui/core/Divider';
+
+
+
+
 
 
 function Copyright() {
@@ -38,13 +43,23 @@ export default function Footer() {
 
   return ( 
   <div className={classes.footer}>
-<Typography variant="h6" align="center" gutterBottom>
-  Footer
-</Typography>
+    
+    <Container style={{ maxWidth: '25vh' }}>
 <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-  <Link color="inherit" href='https://ivan-corporation.github.io/Komolio/'>About Author</Link>
+  <Link color="inherit" href='https://ivan-corporation.github.io/Komolio/'>
+    About 
+    </Link><Divider variant="middle" />
+  <Link color="inherit" href='https://ivan-corporation.github.io/Komolio/'>
+    Terms
+    </Link><Divider variant="middle" />
+  <Link color="inherit" href='https://ivan-corporation.github.io/Komolio/'>
+    Author
+    </Link><Divider variant="middle" />
 </Typography>
+</Container>
+<br></br>
 <Copyright />
+
 
 </div>
   )
