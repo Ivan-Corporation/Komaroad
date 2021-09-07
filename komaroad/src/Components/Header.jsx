@@ -11,14 +11,14 @@ import Brightness3Icon from '@material-ui/icons/Brightness3';
 import logo from '../Images/logo-koma.png'
 
 
-import PythonIcon from '../Images/icons/python.png';
-import JavaScriptIcon from '../Images/icons/javaScript.png';
+import JS from '../Images/icons/javaScript.png';
+import MathIcon from '../Images/icons/math.jpg';
 import ReactIcon from '../Images/icons/react.png'; 
-import NodeJsIcon from '../Images/icons/nodejs.png';
+import EarthIcon from '../Images/icons/earth.png';
 import BlenderIcon from '../Images/icons/blender.png';
-import MongoDBIcon from '../Images/icons/mongo.png';
-import CSSIcon from '../Images/icons/css.png';
-import KomaIcon from '../Images/icons/koma.png';
+
+import HistoryIcon from '../Images/icons/history.png';
+import EnglandIcon from '../Images/CardsImage/England.png';
 
 import '../Styles/PlanetCircle.css';
 import '../Styles/header.css';
@@ -62,16 +62,16 @@ export default function Header() {
         <div className="profileImage">
           <img className="introImage" src={logo} alt="profile"/>
           <div className="ringCircle innerCircle">
-            <img className="planetCircle" src={PythonIcon} alt="twitter"/>
-            <img className="planetCircle" src={JavaScriptIcon} alt="github"/>
+            <img className="planetCircle" src={JS} alt="JavaScript"/>
+            <img className="planetCircle" src={MathIcon} alt="science"/>
           </div>
           <div className="ringCircle outerCircle">
             <img className="planetCircle" src={ReactIcon} alt=""/>
             <img className="planetCircle" src={BlenderIcon} alt=""/>
-            <img className="planetCircle" src={KomaIcon} alt=""/>
-            <img className="planetCircle" src={CSSIcon} alt=""/>
-            <img className="planetCircle" src={MongoDBIcon} alt=""/>
-            <img className="planetCircle" src={NodeJsIcon} alt=""/>
+            <img className="planetCircle" src={EnglandIcon} alt=""/>
+            <img className="planetCircle" src={logo} alt=""/>
+            <img className="planetCircle" src={HistoryIcon} alt=""/>
+            <img className="planetCircle" src={EarthIcon} alt=""/>
             
           </div>
         </div>

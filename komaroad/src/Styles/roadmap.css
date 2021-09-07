@@ -6,7 +6,16 @@
 }
 
 .roadtext {
-    padding-top: 35px;
+    padding-top: 17px;
+    
+}
+.roadtextbottom {
+    padding-top: 45px;
+    padding-bottom: 70px;
 
+}
+
+.roadtextheader {
+    padding-top: 55px;
 }
 
