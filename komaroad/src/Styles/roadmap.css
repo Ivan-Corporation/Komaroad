@@ -1,13 +1,16 @@
 .roadmap {
     width: 100%;
     height: 100%;
-    margin-top: 30px;
-    margin-bottom: 30px;
+    border: 1px solid black;
 }
+
+
+    
+
 
 .roadtext {
     padding-top: 17px;
-    
+
 }
 .roadtextbottom {
     padding-top: 45px;
@@ -17,5 +20,6 @@
 
 .roadtextheader {
     padding-top: 55px;
+
 }
 

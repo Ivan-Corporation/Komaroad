@@ -123,6 +123,7 @@ export default function MainContent() {
 
 
               <Grid item key={cards} xs={12} sm={6} md={4}>
+              <Link to="/history" style={{ textDecoration: 'none' }}>
               <CardActionArea>
                 <Card className={classes.card}>
                
@@ -148,6 +149,7 @@ export default function MainContent() {
 
                 </Card>
                 </CardActionArea> 
+                </Link>
               </Grid>
 
 

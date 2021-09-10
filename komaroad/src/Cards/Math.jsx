@@ -17,12 +17,16 @@ import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 import math from '../Images/Roadmaps/Math-roadmap.png'
 
-import Zoom from 'react-medium-image-zoom'
-import 'react-medium-image-zoom/dist/styles.css'
-import PrismaZoom from 'react-prismazoom'
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+
 
 
 import '../Styles/roadmap.css';
+import '../Styles/listItem.scss';
+
+
+
+
 import Divider from '@material-ui/core/Divider';
 
 import SignalCellularNullIcon from '@material-ui/icons/SignalCellularNull';
@@ -100,26 +104,50 @@ export default function Math() {
 
         <Typography variant="body1" className='roadtext'>
              I recommend download picture to yourself (especially if you on mobile device) and just filling themes that you
-              learnt with your favorite color :)
-            
+              learnt with your favorite color :) <b>BUT if you want to place roadmap in public place, please made a link on original
+              beacuse all roadmaps licensed!</b>       
         </Typography>
+        <Typography variant="body2" className='roadtext'>
+        (If your picture freezes when scaling, don't worry, it's just that the picture is very large and the rendering takes place at different scales)      
+        </Typography>
+
         <Typography variant="subtitle2" className='roadtext'>
-            <u>Scroll the wheel to zoom in or open picture in new window:</u>
+            <u>Scroll the wheel to zoom in or open full picture:</u>
         </Typography>
 
-
-        <PrismaZoom>
-        <img
+        
+        <TransformWrapper>
+        <TransformComponent>
+        <img 
         alt="Math"
         src={math} className='roadmap'/>
-        </PrismaZoom>
+        </TransformComponent>
+        </TransformWrapper>
+       
 
         <Divider/>
 
-        <Typography variant="h5" className='roadtextbottom'>
-          My advices:
+        <Typography variant="h5" className='roadtextheader'>
+        Appendix:
         </Typography>
-        
+        <Typography variant="body1" className='roadtext'>
+             <ol class="gradient-list">
+               <li>Many of the topics in this roadmap may have their own roadmaps that are not much smaller in size.
+                  If you have any thoughts on this, <a href='https://github.com/Ivan-Corporation/Komaroad-Suggestions'>write your suggestions</a> and 
+                 we will consider them together. Perhaps you can become the author of your own specific roadmap
+                 </li>
+              <li>All roadmaps have licensed but i don't mind share them if you will give a link on original because i kind man :)</li>
+              <li>For practice, I recommend taking an online school course from first to last grade (e.g. Khan Academy or any course in your native language).
+                It's hardest than you can think
+              </li>
+              <li></li>
+
+
+
+
+             </ol>
+            <br></br>
+        </Typography>
         </Container>
       
 </>

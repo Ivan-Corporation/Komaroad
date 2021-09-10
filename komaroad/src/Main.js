@@ -18,14 +18,9 @@ import Footer from './Components/Footer';
 import MainContent from './Components/MainContent';
 
 import Math from './Cards/Math';
+import History from './Cards/History';
 
-
-import { BrowserRouter as Router,
-
-  Switch,
-  Route,
-
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch,Route} from "react-router-dom";
 
 
 export default function Main() {
@@ -40,6 +35,7 @@ export default function Main() {
 
       <Switch>
           <Route exact path="/math" component={Math}/>
+          <Route exact path="/history" component={History}/>
 
           <Route path="/users" />
 
