@@ -3,7 +3,9 @@ import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import CameraIcon from '@material-ui/icons/PhotoCamera';
 import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -38,11 +40,25 @@ import {
 } from 'react-awesome-button';
 import "react-awesome-button/dist/styles.css";
 import 'react-awesome-button/dist/themes/theme-c137.css';
+import { List, ListItem, ListItemText } from '@material-ui/core';
+
+
+
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',   
+    backgroundColor: theme.palette.background.paper,
+  },
+}));
+
+
+
 
 
 
 export default function Math() {
 
+  const classes = useStyles();
 
   return (<>
     <CssBaseline />
@@ -128,8 +144,57 @@ export default function Math() {
       <Typography variant="h5" className='roadtextheader'>
         <b>Appendix:</b>
       </Typography>
-      <Typography variant="subtitle1" className='roadtext'>
-        <ol class="gradient-list">
+      <br/>
+
+      <List className={classes.root}>
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar style={{ width: '45px', height: '45px' }}>
+            <ImageIcon/>
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary="Many of the topics in this roadmap may have their own roadmaps that are not much smaller in size.
+            If you have any thoughts on this, write your suggestions and
+            we will consider them together. Perhaps you can become the author of your own specific roadmap" 
+            secondary="(I'm really need help with that)" />
+      </ListItem>
+      <br/>
+      <Divider/>
+      <br/>
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar style={{ width: '45px', height: '45px' }}>
+            <ImageIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary="All roadmaps have licensed but i don't mind share them if you will give a link on original because i kind man :)" 
+        secondary="Jan 7, 2014" />
+      </ListItem>
+      <br/>
+        <Divider/>
+        <br/>
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar style={{ width: '45px', height: '45px' }}>
+            <ImageIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary="For practice, I recommend taking an online school course from first to last grade (e.g. Khan Academy or any course in your native language).
+            It's hardest than you can think" 
+            secondary="July 20, 2014" />
+      </ListItem>
+      <br/>
+        <Divider/>
+        <br/>
+
+
+
+
+    </List>
+      
+      
+        {/* <ol class="gradient-list">
+       
           <li>Many of the topics in this roadmap may have their own roadmaps that are not much smaller in size.
             If you have any thoughts on this, <a href='https://github.com/Ivan-Corporation/Komaroad-Suggestions'>write your suggestions</a> and
             we will consider them together. Perhaps you can become the author of your own specific roadmap
@@ -149,13 +214,15 @@ export default function Math() {
             If you feel yourself uncomfortable
             just don't go into that endless wheel or you can get 'Gehirn Brehen' (sorry, my beloved phrase)
           </li>
+          
 
 
 
-
-        </ol>
-        <br></br>
-      </Typography>
+        </ol> */}
+        
+        <br/>
+        <br/>
+      
     </Container>
 
   </>

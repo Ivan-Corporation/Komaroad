@@ -1,4 +1,5 @@
 import React from 'react';
+import useState from 'react'
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import CameraIcon from '@material-ui/icons/PhotoCamera';
@@ -25,15 +26,13 @@ import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 
 export default function Main() {
 
-  const theme = createTheme({
-    palette: {
-      type: 'dark'
-    }
-  })
+
+
+
 
   return (
     <React.Fragment>
-      <ThemeProvider theme={theme}>
+      <ThemeProvider>
 
       <CssBaseline />
       

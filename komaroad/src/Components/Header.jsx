@@ -1,8 +1,8 @@
-import React from 'react';
+import {React, useState} from 'react';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, createTheme, ThemeProvider } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import Icon from '@material-ui/core/Icon';
@@ -27,6 +27,10 @@ import '../Styles/title.scss';
 
 
 
+
+
+
+
 const useStyles = makeStyles((theme) => ({
   
   heroContent: {
@@ -36,11 +40,11 @@ const useStyles = makeStyles((theme) => ({
   planet: {
       paddingLeft: '100px'
   },
-  headerLight: {
+  lightMode: {
     background: "linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(255,136,0,1) 0%, rgba(247,247,247,1) 82%);"
 },
-  headerDark: {
-    background: "linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(180,80,0,1) 0%, #303030 90%);",    
+  darkMode: {
+    background: "linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(210,90,0,1) 0%, #303030 93%);",    
 },
 
 }));
@@ -50,11 +54,25 @@ const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 
 
-export default function Header() {
+export default function Header(props) {
+
+  const [darkMode, setDarkMode] = useState(false)
+
+  const theme = createTheme({
+    palette: {
+      type: darkMode ? "dark" : "light",
+    },
+  })
+  
+
+
   const classes = useStyles();
 
+
+
   return (
-        <div className={classes.headerDark}>
+    <ThemeProvider theme={theme}>
+        <div className={darkMode ? classes.darkMode : classes.lightMode}>
           <Container className='stars' maxWidth="sm">
           <Grid container spacing={3}>
               
@@ -119,6 +137,7 @@ export default function Header() {
                           color='default'
                           className={classes.button}
                           endIcon={<Brightness3Icon/>}
+                          onClick={()=> setDarkMode(!darkMode)}
                         >
                           DarkMode
                         </Button>
@@ -126,7 +145,8 @@ export default function Header() {
               </Grid>
             </div>
           </Container>
-
+          
         </div>
+        </ThemeProvider>
         )
 }
