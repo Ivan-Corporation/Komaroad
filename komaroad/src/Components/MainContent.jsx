@@ -13,11 +13,14 @@ import IconButton from '@material-ui/core/IconButton';
 
 import FunctionsIcon from '@material-ui/icons/Functions';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
+
 
 import react from '../Images/CardsImage/React.png'
 import math from '../Images/CardsImage/math.jpg'
 import history from '../Images/CardsImage/history.jpg'
 import england from '../Images/CardsImage/England.png'
+import comingsoon from '../Images/CardsImage/coming-soon.jpg'
 
 import Math from './../Cards/Math';
 import Main from './../Main';
@@ -80,7 +83,7 @@ export default function MainContent() {
           
                
               <Typography variant="h4" align="center" color="" paragraph>
-              Most extensive roadmaps
+              <b>Most extensive roadmaps</b>
               </Typography>
               <hr/>
               <br/>
@@ -103,15 +106,15 @@ export default function MainContent() {
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography align="center" gutterBottom variant="h5" component="h2">
-                      Math
+                    <b>Math</b>
                     </Typography>
-                    <Typography>
+                    <Typography variant="subtitle2">
                     Learn Math from zero level to homology and deformation theory
                     </Typography>
                   </CardContent>
                   <CardActions>
                   <IconButton>
-                   <FunctionsIcon fontSize="large" />  <Typography variant="body2">Many theory (Hard to learn)</Typography>
+                   <FunctionsIcon fontSize="large" />  <Typography variant="subtitle2">Many theory (Hard to learn)</Typography>
                  </IconButton>
                  
                   </CardActions>
@@ -134,16 +137,16 @@ export default function MainContent() {
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography align="center" gutterBottom variant="h5" component="h2">
-                      History
+                    <b>History</b>
                     </Typography>
-                    <Typography>
+                    <Typography variant="subtitle2">
                     Development of humanity from the first civilizations to the present day
                     </Typography>
                   </CardContent>
                   
                   <CardActions>
                   <IconButton>
-                   <MenuBookIcon fontSize="large" /><Typography variant="body2">First of all</Typography>
+                   <MenuBookIcon fontSize="large" /><Typography variant="subtitle2">First of all</Typography>
                  </IconButton>
                   </CardActions>
 
@@ -154,33 +157,40 @@ export default function MainContent() {
 
 
 
+
               <Grid item key={cards} xs={12} sm={6} md={4}>
+              <Link to="/" style={{ textDecoration: 'none' }}>
               <CardActionArea>
                 <Card className={classes.card}>
                
                   <CardMedia
                     className={classes.cardMedia}
-                    image={england}
-                    title="History"
+                    image={comingsoon}
+                    title="comingsoon"
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography align="center" gutterBottom variant="h5" component="h2">
-                      English
+                    <b>Coming soon</b>
                     </Typography>
-                    <Typography>
-                    Development of humanity from the first civilizations to the present day
+                    <Typography variant="subtitle2">
+                    The following roadmaps are coming soon. Check the site for updates
                     </Typography>
                   </CardContent>
                   
                   <CardActions>
                   <IconButton>
-                   <MenuBookIcon fontSize="large" /><Typography variant="body2">First of all</Typography>
+                   <AccessTimeIcon fontSize="large" /><Typography variant="subtitle2">Give me a time to develop that :)</Typography>
                  </IconButton>
                   </CardActions>
 
                 </Card>
                 </CardActionArea> 
+                </Link>
               </Grid>
+
+
+
+             
               </Grid>
 
 
@@ -189,7 +199,7 @@ export default function MainContent() {
               <br/>
                         
               <Typography variant="h4" align="center" color="" paragraph>
-              Specific Roadmaps
+              <b>Specific roadmaps</b>
             </Typography>
               <hr/>
               <br/>
@@ -210,9 +220,9 @@ export default function MainContent() {
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography align="center" gutterBottom variant="h5" component="h2">
-                      React
+                    <b>React</b>
                     </Typography>
-                    <Typography>
+                    <Typography variant="subtitle2">
                     Open-source front-end JavaScript library for building user interfaces or UI components
                     </Typography>
                   </CardContent>
@@ -227,6 +237,73 @@ export default function MainContent() {
                 </Card>    
                 </CardActionArea>    
               </Grid>
+
+
+              <Grid item key={cards} xs={12} sm={6} md={4}>
+              <CardActionArea>
+                <Card className={classes.card}>
+               
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image={england}
+                    title="History"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography align="center" gutterBottom variant="h5" component="h2">
+                    <b>English</b>
+                    </Typography>
+                    <Typography align="center" variant="subtitle2">
+                    Development of humanity from the first civilizations to the present day
+                    </Typography>
+                  </CardContent>
+                  
+                  <CardActions>
+                  <IconButton>
+                   <MenuBookIcon fontSize="large" /><Typography variant="body2">First of all</Typography>
+                 </IconButton>
+                  </CardActions>
+
+                </Card>
+                </CardActionArea> 
+              </Grid>
+
+
+
+
+              <Grid item key={cards} xs={12} sm={6} md={4}>
+              <Link to="/" style={{ textDecoration: 'none' }}>
+              <CardActionArea>
+                <Card className={classes.card}>
+               
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image={comingsoon}
+                    title="comingsoon"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography align="center" gutterBottom variant="h5" component="h2">
+                    <b>Coming soon</b>
+                    </Typography>
+                    <Typography variant="subtitle2">
+                    The following roadmaps are coming soon. Check the site for updates
+                    </Typography>
+                  </CardContent>
+                  
+                  <CardActions>
+                  <IconButton>
+                   <AccessTimeIcon fontSize="large" /><Typography variant="subtitle2">Give me a time to develop that :)</Typography>
+                 </IconButton>
+                  </CardActions>
+
+                </Card>
+                </CardActionArea> 
+                </Link>
+              </Grid>
+
+
+
+
+
               </Grid>
             
           

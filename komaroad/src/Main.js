@@ -21,13 +21,19 @@ import Math from './Cards/Math';
 import History from './Cards/History';
 
 import { BrowserRouter as Router, Switch,Route} from "react-router-dom";
-
+import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 
 export default function Main() {
 
+  const theme = createTheme({
+    palette: {
+      type: 'dark'
+    }
+  })
 
   return (
     <React.Fragment>
+      <ThemeProvider theme={theme}>
 
       <CssBaseline />
       
@@ -45,7 +51,7 @@ export default function Main() {
       <Footer/>
 
 
-
+      </ThemeProvider>
     </React.Fragment>
 
     
