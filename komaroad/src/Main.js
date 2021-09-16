@@ -43,17 +43,38 @@ import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 
 export default function Main() {
 
-  const [darkMode, setDarkMode] = useState(false)
+  // Hook for darkMode
+  function useStickyState(defaultValue, key) {
+    const [value, setValue] = React.useState(() => {
+      const stickyValue = window.localStorage.getItem(key);
+      return stickyValue !== null
+        ? JSON.parse(stickyValue)
+        : defaultValue;
+    });
+    React.useEffect(() => {
+      window.localStorage.setItem(key, JSON.stringify(value));
+    }, [key, value]);
+    return [value, setValue];
+  }
+
+
+
 
   
-
+  const [darkMode, setDarkMode] = useStickyState(false, 'DarkMode?');
+ 
   const theme = createTheme({
     palette: {
       type: darkMode ? "dark" : "light",
     },
   })
+
   
-  localStorage.setItem('theme', darkMode)
+
+  
+
+
+
 
   const useStyles = makeStyles((theme) => ({
   
