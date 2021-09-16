@@ -26,11 +26,15 @@ import '../Styles/listItem.scss';
 
 
 
-
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import HardwareIcon from '@mui/icons-material/Hardware';
 import Divider from '@material-ui/core/Divider';
-
+import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
+import FunctionsIcon from '@mui/icons-material/Functions';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ImageIcon from '@material-ui/icons/Image';
+import MoodIcon from '@mui/icons-material/Mood';
+
 
 import {
   AwesomeButton,
@@ -153,7 +157,7 @@ export default function Math() {
       
         <ListItemAvatar>
           <Avatar style={{ width: '45px', height: '45px' }}>
-            <ImageIcon/>
+            <MoodIcon/>
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary="Many of the topics in this roadmap may have their own roadmaps that are not much smaller in size.
@@ -167,7 +171,7 @@ export default function Math() {
       <ListItem>
         <ListItemAvatar>
           <Avatar style={{ width: '45px', height: '45px' }}>
-            <ImageIcon />
+            <LocalPoliceIcon />
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary="All roadmaps have licensed but i don't mind share them if you will give a link on original because i kind man :)" 
@@ -179,7 +183,7 @@ export default function Math() {
       <ListItem>
         <ListItemAvatar>
           <Avatar style={{ width: '45px', height: '45px' }}>
-            <ImageIcon />
+            <FunctionsIcon />
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary="For practice, I recommend taking an online school course from first to last grade (e.g. Khan Academy or any course in your native language).
@@ -192,7 +196,7 @@ export default function Math() {
       <ListItem>
         <ListItemAvatar>
           <Avatar style={{ width: '45px', height: '45px' }}>
-            <ImageIcon />
+            <LibraryBooksIcon />
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary="About books it's really hard to give advice but maybe you will be interested in some popular science. For example 'In Pursuit of the Unknown: 17 Equations That Changed the World' or 'The Great Mathematical Problems' by Ian Stewart.
@@ -205,7 +209,7 @@ export default function Math() {
       <ListItem>
         <ListItemAvatar>
           <Avatar style={{ width: '45px', height: '45px' }}>
-            <ImageIcon />
+            <HardwareIcon />
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary="Behind of popular science books hiding a 'Googol' of science articles and it's really hard to understand them. 

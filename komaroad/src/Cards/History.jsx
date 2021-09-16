@@ -24,11 +24,17 @@ import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import '../Styles/roadmap.css';
 import Divider from '@material-ui/core/Divider';
 
+import MoodIcon from '@mui/icons-material/Mood';
 import SignalCellularNullIcon from '@material-ui/icons/SignalCellularNull';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ImageIcon from '@material-ui/icons/Image';
 import '../Styles/listItem.scss';
-
+import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
+import EuroIcon from '@mui/icons-material/Euro';
+import AccountTreeIcon from '@mui/icons-material/AccountTree';
+import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 
 
 import {
@@ -144,16 +150,16 @@ export default function History() {
 
 
         <br/>
-            
+
           <List className={classes.root}>
-            
+
           <Divider/>
           <br/>
           <ListItem>
-            
+
             <ListItemAvatar>
               <Avatar style={{ width: '45px', height: '45px' }}>
-                <ImageIcon/>
+                <MoodIcon/>
               </Avatar>
             </ListItemAvatar>
             <ListItemText primary="Many of the topics in this roadmap may have their own roadmaps that are not much smaller in size.
@@ -167,7 +173,7 @@ export default function History() {
           <ListItem>
             <ListItemAvatar>
               <Avatar style={{ width: '45px', height: '45px' }}>
-                <ImageIcon />
+                <LocalPoliceIcon />
               </Avatar>
             </ListItemAvatar>
             <ListItemText primary="All roadmaps have licensed but i don't mind share them if you will give a link on original because i kind man :)" 
@@ -179,7 +185,7 @@ export default function History() {
           <ListItem>
             <ListItemAvatar>
               <Avatar style={{ width: '45px', height: '45px' }}>
-                <ImageIcon />
+                <EuroIcon />
               </Avatar>
             </ListItemAvatar>
             <ListItemText primary="I'm try not to do Eurocentricity but Europe it's big spot on the body of human history" 
@@ -187,18 +193,16 @@ export default function History() {
           </ListItem>
           <br/>
           <Divider/>
-          <br/>
+            <br/>
           <ListItem>
             <ListItemAvatar>
               <Avatar style={{ width: '45px', height: '45px' }}>
-                <ImageIcon />
+                <AccountTreeIcon />
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary="Maybe it's sound strange but i advice you to play in videogames. Try to be 'Homo Ludens' (Heisenberg) and learning with 
-                      pleasure. For that i can recommend you Paradox Games (yep, they are not ideal for learning history but really close to it) like Hearts of Iron,
-                      Europa Universalis, Crusader Kings etc. Also i of course recommend you Civilisation (try different parts), Total War (espesially their early games)
-                      and many other historical games, but in my humble opinion strategies above are best learning tools between all games."
-                secondary=<u>(If you don't like strategy or games at all, don't try to push yourself)</u> />
+            <ListItemText primary="You need understand that history it's really big, and i'm not included many specific and important themes
+             in this roadmap (e.g. History of Religion, History of Arhitecture etc)" 
+                secondary="(Maybe i create roadmaps about this specific themes later)"/>
           </ListItem>
           <br/>
           <Divider/>
@@ -206,10 +210,25 @@ export default function History() {
           <ListItem>
             <ListItemAvatar>
               <Avatar style={{ width: '45px', height: '45px' }}>
-                <ImageIcon />
+                <SportsEsportsIcon />
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary="Now about the books ... The biggest problem here is not to drown in a huge amount of information. Just try to find ONE largest book on any topic 
+            <ListItemText primary="Maybe it's sound strange but i advice you to play in videogames. Try to be 'Homo Ludens' (Heisenberg) and learning with 
+                      pleasure. For that i can recommend you Paradox Games (yep, they are not ideal for learning history but really close to it) like Hearts of Iron,
+                      Europa Universalis, Crusader Kings etc. Also i of course recommend you Civilisation (try different parts), Total War (espesially their early games)
+                      and many other historical games, but in my humble opinion strategies above are best learning tools between all games."
+                secondary={<u>(If you don't like strategy or games at all, don't try to push yourself)</u>} />
+          </ListItem>
+          <br/>
+          <Divider/>
+          <br/>
+          <ListItem>
+            <ListItemAvatar>
+              <Avatar style={{ width: '45px', height: '45px' }}>
+                <LibraryBooksIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="Now about the books... The biggest problem here is not to drown in a huge amount of information. Just try to find ONE largest book on any topic 
                     (I recommend looking for books not by periods or any area, but by the history of a particular country, the puzzle of their relationship will form in your head over time). Also check the reviews on the books,
                      a lot of historians are biased without realizing it. Therefore, do not take any line or fact in the book as an exact fact." 
                      secondary="(If you don't know exactly book for start learning some country - write me and i help to choose)"
@@ -221,7 +240,7 @@ export default function History() {
           <ListItem>
             <ListItemAvatar>
               <Avatar style={{ width: '45px', height: '45px' }}>
-                <ImageIcon />
+                <HistoryEduIcon />
               </Avatar>
             </ListItemAvatar>
             <ListItemText primary="Historiography... Here you need to understand that some theory was approved over time and disputes can still be held on it,
@@ -230,11 +249,11 @@ export default function History() {
           </ListItem>
           <br/>
             <Divider/>
-            
-            
-            
-            
-            
+
+
+
+
+
           </List>
           <br/><br/>
 
