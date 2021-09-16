@@ -14,7 +14,7 @@ import IconButton from '@material-ui/core/IconButton';
 import FunctionsIcon from '@material-ui/icons/Functions';
 import MenuBookIcon from '@material-ui/icons/MenuBook';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
-
+import EventAvailableIcon from '@material-ui/icons/EventAvailable';
 
 import react from '../Images/CardsImage/React.png'
 import math from '../Images/CardsImage/math.jpg'
@@ -114,7 +114,7 @@ export default function MainContent() {
                   </CardContent>
                   <CardActions>
                   <IconButton>
-                   <FunctionsIcon fontSize="large" />  <Typography variant="subtitle2">Many theory (Hard to learn)</Typography>
+                   <EventAvailableIcon />  <Typography variant="subtitle2">08.30.2021</Typography>
                  </IconButton>
                  
                   </CardActions>
@@ -146,7 +146,7 @@ export default function MainContent() {
                   
                   <CardActions>
                   <IconButton>
-                   <MenuBookIcon fontSize="large" /><Typography variant="subtitle2">First of all</Typography>
+                   <EventAvailableIcon /><Typography variant="subtitle2">09.10.2021</Typography>
                  </IconButton>
                   </CardActions>
 
@@ -179,7 +179,7 @@ export default function MainContent() {
                   
                   <CardActions>
                   <IconButton>
-                   <AccessTimeIcon fontSize="large" /><Typography variant="subtitle2">Give me a time to develop that :)</Typography>
+                   <EventAvailableIcon /><Typography variant="subtitle2">Coming soon</Typography>
                  </IconButton>
                   </CardActions>
 
@@ -223,16 +223,13 @@ export default function MainContent() {
                     <b>React</b>
                     </Typography>
                     <Typography variant="subtitle2">
-                    Open-source front-end JavaScript library for building user interfaces or UI components
+                    Open-source front-end JavaScript library for building UI components
                     </Typography>
                   </CardContent>
-                  <CardActions>
-                    <Button size="small" color="primary">
-                      View
-                    </Button>
-                    <Button size="small" color="primary">
-                      Edit
-                    </Button>
+                   <CardActions>
+                  <IconButton>
+                   <EventAvailableIcon /><Typography variant="body2">09.10.2021</Typography>
+                 </IconButton>
                   </CardActions>
                 </Card>    
                 </CardActionArea>    
@@ -259,7 +256,7 @@ export default function MainContent() {
                   
                   <CardActions>
                   <IconButton>
-                   <MenuBookIcon fontSize="large" /><Typography variant="body2">First of all</Typography>
+                   <EventAvailableIcon /><Typography variant="body2">09.10.2021</Typography>
                  </IconButton>
                   </CardActions>
 
@@ -284,14 +281,14 @@ export default function MainContent() {
                     <Typography align="center" gutterBottom variant="h5" component="h2">
                     <b>Coming soon</b>
                     </Typography>
-                    <Typography variant="subtitle2">
+                    <Typography align='center' variant="subtitle2">
                     The following roadmaps are coming soon. Check the site for updates
                     </Typography>
                   </CardContent>
                   
                   <CardActions>
                   <IconButton>
-                   <AccessTimeIcon fontSize="large" /><Typography variant="subtitle2">Give me a time to develop that :)</Typography>
+                   <EventAvailableIcon /><Typography variant="subtitle2">Coming soon</Typography>
                  </IconButton>
                   </CardActions>
 

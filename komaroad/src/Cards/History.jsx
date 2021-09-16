@@ -13,10 +13,11 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
-import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 import history from '../Images/Roadmaps/History-roadmap.png'
-
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
+import { List, ListItem, ListItemText } from '@material-ui/core';
 
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
@@ -38,11 +39,16 @@ import {
 import "react-awesome-button/dist/styles.css";
 import 'react-awesome-button/dist/themes/theme-c137.css';
 
-
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: '100%',   
+    backgroundColor: theme.palette.background.paper,
+  },
+}));
 
 export default function History() {
 
-
+  const classes = useStyles();
 
 
 
@@ -135,8 +141,108 @@ export default function History() {
         <Typography variant="h5" className='roadtextheader'>
         <b>Appendix:</b>
         </Typography>
+
+
+        <br/>
+            
+          <List className={classes.root}>
+            
+          <Divider/>
+          <br/>
+          <ListItem>
+            
+            <ListItemAvatar>
+              <Avatar style={{ width: '45px', height: '45px' }}>
+                <ImageIcon/>
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="Many of the topics in this roadmap may have their own roadmaps that are not much smaller in size.
+                            If you have any thoughts on this, write your suggestions and 
+                           we will consider them together. Perhaps you can become the author of your own specific roadmap" 
+                secondary="(I'm really need help with that)" />
+          </ListItem>
+          <br/>
+          <Divider/>
+          <br/>
+          <ListItem>
+            <ListItemAvatar>
+              <Avatar style={{ width: '45px', height: '45px' }}>
+                <ImageIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="All roadmaps have licensed but i don't mind share them if you will give a link on original because i kind man :)" 
+            secondary="(If you made new version of roadmap or add some new trees, write me please)" />
+          </ListItem>
+          <br/>
+            <Divider/>
+            <br/>
+          <ListItem>
+            <ListItemAvatar>
+              <Avatar style={{ width: '45px', height: '45px' }}>
+                <ImageIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="I'm try not to do Eurocentricity but Europe it's big spot on the body of human history" 
+                secondary="(Btw my degree work was about some european military theory but in Asia)"/>
+          </ListItem>
+          <br/>
+          <Divider/>
+          <br/>
+          <ListItem>
+            <ListItemAvatar>
+              <Avatar style={{ width: '45px', height: '45px' }}>
+                <ImageIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="Maybe it's sound strange but i advice you to play in videogames. Try to be 'Homo Ludens' (Heisenberg) and learning with 
+                      pleasure. For that i can recommend you Paradox Games (yep, they are not ideal for learning history but really close to it) like Hearts of Iron,
+                      Europa Universalis, Crusader Kings etc. Also i of course recommend you Civilisation (try different parts), Total War (espesially their early games)
+                      and many other historical games, but in my humble opinion strategies above are best learning tools between all games."
+                secondary=<u>(If you don't like strategy or games at all, don't try to push yourself)</u> />
+          </ListItem>
+          <br/>
+          <Divider/>
+          <br/>
+          <ListItem>
+            <ListItemAvatar>
+              <Avatar style={{ width: '45px', height: '45px' }}>
+                <ImageIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="Now about the books ... The biggest problem here is not to drown in a huge amount of information. Just try to find ONE largest book on any topic 
+                    (I recommend looking for books not by periods or any area, but by the history of a particular country, the puzzle of their relationship will form in your head over time). Also check the reviews on the books,
+                     a lot of historians are biased without realizing it. Therefore, do not take any line or fact in the book as an exact fact." 
+                     secondary="(If you don't know exactly book for start learning some country - write me and i help to choose)"
+                />
+          </ListItem>
+          <br/>
+          <Divider/>
+          <br/>
+          <ListItem>
+            <ListItemAvatar>
+              <Avatar style={{ width: '45px', height: '45px' }}>
+                <ImageIcon />
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText primary="Historiography... Here you need to understand that some theory was approved over time and disputes can still be held on it,
+                     therefore, in addition to studying history itself, you need to study the history of studying a specific historical fact :)" 
+                />
+          </ListItem>
+          <br/>
+            <Divider/>
+            
+            
+            
+            
+            
+          </List>
+          <br/><br/>
+
+
+
+
         
-        <Typography variant="subtitle1" className='roadtext'>
+        {/* <Typography variant="subtitle1" className='roadtext'>
         
         <ol class="gradient-list">
         
@@ -171,7 +277,11 @@ export default function History() {
              </ol>
              
             <br></br>
-        </Typography>
+        </Typography> */}
+
+
+
+
         </Container>
       
 </>

@@ -15,7 +15,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
-import Header from '../Components/Header';
 import Footer from '../Components/Footer';
 import math from '../Images/Roadmaps/Math-roadmap.png'
 
@@ -147,7 +146,11 @@ export default function Math() {
       <br/>
 
       <List className={classes.root}>
+      
+      <Divider/>
+      <br/>
       <ListItem>
+      
         <ListItemAvatar>
           <Avatar style={{ width: '45px', height: '45px' }}>
             <ImageIcon/>
@@ -168,7 +171,7 @@ export default function Math() {
           </Avatar>
         </ListItemAvatar>
         <ListItemText primary="All roadmaps have licensed but i don't mind share them if you will give a link on original because i kind man :)" 
-        secondary="Jan 7, 2014" />
+        secondary="(If you made new version of roadmap or add some new trees, write me please)" />
       </ListItem>
       <br/>
         <Divider/>
@@ -181,11 +184,38 @@ export default function Math() {
         </ListItemAvatar>
         <ListItemText primary="For practice, I recommend taking an online school course from first to last grade (e.g. Khan Academy or any course in your native language).
             It's hardest than you can think" 
-            secondary="July 20, 2014" />
+            secondary="(Maybe you would like to use math school books, but on my opinion them too unstructured)"/>
+      </ListItem>
+      <br/>
+      <Divider/>
+      <br/>
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar style={{ width: '45px', height: '45px' }}>
+            <ImageIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary="About books it's really hard to give advice but maybe you will be interested in some popular science. For example 'In Pursuit of the Unknown: 17 Equations That Changed the World' or 'The Great Mathematical Problems' by Ian Stewart.
+            Also i want to reccomend you 'A Mathematician's Lament' that is about math studying problems in schools"
+            secondary="(Just try to find interesting book for you)" />
+      </ListItem>
+      <br/>
+      <Divider/>
+      <br/>
+      <ListItem>
+        <ListItemAvatar>
+          <Avatar style={{ width: '45px', height: '45px' }}>
+            <ImageIcon />
+          </Avatar>
+        </ListItemAvatar>
+        <ListItemText primary="Behind of popular science books hiding a 'Googol' of science articles and it's really hard to understand them. 
+            If you feel yourself uncomfortable
+            just don't go into that endless wheel or you can get 'Gehirn Brehen' (sorry, my beloved phrase)" 
+            />
       </ListItem>
       <br/>
         <Divider/>
-        <br/>
+        
 
 
 
