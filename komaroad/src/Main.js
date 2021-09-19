@@ -41,7 +41,15 @@ import History from './Cards/History';
 import { BrowserRouter as Router, Switch,Route} from "react-router-dom";
 import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 
+import { useTranslation, initReactI18next } from "react-i18next";
+
+
 export default function Main() {
+
+
+
+  const { t } = useTranslation();
+
 
   // Hook for darkMode
   function useStickyState(defaultValue, key) {
@@ -58,6 +66,11 @@ export default function Main() {
   }
 
 
+
+
+ 
+
+ 
 
 
   
@@ -151,7 +164,7 @@ const classes = useStyles();
 
                           </Typography>
                           <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                          <b>Learn systematically</b>
+                          <b>{t('learn_systematically')}</b>
                           </Typography>
                           <div className={classes.heroButtons}>
 
@@ -165,7 +178,7 @@ const classes = useStyles();
                                         className={classes.button}
                                         endIcon={<SendIcon/>}
                                       >
-                                        Write me
+                                        {t('write_me')}
                                       </Button>
                                       </Grid>
 
@@ -177,7 +190,7 @@ const classes = useStyles();
                                         endIcon={<Brightness7Icon/>}
                                         onClick={()=> setDarkMode(!darkMode)}
                                       >
-                                        LightMode
+                                        {t('light_mode')}
                                       </Button> 
                                       : 
                                       <Button
@@ -187,7 +200,7 @@ const classes = useStyles();
                                         endIcon={<Brightness3Icon/>}
                                         onClick={()=> setDarkMode(!darkMode)}
                                       >
-                                        DarkMode
+                                        {t('dark_mode')}
                                       </Button> 
                                     }
                               </Grid>

@@ -14,7 +14,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import Footer from '../Components/Footer';
-import history from '../Images/Roadmaps/History-roadmap.png'
+import history1 from '../Images/Roadmaps/History-roadmap1.png'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import { List, ListItem, ListItemText } from '@material-ui/core';
@@ -138,7 +138,7 @@ export default function History() {
         <TransformComponent>
         <img
         alt="Math"
-        src={history} className='roadmap'/>
+        src={history1} className='roadmap'/>
         </TransformComponent>
         </TransformWrapper>
 

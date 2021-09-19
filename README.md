@@ -6,7 +6,9 @@
 <li>Прототип в Figma - https://www.figma.com/file/DmFqwx0UGhpnknlnbKpSLp/Komaroad?node-id=0%3A1</li>
 <li>ReactJS</li>
 <li>MaterialUI</li>
-<li>PrismaZoom</li>
+<li>react-zoom-pan-pinch</li>
+<li>react-i18next</li>
+<li>react-awesome-button</li>
 
 
 </ul>
