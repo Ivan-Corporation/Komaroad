@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Suspense} from 'react';
 import ReactDOM from 'react-dom';
 import Main from './Main';
 import { BrowserRouter } from "react-router-dom";
@@ -7,6 +7,7 @@ import { useTranslation, initReactI18next } from "react-i18next";
 import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpApi from 'i18next-http-backend';
 import 'flag-icon-css/css/flag-icon.min.css'
+
 
  //Localisaton
  i18n
@@ -23,18 +24,21 @@ import 'flag-icon-css/css/flag-icon.min.css'
    backend: {
     loadPath: '/assets/locales/{{lng}}/translation.json',
    },
-   react: { useSuspense: false }
+   
 
  });
 
-
+// const loadingMarkup = (<h2>Loading</h2>)
+//  fallback={loadingMarkup} 
 
 ReactDOM.render(
+  <Suspense fallback>
   <React.StrictMode>
     <BrowserRouter>
     <Main />
     </BrowserRouter>
-  </React.StrictMode>,
+  </React.StrictMode>
+  </Suspense>,
   document.getElementById('root')
 );
 

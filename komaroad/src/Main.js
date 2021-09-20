@@ -97,11 +97,6 @@ export default function Main() {
   };
 
 
-  useEffect(() => {
-    console.log('Setting page stuff')
-    document.body.dir = currentLanguage.dir || 'ltr'
-    document.title = t('app_title')
-  }, [currentLanguage, t])
 
 
 
@@ -133,6 +128,7 @@ export default function Main() {
     palette: {
       type: darkMode ? "dark" : "light",
     },
+
   })
 
   
@@ -194,7 +190,7 @@ const classes = useStyles();
                         <div className='flags'>
                         <Tooltip title='Language' arrow>
                           <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
-                            <LanguageIcon style={{width:'40px', height:'40px'}}/>
+                            <LanguageIcon style={{width:'32px', height:'32px'}}/>
                           </IconButton>
                         </Tooltip>
                         <Menu
@@ -204,14 +200,40 @@ const classes = useStyles();
                           onClick={handleClose}
                           transformOrigin={{ horizontal: 'right', vertical: 'top' }}
                           anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
-                          
+                          disableScrollLock={true}
+                          PaperProps={{
+                            elevation: 0,
+                            sx: {
+                              overflow: 'visible',
+                              filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
+                              mt: 1.5,
+                              bgcolor: '#f0eeeb',
+                              '& .MuiAvatar-root': {
+                                width: 32,
+                                height: 32,
+                                ml: -0.5,
+                                mr: 1,
+                              },
+                              '&:before': {
+                                content: '""',
+                                display: 'block',
+                                position: 'absolute',
+                                top: 0,
+                                right: 14,
+                                width: 10,
+                                height: 10,
+                                bgcolor: '#f0eeeb',
+                                transform: 'translateY(-50%) rotate(45deg)',
+                                zIndex: 0,
+                                
+                              },
+                            },
+                          }}
                         >
                           {languages.map(({ code, name, country_code}) => (
                           <MenuItem key={country_code}>
                             <IconButton
-                            className={classNames('dropdown-item', {
-                              disabled: currentLanguageCode === code,
-                            })}
+                            className={classNames('dropdown-item')}
                             onClick={() => {
                               i18next.changeLanguage(code)
                             }}
@@ -223,7 +245,7 @@ const classes = useStyles();
                             
                             <Button className={`flag-icon flag-icon-${country_code}`}
                             style={{
-                              opacity: currentLanguageCode === code ? 0.5 : 1,
+                              opacity: currentLanguageCode === code ? 1 : 0.3,                             
                             }}
                             >
                             </Button>
