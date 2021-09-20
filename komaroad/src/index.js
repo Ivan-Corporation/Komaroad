@@ -6,7 +6,7 @@ import i18n from "i18next";
 import { useTranslation, initReactI18next } from "react-i18next";
 import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpApi from 'i18next-http-backend';
-
+import 'flag-icon-css/css/flag-icon.min.css'
 
  //Localisaton
  i18n
@@ -14,6 +14,7 @@ import HttpApi from 'i18next-http-backend';
  .use(LanguageDetector)
  .use(HttpApi)
  .init({
+   supportedLngs: ['en','ru','fr','de'],
    fallbackLng: "en",
    detection: {
      order: ['cookie', 'localStorage', 'htmlTag', 'path', 'subdomain'],

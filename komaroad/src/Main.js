@@ -1,31 +1,38 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
+import PersonAdd from '@mui/icons-material/PersonAdd';
+import Settings from '@mui/icons-material/Settings';
+import Logout from '@mui/icons-material/Logout';
+import Tooltip from '@mui/material/Tooltip';
+import Avatar from '@mui/material/Avatar';
+import IconButton from '@mui/material/IconButton';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Toolbar from '@material-ui/core/Toolbar';
+import Divider from '@mui/material/Divider';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import Footer from './Components/Footer';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
 import MainContent from './Components/MainContent';
 import Icon from '@material-ui/core/Icon';
 import SendIcon from '@material-ui/icons/Send';
 import Brightness3Icon from '@material-ui/icons/Brightness3';
 import logo from './Images/logo-koma.png'
 import Brightness7Icon from '@material-ui/icons/Brightness7';
+import cookies from 'js-cookie'
 
 import JS from './Images/icons/javaScript.png';
 import MathIcon from './Images/icons/math.jpg';
 import ReactIcon from './Images/icons/react.png'; 
 import EarthIcon from './Images/icons/earth.png';
+import LanguageIcon from '@mui/icons-material/Language';
 
 
 import HistoryIcon from './Images/icons/history.png';
@@ -33,22 +40,70 @@ import EnglandIcon from './Images/CardsImage/England.png';
 
 import './Styles/PlanetCircle.css';
 import './Styles/stars.css';
+import './Styles/flags.css';
 import './Styles/title.scss';
 import './Styles/titleDark.scss';
 import Math from './Cards/Math';
 import History from './Cards/History';
+import { styled, alpha } from '@mui/material/styles';
 
 import { BrowserRouter as Router, Switch,Route} from "react-router-dom";
 import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 
 import { useTranslation, initReactI18next } from "react-i18next";
+import i18next from 'i18next'
+import classNames from 'classnames'
+
 
 
 export default function Main() {
 
 
-
+  //Translation
   const { t } = useTranslation();
+
+  const languages = [
+    {
+      code: 'fr',
+      country_code: 'fr',
+
+    },
+    {
+      code: 'en',
+      country_code: 'gb',
+    },
+    {
+      code: 'ru',
+      country_code: 'ru',
+    },
+    {
+      code: 'de',
+      country_code: 'de',
+    },
+  ]
+
+
+  const currentLanguageCode = cookies.get('i18next') || 'en'
+  const currentLanguage = languages.find((l) => l.code === currentLanguageCode)
+
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+
+  useEffect(() => {
+    console.log('Setting page stuff')
+    document.body.dir = currentLanguage.dir || 'ltr'
+    document.title = t('app_title')
+  }, [currentLanguage, t])
+
+
 
 
   // Hook for darkMode
@@ -71,8 +126,6 @@ export default function Main() {
  
 
  
-
-
   
   const [darkMode, setDarkMode] = useStickyState(false, 'DarkMode?');
  
@@ -111,10 +164,20 @@ export default function Main() {
     fontSize: '60px',
     textTransform: 'uppercase',
 
-  }
+  },
 
 }));
+
+
 const classes = useStyles();
+
+
+
+
+
+
+
+
 
   return (
     <React.Fragment>
@@ -128,7 +191,52 @@ const classes = useStyles();
                         <Grid container spacing={3}>
 
 
-
+                        <div className='flags'>
+                        <Tooltip title='Language' arrow>
+                          <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
+                            <LanguageIcon style={{width:'40px', height:'40px'}}/>
+                          </IconButton>
+                        </Tooltip>
+                        <Menu
+                          anchorEl={anchorEl}
+                          open={open}
+                          onClose={handleClose}
+                          onClick={handleClose}
+                          transformOrigin={{ horizontal: 'right', vertical: 'top' }}
+                          anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
+                          
+                        >
+                          {languages.map(({ code, name, country_code}) => (
+                          <MenuItem key={country_code}>
+                            <IconButton
+                            className={classNames('dropdown-item', {
+                              disabled: currentLanguageCode === code,
+                            })}
+                            onClick={() => {
+                              i18next.changeLanguage(code)
+                            }}
+                            
+                            >
+                             
+                              
+                      
+                            
+                            <Button className={`flag-icon flag-icon-${country_code}`}
+                            style={{
+                              opacity: currentLanguageCode === code ? 0.5 : 1,
+                            }}
+                            >
+                            </Button>
+                            
+                            
+                            </IconButton>  
+                          </MenuItem>    
+                                                                   
+                          ))}
+                          
+                        </Menu>
+                       
+                        </div>
 
 
                       <div align='center' className='planet'>
