@@ -10,13 +10,16 @@ import SendIcon from '@material-ui/icons/Send';
 import Brightness3Icon from '@material-ui/icons/Brightness3';
 import logo from '../Images/logo-koma.png'
 import Divider from '@material-ui/core/Divider';
-
+import { useTranslation } from "react-i18next";
 
 
 
 
 
 function Copyright() {
+
+
+
     return (
       <Typography variant="body2" color="textSecondary" align="center">
         {'Copyright © '}
@@ -39,7 +42,11 @@ function Copyright() {
   
 
 export default function Footer() {
+
  const classes = useStyles();
+
+ const { t } = useTranslation();
+
 
   return ( 
   <div className={classes.footer}>
@@ -47,15 +54,17 @@ export default function Footer() {
     <Container style={{ maxWidth: '25vh' }}>
 <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
   <Link color="inherit" href='https://ivan-corporation.github.io/Komolio/'>
-    About 
+    {t('about')} 
     </Link><Divider variant="middle" />
   <Link color="inherit" href='https://ivan-corporation.github.io/Komolio/'>
-    Terms
+  {t('terms')} 
     </Link><Divider variant="middle" />
   <Link color="inherit" href='https://ivan-corporation.github.io/Komolio/'>
-    Author
+  {t('author')}
     </Link><Divider variant="middle" />
 </Typography>
+
+
 </Container>
 <br></br>
 <Copyright />

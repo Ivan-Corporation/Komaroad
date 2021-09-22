@@ -50,7 +50,7 @@ import { styled, alpha } from '@mui/material/styles';
 import { BrowserRouter as Router, Switch,Route} from "react-router-dom";
 import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 
-import { useTranslation, initReactI18next } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import i18next from 'i18next'
 import classNames from 'classnames'
 
@@ -188,7 +188,7 @@ const classes = useStyles();
 
 
                         <div className='flags'>
-                        <Tooltip title='Language' arrow>
+                        <Tooltip title={t('language')} arrow>
                           <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
                             <LanguageIcon style={{width:'32px', height:'32px'}}/>
                           </IconButton>

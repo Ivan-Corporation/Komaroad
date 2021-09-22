@@ -24,6 +24,7 @@ import comingsoon from '../Images/CardsImage/coming-soon.jpg'
 
 import Math from './../Cards/Math';
 import Main from './../Main';
+import { useTranslation } from "react-i18next";
 
 
 
@@ -64,7 +65,7 @@ const useStyles = makeStyles((theme) => ({
   
   const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   
-
+  
     
 
 
@@ -75,6 +76,7 @@ export default function MainContent() {
 
     const classes = useStyles();
 
+    const { t } = useTranslation();
 
   return (
     <>
@@ -83,7 +85,7 @@ export default function MainContent() {
           
                
               <Typography variant="h4" align="center" color="" paragraph>
-              <b>Most extensive roadmaps</b>
+              <b>{t('most_extensive_roadmaps')}</b>
               </Typography>
               <hr/>
               <br/>
@@ -106,10 +108,10 @@ export default function MainContent() {
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography align="center" gutterBottom variant="h5" component="h2">
-                    <b>Math</b>
+                    <b>{t('math')}</b>
                     </Typography>
                     <Typography variant="subtitle2">
-                    Learn Math from zero level to homology and deformation theory
+                    {t('math_desc')}
                     </Typography>
                   </CardContent>
                   <CardActions>
@@ -137,10 +139,10 @@ export default function MainContent() {
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography align="center" gutterBottom variant="h5" component="h2">
-                    <b>History</b>
+                    <b>{t('history')}</b>
                     </Typography>
                     <Typography variant="subtitle2">
-                    Development of humanity from the first civilizations to the present day
+                    {t('history_desc')}
                     </Typography>
                   </CardContent>
                   
@@ -170,16 +172,16 @@ export default function MainContent() {
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography align="center" gutterBottom variant="h5" component="h2">
-                    <b>Coming soon</b>
+                    <b>{t('coming_soon')}</b>
                     </Typography>
                     <Typography variant="subtitle2">
-                    The following roadmaps are coming soon. Check the site for updates
+                    {t('coming_soon_desc')}
                     </Typography>
                   </CardContent>
                   
                   <CardActions>
                   <IconButton>
-                   <EventAvailableIcon /><Typography variant="subtitle2">Coming soon</Typography>
+                   <EventAvailableIcon /><Typography variant="subtitle2">{t('coming_soon')}</Typography>
                  </IconButton>
                   </CardActions>
 
@@ -199,7 +201,7 @@ export default function MainContent() {
               <br/>
                         
               <Typography variant="h4" align="center" color="" paragraph>
-              <b>Specific roadmaps</b>
+              <b>{t('specific_roadmaps')}</b>
             </Typography>
               <hr/>
               <br/>
@@ -223,7 +225,7 @@ export default function MainContent() {
                     <b>React</b>
                     </Typography>
                     <Typography variant="subtitle2">
-                    Open-source front-end JavaScript library for building UI components
+                    {t('react_desc')}
                     </Typography>
                   </CardContent>
                    <CardActions>
@@ -247,10 +249,10 @@ export default function MainContent() {
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography align="center" gutterBottom variant="h5" component="h2">
-                    <b>English</b>
+                    <b>{t('english')}</b>
                     </Typography>
                     <Typography align="center" variant="subtitle2">
-                    Development of humanity from the first civilizations to the present day
+                    {t('english_desc')}
                     </Typography>
                   </CardContent>
                   
@@ -279,16 +281,16 @@ export default function MainContent() {
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography align="center" gutterBottom variant="h5" component="h2">
-                    <b>Coming soon</b>
+                    <b>{t('coming_soon')}</b>
                     </Typography>
                     <Typography align='center' variant="subtitle2">
-                    The following roadmaps are coming soon. Check the site for updates
+                    {t('coming_soon_desc')}
                     </Typography>
                   </CardContent>
                   
                   <CardActions>
                   <IconButton>
-                   <EventAvailableIcon /><Typography variant="subtitle2">Coming soon</Typography>
+                   <EventAvailableIcon /><Typography variant="subtitle2">{t('coming_soon')}</Typography>
                  </IconButton>
                   </CardActions>
 

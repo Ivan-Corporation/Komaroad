@@ -9,6 +9,7 @@
 <li>react-zoom-pan-pinch</li>
 <li>react-i18next</li>
 <li>react-awesome-button</li>
+<li>Вынести кнопки в отдельный компонент</li>
 
 
 </ul>

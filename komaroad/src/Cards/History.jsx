@@ -35,6 +35,7 @@ import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import SportsEsportsIcon from '@mui/icons-material/SportsEsports';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
+import { Trans } from 'react-i18next';
 
 
 import {
@@ -44,6 +45,9 @@ import {
 } from 'react-awesome-button';
 import "react-awesome-button/dist/styles.css";
 import 'react-awesome-button/dist/themes/theme-c137.css';
+import { useTranslation } from "react-i18next";
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -56,7 +60,7 @@ export default function History() {
 
   const classes = useStyles();
 
-
+  const { t } = useTranslation();
 
   return (<>
       <CssBaseline />
@@ -65,59 +69,53 @@ export default function History() {
           <br/>
       <Divider/>
       <Typography align='center' variant="h3" className='roadtext'>
-           <b>History </b> 
+           <b>{t('history')}</b> 
         </Typography>
         
         <br/>
 
         
-        <Grid container spacing={2} justifyContent="center">
-       
-                <Grid item>
-                <AwesomeButton
-                 type="secondary"
-                 size="big"
-                 href='/'
-                 ><ArrowBackIcon/>All Roadmaps</AwesomeButton>                                        
-                        </Grid>
-                    <Grid item>
-                    <AwesomeButton
-                     type="primary"
-                     size="big"
-                     > <ImageIcon/> Full picture 
-                     </AwesomeButton>
-                </Grid>
-                    <Grid item>
-                    <AwesomeButtonSocial
-                     type="primary"
-                     size="big"
-                     type="github"
-                     href="https://github.com/Ivan-Corporation/Komaroad-Suggestions"
-                     >Suggestions </AwesomeButtonSocial>
-                </Grid>
+         <Grid container spacing={2} justifyContent="center">
 
-              </Grid>
+        <Grid item>
+          <AwesomeButton
+            type="secondary"
+            size="big"
+            href='/'
+          ><ArrowBackIcon />{t('all_roadmaps')}</AwesomeButton>
+        </Grid>
+        <Grid item>
+          <AwesomeButton
+            type="primary"
+            size="big"
+          > <ImageIcon />{t('full_picture')}
+          </AwesomeButton>
+        </Grid>
+        <Grid item>
+          <AwesomeButtonSocial
+            type="primary"
+            size="big"
+            type="github"
+            href="https://github.com/Ivan-Corporation/Komaroad-Suggestions"
+          >{t('suggestions')} </AwesomeButtonSocial>
+        </Grid>
+
+        </Grid>
 
 
 
         <Typography variant="h5" className='roadtextheader'>
-        <b>Description:</b>
+        <b>{t('description')}</b>
         </Typography>
       <Typography variant="subtitle1" className='roadtext'>
-      This roadmap can give you general knowledges about math and give you a full picture of math system. 
-      Of course you can't become Euclid, Hilbert or another great matimatician on the end of this roadmap. 
-      But if you will do all right i can guarantee that at the end of roadmap you will fell yourself more confident in math questions and formuls
-       like this: <b>αν,X,Y(TX, TY) Iν,Y(TY) </b>
-      not be difficult anymore, because you can feel ability to take it and understand what author of theory want to say us.
+      {t('history_text1')}
               
         </Typography>
      
 
 
         <Typography variant="subtitle1" className='roadtext'>
-             I recommend download picture to yourself (especially if you on mobile device) and just filling themes that you
-              learnt with your favorite color :) <b>BUT if you want to place roadmap in public place, please made a link on original
-              beacuse all roadmaps licensed!</b>      
+        {t('picture_rec')}     
         </Typography>
 
      
@@ -126,11 +124,11 @@ export default function History() {
 
 
         <Typography variant="body2" className='roadtext'>
-        (If your picture freezes when scaling, don't worry, it's just that the picture is very large and the rendering takes place at different scales)      
+        {t('picture_desc')}      
         </Typography>
 
         <Typography variant="subtitle2" className='roadtext'>
-            <u>Scroll the wheel to zoom in or open full picture:</u>
+        <u>{t('picture_desc1')}</u>
         </Typography>
 
 
@@ -145,7 +143,7 @@ export default function History() {
         <Divider/>
 
         <Typography variant="h5" className='roadtextheader'>
-        <b>Appendix:</b>
+        <b>{t('appendix')}</b>
         </Typography>
 
 
@@ -162,10 +160,9 @@ export default function History() {
                 <MoodIcon/>
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary="Many of the topics in this roadmap may have their own roadmaps that are not much smaller in size.
-                            If you have any thoughts on this, write your suggestions and 
-                           we will consider them together. Perhaps you can become the author of your own specific roadmap" 
-                secondary="(I'm really need help with that)" />
+            <Trans i18nKey="common_appendix1">
+            <ListItemText/>
+                </Trans>
           </ListItem>
           <br/>
           <Divider/>
@@ -176,8 +173,9 @@ export default function History() {
                 <LocalPoliceIcon />
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary="All roadmaps have licensed but i don't mind share them if you will give a link on original because i kind man :)" 
-            secondary="(If you made new version of roadmap or add some new trees, write me please)" />
+            <Trans i18nKey="common_appendix2">
+            <ListItemText />
+            </Trans>
           </ListItem>
           <br/>
             <Divider/>
@@ -188,8 +186,10 @@ export default function History() {
                 <EuroIcon />
               </Avatar>
             </ListItemAvatar>
+            <Trans i18nKey="history_appendix1">
             <ListItemText primary="I'm try not to do Eurocentricity but Europe it's big spot on the body of human history" 
                 secondary="(Btw my degree work was about some european military theory but in Asia)"/>
+                </Trans>
           </ListItem>
           <br/>
           <Divider/>
@@ -200,9 +200,9 @@ export default function History() {
                 <AccountTreeIcon />
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary="You need understand that history it's really big, and i'm not included many specific and important themes
-             in this roadmap (e.g. History of Religion, History of Arhitecture etc)" 
-                secondary="(Maybe i create roadmaps about this specific themes later)"/>
+            <Trans i18nKey="history_appendix2">
+            <ListItemText/>
+                </Trans>
           </ListItem>
           <br/>
           <Divider/>
@@ -213,11 +213,9 @@ export default function History() {
                 <SportsEsportsIcon />
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary="Maybe it's sound strange but i advice you to play in videogames. Try to be 'Homo Ludens' (Heisenberg) and learning with 
-                      pleasure. For that i can recommend you Paradox Games (yep, they are not ideal for learning history but really close to it) like Hearts of Iron,
-                      Europa Universalis, Crusader Kings etc. Also i of course recommend you Civilisation (try different parts), Total War (espesially their early games)
-                      and many other historical games, but in my humble opinion strategies above are best learning tools between all games."
-                secondary={<u>(If you don't like strategy or games at all, don't try to push yourself)</u>} />
+            <Trans i18nKey="history_appendix3">
+            <ListItemText/>
+                </Trans>
           </ListItem>
           <br/>
           <Divider/>
@@ -228,11 +226,9 @@ export default function History() {
                 <LibraryBooksIcon />
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary="Now about the books... The biggest problem here is not to drown in a huge amount of information. Just try to find ONE largest book on any topic 
-                    (I recommend looking for books not by periods or any area, but by the history of a particular country, the puzzle of their relationship will form in your head over time). Also check the reviews on the books,
-                     a lot of historians are biased without realizing it. Therefore, do not take any line or fact in the book as an exact fact." 
-                     secondary="(If you don't know exactly book for start learning some country - write me and i help to choose)"
-                />
+            <Trans i18nKey="history_appendix4">
+            <ListItemText/>
+                </Trans>
           </ListItem>
           <br/>
           <Divider/>
@@ -243,9 +239,9 @@ export default function History() {
                 <HistoryEduIcon />
               </Avatar>
             </ListItemAvatar>
-            <ListItemText primary="Historiography... Here you need to understand that some theory was approved over time and disputes can still be held on it,
-                     therefore, in addition to studying history itself, you need to study the history of studying a specific historical fact :)" 
-                />
+            <Trans i18nKey="history_appendix5">
+            <ListItemText/>
+                </Trans>
           </ListItem>
           <br/>
             <Divider/>
