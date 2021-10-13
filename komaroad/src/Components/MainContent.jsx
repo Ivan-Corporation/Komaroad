@@ -21,6 +21,7 @@ import math from '../Images/CardsImage/math.jpg'
 import history from '../Images/CardsImage/history.jpg'
 import england from '../Images/CardsImage/England.png'
 import comingsoon from '../Images/CardsImage/coming-soon.jpg'
+import high_math from '../Images/CardsImage/high_math.jpg'
 
 import Math from './../Cards/Math';
 import Main from './../Main';
@@ -213,6 +214,7 @@ export default function MainContent() {
                 <Grid container spacing={4}>
               
                 <Grid item key={cards} xs={12} sm={6} md={4}>
+                <Link to="/react" style={{ textDecoration: 'none' }}>
                 <CardActionArea>
                 <Card align="center" className={classes.card}>
                   <CardMedia
@@ -234,7 +236,8 @@ export default function MainContent() {
                  </IconButton>
                   </CardActions>
                 </Card>    
-                </CardActionArea>    
+                </CardActionArea>   
+                </Link> 
               </Grid>
 
 
@@ -259,6 +262,36 @@ export default function MainContent() {
                   <CardActions>
                   <IconButton>
                    <EventAvailableIcon /><Typography variant="body2">09.10.2021</Typography>
+                 </IconButton>
+                  </CardActions>
+
+                </Card>
+                </CardActionArea> 
+              </Grid>
+
+
+              
+              <Grid item key={cards} xs={12} sm={6} md={4}>
+              <CardActionArea>
+                <Card className={classes.card}>
+               
+                  <CardMedia
+                    className={classes.cardMedia}
+                    image={high_math}
+                    title="History"
+                  />
+                  <CardContent className={classes.cardContent}>
+                    <Typography align="center" gutterBottom variant="h5" component="h2">
+                    <b>{t('further_math')}</b>
+                    </Typography>
+                    <Typography align="center" variant="subtitle2">
+                    {t('further_math_desc')}
+                    </Typography>
+                  </CardContent>
+                  
+                  <CardActions>
+                  <IconButton>
+                   <EventAvailableIcon /><Typography variant="body2">10.06.2021</Typography>
                  </IconButton>
                   </CardActions>
 

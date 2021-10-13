@@ -255,48 +255,6 @@ export default function History() {
 
 
 
-
-        
-        {/* <Typography variant="subtitle1" className='roadtext'>
-        
-        <ol class="gradient-list">
-        
-        <li>Many of the topics in this roadmap may have their own roadmaps that are not much smaller in size.
-                  If you have any thoughts on this, <a href='https://github.com/Ivan-Corporation/Komaroad-Suggestions'>write your suggestions</a> and 
-                 we will consider them together. Perhaps you can become the author of your own specific roadmap
-                 </li>
-              <li>
-                All roadmaps have licensed but i don't mind share them if you will give a link on original because i kind man :)
-              </li>
-            <li>I'm try not to do Eurocentricity but Europe it's big spot on the body of human history</li>
-          <li>
-            Maybe it's sound strange but i advice you to play in videogames. Try to be 'Homo Ludens' (Heisenberg) and learning with 
-            pleasure. For that i can recommend you Paradox Games (yep, they are not ideal for learning history but really close to it) like Hearts of Iron,
-            Europa Universalis, Crusader Kings etc. Also i of course recommend you Civilisation (try different parts), Total War (espesially their early games)
-            and many other historical games, but in my humble opinion strategies above are best learning tools between all games. <br/>
-            <u>If you don't like strategy or games at all, don't try to push yourself</u>
-          </li>
-          <li>
-          Now about the books ... The biggest problem here is not to drown in a huge amount of information. Just try to find ONE largest book on any topic 
-          (I recommend looking for books not by periods or any area, but by the history of a particular country, the puzzle of their relationship will form in your head over time). Also check the reviews on the books,
-           a lot of historians are biased without realizing it. Therefore, do not take any line or fact in the book as an exact fact.
-           <br/>
-           <Typography variant="subtitle2">(If you don't know exactly book for start learning some country - write me and i help to choose)</Typography>
-          </li>
-          
-          <li>
-          Historiography... Here you need to understand that some theory was approved over time and disputes can still be held on it,
-           therefore, in addition to studying history itself, you need to study the history of studying a specific historical fact :)
-           </li>
-           
-             </ol>
-             
-            <br></br>
-        </Typography> */}
-
-
-
-
         </Container>
       
 </>

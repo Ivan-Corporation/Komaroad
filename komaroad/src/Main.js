@@ -45,6 +45,7 @@ import './Styles/title.scss';
 import './Styles/titleDark.scss';
 import Math from './Cards/Math';
 import History from './Cards/History';
+import ReactR from './Cards/React';
 import { styled, alpha } from '@mui/material/styles';
 
 import { BrowserRouter as Router, Switch,Route} from "react-router-dom";
@@ -346,6 +347,7 @@ const classes = useStyles();
          <Switch>
              <Route exact path="/math" component={Math}/>
              <Route exact path="/history" component={History}/>
+             <Route exact path="/react" component={ReactR}/>
 
              
 
