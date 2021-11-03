@@ -80,7 +80,7 @@ export default function History() {
 
 
 
-        <Typography variant="h5" className='roadtextheader'>
+        <Typography variant="h5" className='roadtextheader' align='center'>
         <b>{t('description')}</b>
         </Typography>
       <Typography variant="subtitle1" className='roadtext'>
@@ -103,9 +103,25 @@ export default function History() {
         {t('picture_desc')}      
         </Typography>
 
-        <Typography variant="subtitle2" className='roadtext'>
+        <Typography variant="subtitle2" className='roadtext' align='center'>
         <u>{t('picture_desc1')}</u>
         </Typography>
+
+
+
+    <br/>
+        <Grid container spacing={2} justifyContent="center" >
+
+        <Grid item>
+          <AwesomeButton
+            type="primary"
+            size="big"
+          > <ImageIcon />{t('full_picture')}
+          </AwesomeButton>
+        </Grid>
+        
+        </Grid>
+        <br/>
 
 
         <TransformWrapper>

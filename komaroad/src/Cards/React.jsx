@@ -85,7 +85,7 @@ export default function Math() {
 
 
 
-      <Typography variant="h5" className='roadtextheader'>
+      <Typography variant="h5" className='roadtextheader' align='center'>
         <b>{t('description')}</b>
       </Typography>
       <Typography variant="subtitle1" className='roadtext'>
@@ -103,10 +103,23 @@ export default function Math() {
         
       </Typography>
 
-      <Typography variant="subtitle2" className='roadtext'>
+      <Typography variant="subtitle2" className='roadtext' align='center'>
         <u>{t('picture_desc1')}</u>
       </Typography>
 
+      <br/>
+        <Grid container spacing={2} justifyContent="center" >
+
+        <Grid item>
+          <AwesomeButton
+            type="primary"
+            size="big"
+          > <ImageIcon />{t('full_picture')}
+          </AwesomeButton>
+        </Grid>
+        
+        </Grid>
+        <br/>
 
       <TransformWrapper>
         <TransformComponent>
@@ -171,12 +184,12 @@ export default function Math() {
       <Divider/>
       <br/>
       <ListItem>
-        <ListItemAvatar>
-          <Avatar style={{ width: '45px', height: '45px' }}>
+        <ListItemAvatar >
+          <Avatar style={{ width: '45px', height: '45px' }} >
             <GitHubIcon />
           </Avatar>
         </ListItemAvatar>
-        <Trans i18nKey="react_appendix4">
+        <Trans i18nKey="react_appendix4"> 
         <ListItemText/>
             </Trans>
       </ListItem>

@@ -140,9 +140,6 @@ export default function Main() {
 
   
 
-
-
-
   const useStyles = makeStyles((theme) => ({
   
   heroContent: {
@@ -186,12 +183,15 @@ const classes = useStyles();
 
       <CssBaseline />
 
-
+      
                         <div className={darkMode ? classes.darkMode : classes.lightMode}>
                         <Container className='stars' maxWidth="sm">
                         <Grid container spacing={3}>
 
+                        
 
+                      
+          
                         <div className='flags'>
                         <Tooltip title={t('language')} arrow>
                           <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>

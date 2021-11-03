@@ -29,13 +29,6 @@ export default function Buttons() {
           ><ArrowBackIcon />{t('all_roadmaps')}</AwesomeButton>
         </Grid>
         <Grid item>
-          <AwesomeButton
-            type="primary"
-            size="big"
-          > <ImageIcon />{t('full_picture')}
-          </AwesomeButton>
-        </Grid>
-        <Grid item>
           <AwesomeButtonSocial
             type="primary"
             size="big"
