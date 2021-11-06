@@ -29,9 +29,13 @@ import Brightness7Icon from '@material-ui/icons/Brightness7';
 import cookies from 'js-cookie'
 
 import JS from './Images/icons/javaScript.png';
-import MathIcon from './Images/icons/math.jpg';
+import MathIcon from './Images/icons/math.png';
 import ReactIcon from './Images/icons/react.png'; 
 import EarthIcon from './Images/icons/earth.png';
+import ChemistryIcon from './Images/icons/chemistry.png';
+import SigmaIcon from './Images/icons/sigma.png';
+
+
 import LanguageIcon from '@mui/icons-material/Language';
 
 
@@ -273,17 +277,27 @@ const classes = useStyles();
 
                         <img className="introImage" src={logo} alt="profile"/>
                         <div className="ringCircle innerCircle">
+                          
+                        <a href='/history'>
                         <img className="planetCircle" src={HistoryIcon} alt=""/>
+                        </a>
+                        
                           <img className="planetCircle" src={MathIcon} alt="science"/>
+                         
                         </div>
                         <div className="ringCircle outerCircle">
-                          <img className="planetCircle" src={ReactIcon} alt=""/>
-
+                          <a href='/react'>
+                          <img className="planetCircle" src={ReactIcon} alt="" />
+                          </a>
 
                           <img className="planetCircle" src={EnglandIcon} alt=""/>     
                           <img className="planetCircle" src={JS} alt="JavaScript"/>
                           <img className="planetCircle" src={EarthIcon} alt=""/>
+                          
+                          <img className="planetCircle" src={SigmaIcon} alt=""/>
+                         
 
+                          <img className="planetCircle" src={ChemistryIcon} alt="science"/>
                         </div>
                       </div>
 
