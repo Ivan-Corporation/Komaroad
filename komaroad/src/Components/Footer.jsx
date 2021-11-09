@@ -11,6 +11,7 @@ import Brightness3Icon from '@material-ui/icons/Brightness3';
 import logo from '../Images/logo-koma.png'
 import Divider from '@material-ui/core/Divider';
 import { useTranslation } from "react-i18next";
+import Tooltip from '@mui/material/Tooltip';
 
 
 
@@ -53,12 +54,18 @@ export default function Footer() {
     
     <Container style={{ maxWidth: '25vh' }}>
 <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+
   <Link color="inherit" href='/about'>
     {t('about')} 
-    </Link><Divider variant="middle" />
+    </Link>
+    
+    <Divider variant="middle" />
+    <Tooltip title={t('really?')} placement="left" arrow>
   <Link color="inherit" href='/terms'>
   {t('terms')} 
-    </Link><Divider variant="middle" />
+    </Link>
+    </Tooltip>
+    <Divider variant="middle" />
   <Link color="inherit" href='https://ivan-corporation.github.io/Komolio/'>
   {t('author')}
     </Link><Divider variant="middle" />

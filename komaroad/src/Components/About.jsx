@@ -42,6 +42,8 @@ import {
   import ArrowBackIcon from '@material-ui/icons/ArrowBack';
   import ImageIcon from '@material-ui/icons/Image';
 
+  import styles from '../Styles/animated-image.module.scss'
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -72,6 +74,9 @@ export default function About() {
 
   const { t } = useTranslation();
 
+  const [wobble, setWobble] = React.useState(0)
+
+
   return (<>
     <CssBaseline />
     
@@ -98,7 +103,13 @@ export default function About() {
       <br/>
        
     <Container align='center' >
-        <img src={monkey} className={classes.monkey1}/>
+        <img 
+        className={styles.image}
+        src={monkey} 
+        onClick={() => setWobble(1)}
+        onAnimationEnd={() => setWobble(0)}
+        wobble={wobble}
+        />
         </Container> 
 
 
@@ -112,7 +123,13 @@ export default function About() {
       </Typography>
 
       <Container align='center' >
-        <img src={cat_chair} className={classes.monkey}/>
+        <img 
+        src={cat_chair} 
+        className={classes.monkey}
+        onClick={() => setWobble(1)}
+        onAnimationEnd={() => setWobble(0)}
+        wobble={wobble}
+        />
         </Container>
 
         <Typography variant="subtitle1" className='roadtext'>
@@ -126,7 +143,13 @@ export default function About() {
       <br/>
 
       <Container align='center' >
-        <img src={my_table} className={classes.table}/>
+        <img 
+        src={my_table} 
+        className={classes.table}
+        onClick={() => setWobble(1)}
+        onAnimationEnd={() => setWobble(0)}
+        wobble={wobble}
+        />
         </Container>
 
         <br/>

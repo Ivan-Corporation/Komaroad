@@ -65,6 +65,7 @@ import classNames from 'classnames'
 
 
 
+
 export default function Main() {
 
 
@@ -75,19 +76,22 @@ export default function Main() {
     {
       code: 'fr',
       country_code: 'fr',
-
+      name: 'Français'
     },
     {
       code: 'en',
       country_code: 'gb',
+      name: 'English'
     },
     {
       code: 'ru',
       country_code: 'ru',
+      name: 'Русский'
     },
     {
       code: 'de',
       country_code: 'de',
+      name: 'Deutsch'
     },
   ]
 
@@ -131,7 +135,7 @@ export default function Main() {
 
  
   
-  const [darkMode, setDarkMode] = useStickyState(false, 'DarkMode?');
+  const [darkMode, setDarkMode] = useStickyState(true, 'DarkMode?');
  
   const theme = createTheme({
     palette: {
@@ -157,7 +161,7 @@ export default function Main() {
     background: "linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(255,136,0,1) 0%, rgba(247,247,247,1) 82%);"
 },
   darkMode: {
-    background: "linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(210,90,0,1) 0%, #303030 93%);",    
+    background: "linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(210,90,0,1) 0%, #303030 92%);",    
 },
   title: {
     color: '#e6e3e3',
@@ -172,10 +176,6 @@ export default function Main() {
 
 
 const classes = useStyles();
-
-
-
-
 
 
 
@@ -240,6 +240,7 @@ const classes = useStyles();
                           }}
                         >
                           {languages.map(({ code, name, country_code}) => (
+                            <Tooltip title={name} arrow placement='left'>
                           <MenuItem key={country_code}>
                             <IconButton
                             className={classNames('dropdown-item')}
@@ -262,7 +263,7 @@ const classes = useStyles();
                             
                             </IconButton>  
                           </MenuItem>    
-                                                                   
+                                </Tooltip>                                   
                           ))}
                           
                         </Menu>
@@ -320,18 +321,21 @@ const classes = useStyles();
 
                             <Grid container spacing={2} justifyContent="center">
                               <Grid item>
-
+                              <Tooltip title="Telegram" arrow>
                                       <Button
                                         variant="contained"
                                         color="primary"
                                         className={classes.button}
                                         endIcon={<SendIcon/>}
+                                        href='https://t.me/KomarIvan'
                                       >
                                         {t('write_me')}
                                       </Button>
+                                      </Tooltip>
                                       </Grid>
 
                                   <Grid item>
+                                    <Tooltip arrow title={t('click_to_change')}>
                                   {darkMode ? <Button
                                         variant="contained"
                                         color='default'
@@ -352,6 +356,7 @@ const classes = useStyles();
                                         {t('dark_mode')}
                                       </Button> 
                                     }
+                                    </Tooltip>
                               </Grid>
                             </Grid>
                           </div>

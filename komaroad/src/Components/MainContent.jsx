@@ -26,6 +26,7 @@ import high_math from '../Images/CardsImage/high_math.jpg'
 import Math from './../Cards/Math';
 import Main from './../Main';
 import { useTranslation } from "react-i18next";
+import Tooltip from '@mui/material/Tooltip';
 
 
 import { BrowserRouter as Router,
@@ -46,11 +47,15 @@ const useStyles = makeStyles((theme) => ({
       marginTop: theme.spacing(4),
     },
     cardGrid: {
-      paddingTop: theme.spacing(8),
-      paddingBottom: theme.spacing(8),
+      paddingTop: theme.spacing(10),
+      paddingBottom: theme.spacing(10),
+    },
+    cardsTopPadding: {
+      paddingTop: theme.spacing(4),
+      paddingBottom: theme.spacing(12),
     },
     card: {
-      height: '100%',
+      height: '27rem',
       display: 'flex',
       flexDirection: 'column',
     },
@@ -89,11 +94,8 @@ export default function MainContent() {
               <b>{t('most_extensive_roadmaps')}</b>
               </Typography>
               <hr/>
-              <br/>
-              <br/>
 
-
-          <Grid align="center" container spacing={4}>
+          <Grid align="center" className={classes.cardsTopPadding} container spacing={4} >
 
             {/* {cards.map((card) => ( */}
 
@@ -115,12 +117,17 @@ export default function MainContent() {
                     {t('math_desc')}
                     </Typography>
                   </CardContent>
+
+                  
                   <CardActions>
+                  <Tooltip title={t('created')} arrow>
                   <IconButton>
                    <EventAvailableIcon />  <Typography variant="subtitle2">08.30.2021</Typography>
                  </IconButton>
-                 
+                 </Tooltip>
                   </CardActions>
+                  
+
                 </Card>
                 </CardActionArea>  
                 </Link>      
@@ -148,9 +155,11 @@ export default function MainContent() {
                   </CardContent>
                   
                   <CardActions>
+                  <Tooltip title={t('created')} arrow>
                   <IconButton>
                    <EventAvailableIcon /><Typography variant="subtitle2">09.10.2021</Typography>
                  </IconButton>
+                 </Tooltip>
                   </CardActions>
 
                 </Card>
@@ -181,9 +190,11 @@ export default function MainContent() {
                   </CardContent>
                   
                   <CardActions>
+                  <Tooltip title={t('created')} arrow>
                   <IconButton>
                    <EventAvailableIcon /><Typography variant="subtitle2">{t('coming_soon')}</Typography>
                  </IconButton>
+                 </Tooltip>
                   </CardActions>
 
                 </Card>
@@ -195,23 +206,16 @@ export default function MainContent() {
 
              
               </Grid>
-
-
-              <br/>
-              <br/>
-              <br/>
-                        
+     
               <Typography variant="h4" align="center" color="" paragraph>
               <b>{t('specific_roadmaps')}</b>
             </Typography>
               <hr/>
-              <br/>
-              <br/>
-              
 
 
 
-                <Grid container spacing={4}>
+
+                <Grid className={classes.cardsTopPadding} container spacing={4}>
               
                 <Grid item key={cards} xs={12} sm={6} md={4}>
                 <Link to="/react" style={{ textDecoration: 'none' }}>
@@ -231,9 +235,11 @@ export default function MainContent() {
                     </Typography>
                   </CardContent>
                    <CardActions>
+                   <Tooltip title={t('created')} arrow>
                   <IconButton>
                    <EventAvailableIcon /><Typography variant="body2">09.10.2021</Typography>
                  </IconButton>
+                 </Tooltip>
                   </CardActions>
                 </Card>    
                 </CardActionArea>   
@@ -260,9 +266,11 @@ export default function MainContent() {
                   </CardContent>
                   
                   <CardActions>
+                  <Tooltip title={t('created')} arrow>
                   <IconButton>
                    <EventAvailableIcon /><Typography variant="body2">09.10.2021</Typography>
                  </IconButton>
+                 </Tooltip>
                   </CardActions>
 
                 </Card>
@@ -290,9 +298,11 @@ export default function MainContent() {
                   </CardContent>
                   
                   <CardActions>
+                  <Tooltip title={t('created')} arrow>
                   <IconButton>
                    <EventAvailableIcon /><Typography variant="body2">10.06.2021</Typography>
                  </IconButton>
+                 </Tooltip>
                   </CardActions>
 
                 </Card>
@@ -322,9 +332,11 @@ export default function MainContent() {
                   </CardContent>
                   
                   <CardActions>
+                  <Tooltip title={t('created')} arrow>
                   <IconButton>
                    <EventAvailableIcon /><Typography variant="subtitle2">{t('coming_soon')}</Typography>
                  </IconButton>
+                 </Tooltip>
                   </CardActions>
 
                 </Card>
