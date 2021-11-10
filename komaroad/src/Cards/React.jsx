@@ -55,6 +55,14 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',   
     backgroundColor: theme.palette.background.paper,
   },
+  paddingBr: {
+    paddingTop: theme.spacing(3),
+  },
+  paddingList: {
+    paddingTop: '25px',
+    paddingBottom: '25px',
+
+  }
 }));
 
 
@@ -88,13 +96,13 @@ export default function Math() {
       <Typography variant="h5" className='roadtextheader' align='center'>
         <b>{t('description')}</b>
       </Typography>
-      <Typography variant="subtitle1" className='roadtext'>
+      <Typography variant="body1" className='roadtext'>
         {t('react_text1')}
       </Typography>
 
 
 
-      <Typography variant="subtitle1" className='roadtext'>
+      <Typography variant="subtitle2" className='roadtext'>
       {t('picture_rec')}
         
       </Typography>
@@ -107,8 +115,8 @@ export default function Math() {
         <u>{t('picture_desc1')}</u>
       </Typography>
 
-      <br/>
-        <Grid container spacing={2} justifyContent="center" >
+
+        <Grid container spacing={2} justifyContent="center" className='roadtext'>
 
         <Grid item>
           <AwesomeButton
@@ -119,7 +127,7 @@ export default function Math() {
         </Grid>
         
         </Grid>
-        <br/>
+
 
       <TransformWrapper>
         <TransformComponent>
@@ -135,13 +143,13 @@ export default function Math() {
       <Typography variant="h5" className='roadtextheader'>
         <b>{t('appendix')}</b>
       </Typography>
-      <br/>
+
 
       <List className={classes.root}>
       
       <Divider/>
-      <br/>
-      <ListItem>
+
+      <ListItem className={classes.paddingList}>
       
         <ListItemAvatar>
           <Avatar style={{ width: '45px', height: '45px' }}>
@@ -153,10 +161,10 @@ export default function Math() {
             />
             </Trans>
       </ListItem>
-      <br/>
+
       <Divider/>
-      <br/>
-      <ListItem>
+
+      <ListItem className={classes.paddingList}>
         <ListItemAvatar>
           <Avatar style={{ width: '45px', height: '45px' }}>
             <LocalPoliceIcon />
@@ -167,10 +175,10 @@ export default function Math() {
         </Trans>
       </ListItem>
       
-      <br/>
+
         <Divider/>
-        <br/>
-      <ListItem>
+
+      <ListItem className={classes.paddingList}>
         <ListItemAvatar>
           <Avatar style={{ width: '45px', height: '45px' }}>
             <LinkIcon />
@@ -180,10 +188,10 @@ export default function Math() {
         <ListItemText/>
             </Trans>
       </ListItem>
-      <br/>
+
       <Divider/>
-      <br/>
-      <ListItem>
+
+      <ListItem className={classes.paddingList}>
         <ListItemAvatar >
           <Avatar style={{ width: '45px', height: '45px' }} >
             <GitHubIcon />
@@ -193,14 +201,12 @@ export default function Math() {
         <ListItemText/>
             </Trans>
       </ListItem>
-      <br/>
+
       <Divider/>
 
         
     </List>
 
-        <br/>
-        <br/>
       
     </Container>
 

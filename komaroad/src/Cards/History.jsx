@@ -55,6 +55,14 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',   
     backgroundColor: theme.palette.background.paper,
   },
+  paddingBr: {
+    paddingTop: theme.spacing(3),
+  },
+  paddingList: {
+    paddingTop: '25px',
+    paddingBottom: '25px',
+
+  }
 }));
 
 export default function History() {
@@ -66,14 +74,13 @@ export default function History() {
   return (<>
       <CssBaseline />
         
-      <Container maxWidth="md">
-          <br/>
+      <Container maxWidth="md" className='roadtext'>
+  
       <Divider/>
       <Typography align='center' variant="h3" className='roadtext'>
            <b>{t('history')}</b> 
         </Typography>
-        
-        <br/>
+  
 
         
         <Buttons/>
@@ -83,14 +90,14 @@ export default function History() {
         <Typography variant="h5" className='roadtextheader' align='center'>
         <b>{t('description')}</b>
         </Typography>
-      <Typography variant="subtitle1" className='roadtext'>
+      <Typography variant="body1" className='roadtext'>
       {t('history_text1')}
               
         </Typography>
      
 
 
-        <Typography variant="subtitle1" className='roadtext'>
+        <Typography variant="subtitle2" className='roadtext'>
         {t('picture_rec')}     
         </Typography>
 
@@ -109,8 +116,8 @@ export default function History() {
 
 
 
-    <br/>
-        <Grid container spacing={2} justifyContent="center" >
+  
+        <Grid container spacing={2} justifyContent="center" className='roadtext'>
 
         <Grid item>
           <AwesomeButton
@@ -121,7 +128,7 @@ export default function History() {
         </Grid>
         
         </Grid>
-        <br/>
+   
 
 
         <TransformWrapper>
@@ -139,13 +146,12 @@ export default function History() {
         </Typography>
 
 
-        <br/>
 
           <List className={classes.root}>
 
           <Divider/>
-          <br/>
-          <ListItem>
+  
+          <ListItem className={classes.paddingList}>
 
             <ListItemAvatar>
               <Avatar style={{ width: '45px', height: '45px' }}>
@@ -156,10 +162,10 @@ export default function History() {
             <ListItemText/>
                 </Trans>
           </ListItem>
-          <br/>
+    
           <Divider/>
-          <br/>
-          <ListItem>
+   
+          <ListItem className={classes.paddingList}>
             <ListItemAvatar>
               <Avatar style={{ width: '45px', height: '45px' }}>
                 <LocalPoliceIcon />
@@ -169,10 +175,10 @@ export default function History() {
             <ListItemText />
             </Trans>
           </ListItem>
-          <br/>
+    
             <Divider/>
-            <br/>
-          <ListItem>
+      
+          <ListItem className={classes.paddingList}>
             <ListItemAvatar>
               <Avatar style={{ width: '45px', height: '45px' }}>
                 <EuroIcon />
@@ -183,10 +189,10 @@ export default function History() {
                 secondary="(Btw my degree work was about some european military theory but in Asia)"/>
                 </Trans>
           </ListItem>
-          <br/>
+      
           <Divider/>
-            <br/>
-          <ListItem>
+
+          <ListItem className={classes.paddingList}>
             <ListItemAvatar>
               <Avatar style={{ width: '45px', height: '45px' }}>
                 <AccountTreeIcon />
@@ -196,10 +202,10 @@ export default function History() {
             <ListItemText/>
                 </Trans>
           </ListItem>
-          <br/>
+     
           <Divider/>
-          <br/>
-          <ListItem>
+     
+          <ListItem className={classes.paddingList}>
             <ListItemAvatar>
               <Avatar style={{ width: '45px', height: '45px' }}>
                 <SportsEsportsIcon />
@@ -209,10 +215,10 @@ export default function History() {
             <ListItemText/>
                 </Trans>
           </ListItem>
-          <br/>
+      
           <Divider/>
-          <br/>
-          <ListItem>
+ 
+          <ListItem className={classes.paddingList}>
             <ListItemAvatar>
               <Avatar style={{ width: '45px', height: '45px' }}>
                 <LibraryBooksIcon />
@@ -222,10 +228,10 @@ export default function History() {
             <ListItemText/>
                 </Trans>
           </ListItem>
-          <br/>
+      
           <Divider/>
-          <br/>
-          <ListItem>
+    
+          <ListItem className={classes.paddingList}>
             <ListItemAvatar>
               <Avatar style={{ width: '45px', height: '45px' }}>
                 <HistoryEduIcon />
@@ -235,7 +241,7 @@ export default function History() {
             <ListItemText/>
                 </Trans>
           </ListItem>
-          <br/>
+        
             <Divider/>
 
 
@@ -243,8 +249,7 @@ export default function History() {
 
 
           </List>
-          <br/><br/>
-
+       
 
 
         </Container>

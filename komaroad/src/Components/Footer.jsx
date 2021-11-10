@@ -52,7 +52,7 @@ export default function Footer() {
   return ( 
   <div className={classes.footer}>
     
-    <Container style={{ maxWidth: '25vh' }}>
+    <Container style={{ maxWidth: '25vh', paddingBottom: '5px' }} >
 <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
 
   <Link color="inherit" href='/about'>
@@ -66,14 +66,14 @@ export default function Footer() {
     </Link>
     </Tooltip>
     <Divider variant="middle" />
-  <Link color="inherit" href='https://ivan-corporation.github.io/Komolio/'>
+  <Link color="inherit" href='https://ivan-corporation.github.io/Komolio/' >
   {t('author')}
     </Link><Divider variant="middle" />
-</Typography>
+</Typography >
 
 
 </Container>
-<br></br>
+
 <Copyright />
 
 

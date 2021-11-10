@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
       paddingBottom: theme.spacing(12),
     },
     card: {
-      height: '27rem',
+      height: '24rem',
       display: 'flex',
       flexDirection: 'column',
     },
