@@ -127,6 +127,7 @@ export default function Math() {
           <AwesomeButton
             type="primary"
             size="big"
+            href={math}
           > <ImageIcon />{t('full_picture')}
           </AwesomeButton>
         </Grid>

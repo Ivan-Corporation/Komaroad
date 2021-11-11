@@ -369,6 +369,7 @@ const classes = useStyles();
 
          <Switch>
              <Route exact path="/math" component={Math}/>
+             
              <Route exact path="/history" component={History}/>
              <Route exact path="/react" component={ReactR}/>
 

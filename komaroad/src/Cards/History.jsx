@@ -123,6 +123,7 @@ export default function History() {
           <AwesomeButton
             type="primary"
             size="big"
+            href={history1}
           > <ImageIcon />{t('full_picture')}
           </AwesomeButton>
         </Grid>

@@ -79,15 +79,14 @@ export default function Math() {
   return (<>
     <CssBaseline />
 
-    <Container maxWidth="md">
-      <br />
+    <Container maxWidth="md" className='roadtext'>
+
       <Divider />
       <Typography align='center' variant="h3" className='roadtext'>
         <b>{t('react')}</b>
       </Typography>
 
-      <br />
-
+ 
 
       <Buttons/>
 
@@ -122,6 +121,7 @@ export default function Math() {
           <AwesomeButton
             type="primary"
             size="big"
+            href={react}
           > <ImageIcon />{t('full_picture')}
           </AwesomeButton>
         </Grid>
