@@ -17,7 +17,6 @@ import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import Footer from '../Components/Footer';
 import react from '../Images/Roadmaps/react-roadmap.png'
-
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 
@@ -49,11 +48,13 @@ import { useTranslation } from "react-i18next";
 import Buttons from './../Components/Buttons';
 
 
-
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',   
     backgroundColor: theme.palette.background.paper,
+    paddingTop: '15px',
+    paddingBottom: '15px',
+    marginBottom: '50px'
   },
   paddingBr: {
     paddingTop: theme.spacing(3),
@@ -71,6 +72,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 export default function Math() {
+
 
   const classes = useStyles();
 
@@ -122,8 +124,19 @@ export default function Math() {
             type="primary"
             size="big"
             href={react}
+            target={"_blank"}
           > <ImageIcon />{t('full_picture')}
           </AwesomeButton>
+        </Grid>
+
+        <Grid item>
+        <a href={react} download>
+          <AwesomeButton
+            type="link"
+            size="big"
+          > <ImageIcon />{t('download')}    
+          </AwesomeButton>
+          </a>
         </Grid>
         
         </Grid>

@@ -54,6 +54,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',   
     backgroundColor: theme.palette.background.paper,
+    paddingTop: '15px',
+    paddingBottom: '15px',
+    marginBottom: '50px'
   },
   paddingBr: {
     paddingTop: theme.spacing(3),
@@ -124,8 +127,20 @@ export default function History() {
             type="primary"
             size="big"
             href={history1}
+            target={"_blank"}
           > <ImageIcon />{t('full_picture')}
           </AwesomeButton>
+        </Grid>
+
+        <Grid item>
+        <a href={history1} download>
+          <AwesomeButton
+            type="link"
+            size="big"
+            download
+          > <ImageIcon />{t('download')}
+          </AwesomeButton>
+          </a>
         </Grid>
         
         </Grid>

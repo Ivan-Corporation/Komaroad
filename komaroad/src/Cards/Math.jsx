@@ -128,8 +128,19 @@ export default function Math() {
             type="primary"
             size="big"
             href={math}
+            target={"_blank"}
           > <ImageIcon />{t('full_picture')}
           </AwesomeButton>
+        </Grid>
+
+        <Grid item>
+        <a href={math} download>
+          <AwesomeButton
+            type="link"
+            size="big"
+          > <ImageIcon />{t('download')}
+          </AwesomeButton>
+          </a>
         </Grid>
         
         </Grid>

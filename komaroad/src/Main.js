@@ -34,6 +34,7 @@ import ReactIcon from './Images/icons/react.png';
 import EarthIcon from './Images/icons/earth.png';
 import ChemistryIcon from './Images/icons/chemistry.png';
 import SigmaIcon from './Images/icons/sigma.png';
+import EggIcon from './Images/icons/egg.png';
 
 
 import LanguageIcon from '@mui/icons-material/Language';
@@ -52,6 +53,7 @@ import History from './Cards/History';
 import ReactR from './Cards/React';
 import About from './Components/About';
 import Terms from './Components/Terms';
+import Secret from './Cards/Secret';
 
 
 import { styled, alpha } from '@mui/material/styles';
@@ -291,8 +293,12 @@ const classes = useStyles();
                           <img className="planetCircle" src={ReactIcon} alt="" />
                           </a>
 
-                          <img className="planetCircle" src={EnglandIcon} alt=""/>     
-                          <img className="planetCircle" src={JS} alt="JavaScript"/>
+                          <img className="planetCircle" src={EnglandIcon} alt=""/>  
+
+                          <a href='/secret'>
+                          <img className="planetCircle" src={EggIcon} alt="egg"/>
+                          </a>
+
                           <img className="planetCircle" src={EarthIcon} alt=""/>
                           
                           <img className="planetCircle" src={SigmaIcon} alt=""/>
@@ -335,7 +341,7 @@ const classes = useStyles();
                                       </Grid>
 
                                   <Grid item>
-                                    <Tooltip arrow title={t('click_to_change')}>
+                                    <Tooltip title={t('click_to_change')} arrow >
                                   {darkMode ? <Button
                                         variant="contained"
                                         color='default'
@@ -368,8 +374,7 @@ const classes = useStyles();
 
 
          <Switch>
-             <Route exact path="/math" component={Math}/>
-             
+             <Route exact path="/math" component={Math}/>             
              <Route exact path="/history" component={History}/>
              <Route exact path="/react" component={ReactR}/>
 
@@ -380,6 +385,8 @@ const classes = useStyles();
              
 
              <Route exact path="/" component={MainContent}/>
+
+             <Route exact path='/secret' component={Secret}/>
         </Switch>
       
       <Footer/>
