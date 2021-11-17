@@ -1,18 +1,7 @@
 import React from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
-import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import Avatar from '@material-ui/core/Avatar';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 
@@ -26,58 +15,23 @@ import 'react-awesome-button/dist/themes/theme-c137.css';
 
 import { useTranslation } from "react-i18next";
 
-
-import monkey from '../Images/stuff/monkey.jpg'
-import my_table from '../Images/stuff/my_table.jpg'
-import cat_chair from '../Images/stuff/cat_chair.png'
-
-
 import {
     AwesomeButton,
-    AwesomeButtonProgress,
-    AwesomeButtonSocial,
   } from 'react-awesome-button';
   import "react-awesome-button/dist/styles.css";
   import 'react-awesome-button/dist/themes/theme-c137.css';
   import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-  import ImageIcon from '@material-ui/icons/Image';
-
-
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',   
-    backgroundColor: theme.palette.background.paper,
-  },
-  monkey: {
-    width: '50%',
-    paddingTop: '20px'
-  },
-  monkey1: {
-    width: '50%',
-  },
-  table: {
-      width: '100%'
-  }
-}));
-
-
-
-
-
 
 export default function Terms() {
-
-  const classes = useStyles();
 
   const { t } = useTranslation();
 
   return (<>
     <CssBaseline />
     
-    <Container maxWidth="md">
-      <br />
-      <Grid container spacing={2} justifyContent="center">
+    <Container maxWidth="md" className='roadtext'>
+   
+      <Grid container spacing={2} justifyContent="center" className='roadtext'>
         
         <Grid item>
           <AwesomeButton
@@ -88,7 +42,6 @@ export default function Terms() {
         </Grid>
 
         </Grid>
-        <br/>
 
         <Divider />
       
@@ -101,9 +54,9 @@ export default function Terms() {
 
 <p align='center'>Last updated: October 27, 2021</p>
 <h1 align='center'>Interpretation and Definitions</h1>
-<h2>Interpretation</h2>
+<h2 align='center'>Interpretation</h2>
 <p>The words of which the initial letter is capitalized have meanings defined under the following conditions. The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.</p>
-<h2>Definitions</h2>
+<h2 align='center'>Definitions</h2>
 <p>For the purposes of these Terms and Conditions:</p>
 <ul>
 <li>
@@ -122,13 +75,13 @@ export default function Terms() {
 <p><strong>Service</strong> refers to the Website.</p>
 </li>
 <li>
-<p><strong>Terms and Conditions</strong> (also referred as &quot;Terms&quot;) mean these Terms and Conditions that form the entire agreement between You and the Company regarding the use of the Service. This Terms and Conditions agreement has been created with the help of the <a href="https://www.termsfeed.com/terms-conditions-generator/" target="_blank">Terms and Conditions Generator</a>.</p>
+<p><strong>Terms and Conditions</strong> (also referred as &quot;Terms&quot;) mean these Terms and Conditions that form the entire agreement between You and the Company regarding the use of the Service. This Terms and Conditions agreement has been created with the help of the "https://www.termsfeed.com/terms-conditions-generator/".</p>
 </li>
 <li>
 <p><strong>Third-party Social Media Service</strong> means any services or content (including data, information, products or services) provided by a third-party that may be displayed, included or made available by the Service.</p>
 </li>
 <li>
-<p><strong>Website</strong> refers to Komaroad, accessible from <a href="http://www.komaroad.com" rel="external nofollow noopener" target="_blank">http://www.komaroad.com</a></p>
+<p><strong>Website</strong> refers to Komaroad, accessible from "http://www.komaroad.com"</p>
 </li>
 <li>
 <p><strong>You</strong> means the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.</p>
@@ -176,16 +129,10 @@ You agree that the original English text shall prevail in the case of a dispute.
 <p>By continuing to access or use Our Service after those revisions become effective, You agree to be bound by the revised terms. If You do not agree to the new terms, in whole or in part, please stop using the website and the Service.</p>
 <h1 align='center'>Contact Us</h1>
 <p>If you have any questions about these Terms and Conditions, You can contact us:</p>
-<ul>
+<ul className='roadtext'>
 <li>By email: hammer.99.ivan@gmail.com</li>
 </ul>
-      </Typography>
-
-
-        <br/>
-        <br/>
-        <br/>
-        
+      </Typography>        
     </Container>
 
   </>

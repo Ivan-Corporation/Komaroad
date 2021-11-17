@@ -1,19 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import AppBar from '@material-ui/core/AppBar';
-import Button from '@material-ui/core/Button';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
+import React from 'react';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
-import Footer from '../Components/Footer';
 import history1 from '../Images/Roadmaps/History-roadmap1.png'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
@@ -25,8 +15,6 @@ import '../Styles/roadmap.css';
 import Divider from '@material-ui/core/Divider';
 
 import MoodIcon from '@mui/icons-material/Mood';
-import SignalCellularNullIcon from '@material-ui/icons/SignalCellularNull';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ImageIcon from '@material-ui/icons/Image';
 import '../Styles/listItem.scss';
 import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
@@ -40,8 +28,6 @@ import { Trans } from 'react-i18next';
 
 import {
   AwesomeButton,
-  AwesomeButtonProgress,
-  AwesomeButtonSocial,
 } from 'react-awesome-button';
 import "react-awesome-button/dist/styles.css";
 import 'react-awesome-button/dist/themes/theme-c137.css';
@@ -144,9 +130,6 @@ export default function History() {
         </Grid>
         
         </Grid>
-   
-
-
         <TransformWrapper>
         <TransformComponent>
         <img
@@ -201,8 +184,7 @@ export default function History() {
               </Avatar>
             </ListItemAvatar>
             <Trans i18nKey="history_appendix1">
-            <ListItemText primary="I'm try not to do Eurocentricity but Europe it's big spot on the body of human history" 
-                secondary="(Btw my degree work was about some european military theory but in Asia)"/>
+            <ListItemText />
                 </Trans>
           </ListItem>
       

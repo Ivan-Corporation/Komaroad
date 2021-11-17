@@ -1,26 +1,21 @@
-import { Trans } from 'react-i18next';
 import { useTranslation } from "react-i18next";
 
 import {
   AwesomeButton,
-  AwesomeButtonProgress,
   AwesomeButtonSocial,
 } from 'react-awesome-button';
 import "react-awesome-button/dist/styles.css";
 import 'react-awesome-button/dist/themes/theme-c137.css';
 import Grid from '@material-ui/core/Grid';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import ImageIcon from '@material-ui/icons/Image';
 
 
 export default function Buttons() {
 
     const { t } = useTranslation();
-
-
+    
     return(
-        <Grid container spacing={2} justifyContent="center">
-        
+        <Grid container spacing={2} justifyContent="center">      
         <Grid item>
           <AwesomeButton
             type="secondary"
