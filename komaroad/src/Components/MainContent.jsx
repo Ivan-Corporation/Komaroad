@@ -17,6 +17,18 @@ import Tooltip from '@mui/material/Tooltip';
 
 import { BrowserRouter as Router, Link } from "react-router-dom";
 
+// check for localhost
+import '../Images/CardsImage/England.jpg'
+import '../Images/CardsImage/coming-soon.jpg'
+import '../Images/CardsImage/high_math.jpg'
+import '../Images/CardsImage/history.jpg'
+import '../Images/CardsImage/math.jpg'
+import '../Images/CardsImage/React.png'
+
+
+
+
+
 const useStyles = makeStyles((theme) => ({ 
     heroContent: {
       backgroundColor: theme.palette.background.paper,
@@ -151,9 +163,9 @@ export default function MainContent() {
                   </CardContent>                  
                   <CardActions>
                   <Tooltip title={t('created')} arrow>
-                  <IconButton>
+                  <Container align="center">
                    <EventAvailableIcon />  <Typography variant="subtitle2">{date}</Typography>
-                 </IconButton>
+                 </Container>
                  </Tooltip>
                   </CardActions>               
                 </Card>
@@ -192,9 +204,9 @@ export default function MainContent() {
                   
                   <CardActions>
                   <Tooltip title={t('created')} arrow>
-                  <IconButton>
+                  <Container align="center">
                    <EventAvailableIcon />  <Typography variant="subtitle2">{date}</Typography>
-                 </IconButton>
+                 </Container>
                  </Tooltip>
                   </CardActions>
                   
