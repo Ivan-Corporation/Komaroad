@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 import Container from '@material-ui/core/Container';
-import secret from '../Images/stuff/secret.jpg'
-import { makeStyles } from '@material-ui/core/styles';
+import secret from '../Images/stuff/secret.png'
 import Grid from '@material-ui/core/Grid';
 import {
     AwesomeButton,
@@ -10,34 +9,28 @@ import {
   import 'react-awesome-button/dist/themes/theme-c137.css';
   import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
-const useStyles = makeStyles((theme) => ({
-    secret: {
-      width: '50%',
-      paddingTop: '60px',
-      paddingBottom: '60px',
-    },
-  }));
+import '../Styles/rotatedAnim.css'
+
   
 
 export default function Secret() {
 
     const { t } = useTranslation();
 
-    const classes = useStyles();
 
 
     return(
-        <Container maxWidth="md" className='roadtext'>
-            <Grid container spacing={12} justifyContent="center">
+        <Container maxWidth="md">
+            <Grid container spacing={12} justifyContent="center"  className='roadtext'>
             <AwesomeButton
             type="secondary"
             size="big"
             href='/'
             ><ArrowBackIcon />{t('all_roadmaps')}</AwesomeButton>
             </Grid>
-            <Grid container spacing={2} justifyContent="center">
+            <Grid container spacing={2} justifyContent="center"  className='secretPadding'>
             
-            <img src={secret} className={classes.secret} alt='secret'/>
+            <img src={secret} className='secret' alt='secret'/>
             </Grid>
         </Container>
     )

@@ -10,17 +10,9 @@ import Footer from './Components/Footer';
 import MainContent from './Components/MainContent';
 import SendIcon from '@material-ui/icons/Send';
 import Brightness3Icon from '@material-ui/icons/Brightness3';
-import logo from './Images/logo-koma.png'
 import Brightness7Icon from '@material-ui/icons/Brightness7';
 
-import MathIcon from './Images/icons/math.png';
-import ReactIcon from './Images/icons/react.png'; 
-import EarthIcon from './Images/icons/earth.png';
-import ChemistryIcon from './Images/icons/chemistry.png';
-import SigmaIcon from './Images/icons/sigma.png';
-import EggIcon from './Images/icons/egg.png';
 
-import HistoryIcon from './Images/icons/history.png';
 
 
 import './Styles/PlanetCircle.css';
@@ -40,6 +32,7 @@ import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 
 import { useTranslation } from "react-i18next";
 import LanguageFlags from './Components/LanguageFlags';
+import KomaSphere from './Components/KomaSphere';
 
 
 export default function Main() {
@@ -108,40 +101,7 @@ const classes = useStyles();
 
                         <LanguageFlags/>
 
-                      <div align='center' className='planet'>
-
-                      <div className="profileImage">
-
-                        <img className="introImage" src={logo} alt="profile"/>
-                        <div className="ringCircle innerCircle">
-                          
-                        <a href='/history'>
-                        <img className="planetCircle" src={HistoryIcon} alt=""/>
-                        </a>
-                        
-                          <img className="planetCircle" src={MathIcon} alt="science"/>
-                         
-                        </div>
-                        <div className="ringCircle outerCircle">
-                          <a href='/react'>
-                          <img className="planetCircle" src={ReactIcon} alt="" />
-                          </a>
-
-                          <img className="planetCircle" src={ReactIcon} alt=""/>  
-
-                          <a href='/secret'>
-                          <img className="planetCircle" src={EggIcon} alt="egg"/>
-                          </a>
-
-                          <img className="planetCircle" src={EarthIcon} alt=""/>
-                          
-                          <img className="planetCircle" src={SigmaIcon} alt=""/>
-                         
-                          <img className="planetCircle" src={ChemistryIcon} alt="science"/>
-                        </div>
-                      </div>
-
-                      </div>
+                      <KomaSphere/>
 
                       </Grid>
 
@@ -210,7 +170,9 @@ const classes = useStyles();
 
              <Route exact path='/secret' component={Secret}/>
         </Switch>
+
       <Footer/>
+      
       </ThemeProvider>
     </React.Fragment>   
   );

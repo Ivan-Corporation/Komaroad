@@ -25,6 +25,7 @@ function Copyright() {
     footer: {
         backgroundColor: theme.palette.background.paper,
         padding: theme.spacing(3),
+    
       },
   }));
 

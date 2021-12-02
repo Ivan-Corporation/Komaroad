@@ -1,5 +1,4 @@
 import React from 'react';
-import Button from '@material-ui/core/Button';
 import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
@@ -14,6 +13,7 @@ import '../Styles/flags.css';
 import { useTranslation } from "react-i18next";
 import i18next from 'i18next'
 import classNames from 'classnames'
+
 
 export default function LanguageFlags() {
 
@@ -61,7 +61,7 @@ return (
     <LanguageIcon style={{width:'32px', height:'32px'}}/>
   </IconButton>
 </Tooltip>
-<Menu
+<Menu 
   anchorEl={anchorEl}
   open={open}
   onClose={handleClose}
@@ -75,7 +75,7 @@ return (
       overflow: 'visible',
       filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
       mt: 1.5,
-      bgcolor: '#f0eeeb',
+      bgcolor: '#F8F8F8',
       '& .MuiAvatar-root': {
         width: 32,
         height: 32,
@@ -90,7 +90,7 @@ return (
         right: 14,
         width: 10,
         height: 10,
-        bgcolor: '#f0eeeb',
+        bgcolor: '#F8F8F8',
         transform: 'translateY(-50%) rotate(45deg)',
         zIndex: 0,
         
@@ -100,21 +100,27 @@ return (
 >
   {languages.map(({ code, name, country_code}) => (
     <Tooltip title={name} arrow placement='left'>
-    <MenuItem key={code}>
-    <IconButton
+    <MenuItem key={code} style={{
+      backgroundColor: currentLanguageCode === code ? '#D8D8D8' : '#F8F8F8',      
+      border: currentLanguageCode === code ? '1px solid #989898' : '#F8F8F8'             
+    }}>
+    <IconButton 
       className={classNames('dropdown-item')}
       onClick={() => {
-      i18next.changeLanguage(code)
+      i18next.changeLanguage(code)  
     }}                            
     >
       
-    <Button className={`flag-icon flag-icon-${country_code}`}
+    <div className={`flag-icon flag-icon-${country_code}`}
     style={{
-      opacity: currentLanguageCode === code ? 1 : 0.3,                             
+      opacity: currentLanguageCode === code ? 1 : 0.3,
+      width: '3rem',                             
+      height: '2rem', 
+                                    
     }}
     >
-    </Button>
-  
+    </div>
+    
     </IconButton>  
     </MenuItem>    
     </Tooltip>                                   

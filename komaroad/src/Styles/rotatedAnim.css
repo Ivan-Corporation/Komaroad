@@ -1,0 +1,34 @@
+@keyframes spin {
+    from{
+        transform: rotateZ(-10deg);
+      }
+    
+      to{
+        transform: rotateZ(10deg);
+      }
+}
+
+@media(max-width: 800px){
+  .secret{
+      width: 150px;
+      padding-bottom: 350px;
+  }
+}
+
+.secret{
+  animation: spin 5s linear infinite alternate;
+  width: '50%';
+  
+}
+
+.secretPadding {
+    padding-top: 117px;
+    padding-bottom: 117px;
+
+}
+
+.roadtext {
+    padding-top: 17px;
+    padding-bottom: 7px;
+
+}
