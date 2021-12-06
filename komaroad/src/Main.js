@@ -12,9 +12,6 @@ import SendIcon from '@material-ui/icons/Send';
 import Brightness3Icon from '@material-ui/icons/Brightness3';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
 
-
-
-
 import './Styles/PlanetCircle.css';
 import './Styles/stars.css';
 import './Styles/flags.css';

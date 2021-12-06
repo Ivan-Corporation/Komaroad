@@ -10,6 +10,7 @@ import {
   import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 
 import '../Styles/rotatedAnim.css'
+import Countdown from 'react-countdown';
 
   
 
@@ -17,7 +18,7 @@ export default function Secret() {
 
     const { t } = useTranslation();
 
-
+    const Completionist = () => <h2>Something inside the egg!...</h2>;
 
     return(
         <Container maxWidth="md">
@@ -28,9 +29,22 @@ export default function Secret() {
             href='/'
             ><ArrowBackIcon />{t('all_roadmaps')}</AwesomeButton>
             </Grid>
+
+            <Grid container spacing={12} justifyContent="center">
+            <h1>
+            <Countdown date='2021-12-29T00:00:00'>
+                <Completionist />
+            </Countdown>
+            </h1>
+            </Grid>
+
             <Grid container spacing={2} justifyContent="center"  className='secretPadding'>
+
+            
             
             <img src={secret} className='secret' alt='secret'/>
+
+            
             </Grid>
         </Container>
     )
