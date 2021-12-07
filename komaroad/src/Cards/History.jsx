@@ -8,10 +8,10 @@ import history1 from '../Images/Roadmaps/History-roadmap1.png'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import { List, ListItem, ListItemText } from '@material-ui/core';
-
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 import '../Styles/roadmap.css';
+
 import Divider from '@material-ui/core/Divider';
 
 import MoodIcon from '@mui/icons-material/Mood';
@@ -25,7 +25,6 @@ import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import HistoryEduIcon from '@mui/icons-material/HistoryEdu';
 import { Trans } from 'react-i18next';
 
-
 import {
   AwesomeButton,
 } from 'react-awesome-button';
@@ -34,6 +33,11 @@ import 'react-awesome-button/dist/themes/theme-c137.css';
 import { useTranslation } from "react-i18next";
 import Buttons from './../Components/Buttons';
 
+import ZoomInIcon from '@mui/icons-material/ZoomIn';
+import ZoomOutIcon from '@mui/icons-material/ZoomOut';
+import ZoomOutMapIcon from '@mui/icons-material/ZoomOutMap';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Button from '@mui/material/Button';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -54,10 +58,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-export default function History() {
-
+export default function History(props) {
+  
   const classes = useStyles();
-
   const { t } = useTranslation();
 
   return (<>
@@ -130,12 +133,39 @@ export default function History() {
         </Grid>
         
         </Grid>
+
+        
         <TransformWrapper>
-        <TransformComponent>
+        {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
+          <React.Fragment>
+            <Grid container spacing={2} justifyContent="center" >
+            <div className='roadmapbuttons'>
+            <ButtonGroup size="large" color="primary">
+             <Button onClick={() => zoomIn()} variant="contained" >
+             <ZoomInIcon />
+             </Button>
+             <Button onClick={() => resetTransform()} variant="contained" >
+             <ZoomOutMapIcon />
+             </Button>
+             <Button onClick={() => zoomOut()} variant="contained" >
+             <ZoomOutIcon />
+             </Button>
+
+             
+              
+           </ButtonGroup>
+           </div>
+           </Grid>
+           <hr/>
+           <div className='roadmapt'>
+        <TransformComponent>      
         <img
-        alt="Math"
-        src={history1} className='roadmap'/>
+        alt="History"
+        src={history1} className='roadmap' loading="lazy"/> 
         </TransformComponent>
+        </div>
+        </React.Fragment>
+        )}
         </TransformWrapper>
 
         <Divider/>

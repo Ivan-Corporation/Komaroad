@@ -7,8 +7,7 @@ import { initReactI18next } from "react-i18next";
 import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpApi from 'i18next-http-backend';
 import 'flag-icon-css/css/flag-icon.min.css'
-import { SemipolarLoading } from 'react-loadingg';
-import './Styles/fallback.css'
+import FallbackLoading from './FallbackLoading';
 
  //Localisaton
  i18n
@@ -29,16 +28,11 @@ import './Styles/fallback.css'
 
  });
 
-// fallback style
-const loadingMarkup = (
-  <div className='App-header'>
-  <SemipolarLoading color='orange' size='large'/>
-  </div> 
-)
+
  
 
 ReactDOM.render(
-  <Suspense fallback={loadingMarkup} >
+  <Suspense fallback={FallbackLoading} >
   <React.StrictMode>
     <BrowserRouter>
     <Main />

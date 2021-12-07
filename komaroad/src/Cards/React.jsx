@@ -26,10 +26,16 @@ import "react-awesome-button/dist/styles.css";
 import 'react-awesome-button/dist/themes/theme-c137.css';
 
 
-import { List, ListItem, ListItemText } from '@material-ui/core';
+import { Link, List, ListItem, ListItemText } from '@material-ui/core';
 import { useTranslation } from "react-i18next";
 import Buttons from './../Components/Buttons';
 
+
+import ZoomInIcon from '@mui/icons-material/ZoomIn';
+import ZoomOutIcon from '@mui/icons-material/ZoomOut';
+import ZoomOutMapIcon from '@mui/icons-material/ZoomOutMap';
+import ButtonGroup from '@mui/material/ButtonGroup';
+import Button from '@mui/material/Button';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -125,13 +131,38 @@ export default function Math() {
         </Grid>
 
 
-      <TransformWrapper>
-        <TransformComponent>
-          <img
-            alt="React"
-            src={react} className='roadmap' />
+        <TransformWrapper>
+        {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
+          <React.Fragment>
+            <Grid container spacing={2} justifyContent="center" >
+            <div className='roadmapbuttons'>
+            <ButtonGroup size="large" color="primary">
+             <Button onClick={() => zoomIn()} variant="contained" >
+             <ZoomInIcon />
+             </Button>
+             <Button onClick={() => resetTransform()} variant="contained" >
+             <ZoomOutMapIcon />
+             </Button>
+             <Button onClick={() => zoomOut()} variant="contained" >
+             <ZoomOutIcon />
+             </Button>
+
+             
+              
+           </ButtonGroup>
+           </div>
+           </Grid>
+           <hr/>
+           <div className='roadmapt'>
+        <TransformComponent>      
+        <img
+        alt="React"
+        src={react} className='roadmap' loading="lazy"/> 
         </TransformComponent>
-      </TransformWrapper>
+        </div>
+        </React.Fragment>
+        )}
+        </TransformWrapper>
 
 
       <Divider />
@@ -186,7 +217,7 @@ export default function Math() {
       </ListItem>
 
       <Divider/>
-
+      <Link href='https://github.com/Ivan-Corporation/React-Komaroad' target='_blank' className='localisation-links'>
       <ListItem className={classes.paddingList}>
         <ListItemAvatar >
           <Avatar style={{ width: '45px', height: '45px' }} >
@@ -197,7 +228,7 @@ export default function Math() {
         <ListItemText/>
             </Trans>
       </ListItem>
-
+        </Link>
       <Divider/>
 
         

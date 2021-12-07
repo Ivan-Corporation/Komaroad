@@ -1,3 +1,12 @@
-# https://www.robotstxt.org/robotstxt.html
+User-agent: Yandex
+Disallow: /admin
+Disallow: *?s=
+Disallow: *?p=
+User-agent: Googlebot
+Disallow: /admin
+Disallow: *?s=
+Disallow: *?p=
 User-agent: *
-Disallow:
+Disallow: /admin
+Disallow: *?s=
+Disallow: *?p=
