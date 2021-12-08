@@ -11,6 +11,7 @@ import {
 
 import '../Styles/rotatedAnim.css'
 import Countdown from 'react-countdown';
+import {Helmet} from 'react-helmet'
 
   
 
@@ -22,6 +23,11 @@ export default function Secret() {
 
     return(
         <Container maxWidth="md">
+            <Helmet>
+                <meta name={t('really?')} content={t("really?")} />
+                <title>{t('really?')}</title>
+                <link rel="canonical" href="http://komaroad.ru/secret" />
+            </Helmet>
             <Grid container spacing={12} justifyContent="center"  className='roadtext'>
             <AwesomeButton
             type="secondary"

@@ -30,7 +30,7 @@ import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 import { useTranslation } from "react-i18next";
 import LanguageFlags from './Components/LanguageFlags';
 import KomaSphere from './Components/KomaSphere';
-
+import {Helmet} from 'react-helmet'
 
 export default function Main() {
 
@@ -91,7 +91,11 @@ const classes = useStyles();
       <ThemeProvider theme={theme}>
 
       <CssBaseline />
-
+            <Helmet>
+                <meta name='Komaroad' content={t("about_1")} />
+                <title>Komaroad</title>
+                <link href="http://komaroad.ru" />
+            </Helmet>
                         <div className={darkMode ? classes.darkMode : classes.lightMode}>
                         <Container className='stars' maxWidth="sm">
                         <Grid container spacing={3}>

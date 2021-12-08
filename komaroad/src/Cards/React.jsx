@@ -36,6 +36,9 @@ import ZoomOutIcon from '@mui/icons-material/ZoomOut';
 import ZoomOutMapIcon from '@mui/icons-material/ZoomOutMap';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
+import {Helmet} from 'react-helmet'
+
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -69,7 +72,11 @@ export default function Math() {
 
   return (<>
     <CssBaseline />
-
+            <Helmet>
+                <meta name={t('react')} content={t("react_text1")} />
+                <title>{t('react')}</title>
+                <link rel="canonical" href="http://komaroad.ru/react" />
+            </Helmet>
     <Container maxWidth="md" className='roadtext'>
 
       <Divider />

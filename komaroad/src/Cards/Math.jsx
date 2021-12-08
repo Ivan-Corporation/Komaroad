@@ -36,6 +36,7 @@ import 'react-awesome-button/dist/themes/theme-c137.css';
 
 import ImageIcon from '@material-ui/icons/Image';
 
+import {Helmet} from 'react-helmet'
 
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import ZoomOutIcon from '@mui/icons-material/ZoomOut';
@@ -70,7 +71,11 @@ export default function Math() {
 
   return (<>
     <CssBaseline />
-
+    <Helmet>
+                <meta name={t('math')} content={t("math_text1")} />
+                <title>{t('math')}</title>
+                <link rel="canonical" href="http://komaroad.ru/math" />
+            </Helmet>
     <Container maxWidth="md" className={classes.paddingBr}>
     
       <Divider />

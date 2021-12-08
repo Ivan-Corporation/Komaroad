@@ -23,6 +23,7 @@
 
 <li>SEO</li>
 <li>think about too large images...</li>
+<li>transition to the pages</li>
 
 
 
