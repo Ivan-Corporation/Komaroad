@@ -4,7 +4,8 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import history1 from '../Images/Roadmaps/History-roadmap1.png'
+import historydown from '../Images/Roadmaps/History-roadmap1.png'
+import history1 from '../Images/Roadmaps/History-roadmap1.webp'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import { List, ListItem, ListItemText } from '@material-ui/core';
@@ -121,14 +122,14 @@ export default function History(props) {
           <AwesomeButton
             type="primary"
             size="big"
-            href={history1}
+            href={historydown}
             target={"_blank"}
           > <ImageIcon />{t('full_picture')}
           </AwesomeButton>
         </Grid>
 
         <Grid item>
-        <a href={history1} download>
+        <a href={historydown} download>
           <AwesomeButton
             type="link"
             size="big"
@@ -142,7 +143,7 @@ export default function History(props) {
 
         
         <TransformWrapper>
-        {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
+        {({ zoomIn, zoomOut, resetTransform}) => (
           <React.Fragment>
             <Grid container spacing={2} justifyContent="center" >
             <div className='roadmapbuttons'>

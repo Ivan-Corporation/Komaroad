@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Button from '@material-ui/core/Button';
 import Tooltip from '@mui/material/Tooltip';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -11,18 +11,20 @@ import MainContent from './Components/MainContent';
 import SendIcon from '@material-ui/icons/Send';
 import Brightness3Icon from '@material-ui/icons/Brightness3';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
+import FallbackLoading from './FallbackLoading';
 
 import './Styles/PlanetCircle.css';
 import './Styles/stars.css';
 import './Styles/flags.css';
 import './Styles/title.scss';
 import './Styles/titleDark.scss';
-import Math from './Cards/Math';
-import History from './Cards/History';
-import ReactR from './Cards/React';
-import About from './Components/About';
+
+// for some reasone don't work with React.lazy
 import Terms from './Components/Terms';
-import Secret from './Cards/Secret';
+// Not this)
+import About from './Components/About';
+
+
 
 import { BrowserRouter as Switch,Route} from "react-router-dom";
 import { ThemeProvider, createTheme } from '@material-ui/core/styles';
@@ -31,8 +33,18 @@ import { useTranslation } from "react-i18next";
 import LanguageFlags from './Components/LanguageFlags';
 import KomaSphere from './Components/KomaSphere';
 import {Helmet} from 'react-helmet'
+import Auth from './Components/Auth';
+
+
 
 export default function Main() {
+
+  const Math = React.lazy(() => import('./Cards/Math'));
+  const History = React.lazy(() => import('./Cards/History'));
+  const ReactR = React.lazy(() => import('./Cards/React'));
+
+  const Secret = React.lazy(() => import('./Cards/Secret'));
+
 
 
   //Translation
@@ -100,7 +112,10 @@ const classes = useStyles();
                         <Container className='stars' maxWidth="sm">
                         <Grid container spacing={3}>
 
+                        <Auth/>
+
                         <LanguageFlags/>
+
 
                       <KomaSphere/>
 
@@ -158,7 +173,7 @@ const classes = useStyles();
                         </Container>
 
                       </div>
-
+         <Suspense fallback={FallbackLoading}>
          <Switch>
              <Route exact path="/math" component={Math}/>             
              <Route exact path="/history" component={History}/>
@@ -171,7 +186,7 @@ const classes = useStyles();
 
              <Route exact path='/secret' component={Secret}/>
         </Switch>
-
+        </Suspense>
       <Footer/>
       
       </ThemeProvider>

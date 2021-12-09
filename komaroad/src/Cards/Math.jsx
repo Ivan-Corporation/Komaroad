@@ -6,7 +6,9 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import math from '../Images/Roadmaps/Math-roadmap.png'
+
+import mathdown from '../Images/Roadmaps/Math-roadmap.png'
+import math from '../Images/Roadmaps/Math-roadmap.webp'
 
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
@@ -117,14 +119,14 @@ export default function Math() {
           <AwesomeButton
             type="primary"
             size="big"
-            href={math}
+            href={mathdown}
             target={"_blank"}
           > <ImageIcon />{t('full_picture')}
           </AwesomeButton>
         </Grid>
 
         <Grid item>
-        <a href={math} download>
+        <a href={mathdown} download>
           <AwesomeButton
             type="link"
             size="big"

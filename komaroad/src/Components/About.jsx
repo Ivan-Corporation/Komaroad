@@ -15,9 +15,9 @@ import 'react-awesome-button/dist/themes/theme-c137.css';
 
 import { useTranslation } from "react-i18next";
 
-import monkey from '../Images/stuff/monkey.jpg'
-import my_table from '../Images/stuff/my_table.jpg'
-import cat_chair from '../Images/stuff/cat_chair.png'
+import monkey from '../Images/stuff/monkey.webp'
+import my_table from '../Images/stuff/my_table.webp'
+import cat_chair from '../Images/stuff/cat_chair.webp'
 
 import {
     AwesomeButton,

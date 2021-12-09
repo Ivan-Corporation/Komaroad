@@ -17,13 +17,15 @@
 <li> крутящееся пасхальное яйцо</li>
 <li> дата ниже яйца</li>
 <li> lazy loading на роадмапы + кнопки</li>
+<li>SEO first part</li>
+<li>think about too large images... - webp</li>
 ✔✔✔✔✔✔✔✔✔✔✔✔
 
 
+<li>Авторизация и регистрация</li>
+<li>На прогрессе что-то навроде степпера с основными компонентами дерева роадмапы</li>
 
-<li>SEO</li>
-<li>think about too large images...</li>
-<li>transition to the pages</li>
+
 
 
 
