@@ -23,7 +23,16 @@ import '../Images/CardsImage/high_math.jpg'
 import '../Images/CardsImage/history.jpg'
 import '../Images/CardsImage/math.jpg'
 import '../Images/CardsImage/React.png'
-
+import { useState, useEffect } from "react";
+import { db } from "../firebase";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  doc,
+} from "firebase/firestore";
 
 
 
@@ -62,33 +71,56 @@ export default function MainContent() {
 
   const { t } = useTranslation();
 
+  const [posts, setPosts] = useState([]);
+  const postsCollectionRef = collection(db, "posts");
 
-  const MainCards = [
-    {
-      id: 1,
-      route: "/math",
-      img: "/static/media/math.e67552b2.jpg",
-      name: t('math'),
-      description: t('math_desc'),
-      date: '08.30.2021'
-    },
-    {
-      id: 2,
-      route: '/history',
-      img: "/static/media/history.a65ec4e1.jpg",
-      name: t('history'),
-      description: t('history_desc'),
-      date: '09.11.2021'
-    },
-    {
-      id: 3,
-      route: '/',
-      img: "/static/media/coming-soon.21529d4b.jpg",
-      name: t('coming_soon'),
-      description: t('coming_soon_desc'),
-      date: t('coming_soon')
-    },
-  ];
+  useEffect(() => {
+    const getPosts = async () => {
+      const data = await getDocs(postsCollectionRef);
+      setPosts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
+    };
+
+    getPosts();
+  }, []);
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // const MainCards = [
+  //   {
+  //     id: 1,
+  //     route: "/math",
+  //     img: "/static/media/math.e67552b2.jpg",
+  //     name: t('math'),
+  //     description: t('math_desc'),
+  //     date: '08.30.2021'
+  //   },
+  //   {
+  //     id: 2,
+  //     route: '/history',
+  //     img: "/static/media/history.a65ec4e1.jpg",
+  //     name: t('history'),
+  //     description: t('history_desc'),
+  //     date: '09.11.2021'
+  //   },
+  //   {
+  //     id: 3,
+  //     route: '/',
+  //     img: "/static/media/coming-soon.21529d4b.jpg",
+  //     name: t('coming_soon'),
+  //     description: t('coming_soon_desc'),
+  //     date: t('coming_soon')
+  //   },
+  // ];
 
 
   const SpecificCards = [
@@ -142,7 +174,7 @@ export default function MainContent() {
 
           <Grid align="center" className={classes.cardsTopPadding} container spacing={4} >
 
-          {MainCards.map(({ id, route, img, name, description, date }) => (
+          {posts.map(({ id, route, img, name, description, date }) => (
               <Grid item key={id} xs={12} sm={6} md={4}>
               <Link to={route} style={{ textDecoration: 'none' }}>
               <CardActionArea>
@@ -154,10 +186,10 @@ export default function MainContent() {
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography align="center" gutterBottom variant="h5" component="h2">
-                    <b>{name}</b>
+                    <b>{t(name)}</b>
                     </Typography>
                     <Typography align="center" variant="subtitle2">
-                    {description}
+                    {t(description)}
                     </Typography>
                   </CardContent>                  
                   <CardActions>

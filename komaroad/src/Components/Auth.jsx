@@ -30,14 +30,22 @@ import AccountBoxIcon from '@mui/icons-material/AccountBox';
 import LockIcon from '@mui/icons-material/Lock';
 import EmojiObjectsIcon from '@mui/icons-material/EmojiObjects';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut,
+} from "firebase/auth";
+import { auth } from "../firebase";
+
+
 
 
 export default function Auth() {
 
     const { t } = useTranslation();
 
-    const [auth, setAuth] = React.useState(false);
-
+  
 
     const [openLogin, setOpenLogin] = React.useState(false);
     const [openRegister, setOpenRegister] = React.useState(false);
@@ -60,75 +68,56 @@ export default function Auth() {
       setOpenRegister(false);
     };
 
-    const [name, setName] = useState('')
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
+    const [registerEmail, setRegisterEmail] = useState("");
+    const [registerPassword, setRegisterPassword] = useState("");
+    const [loginEmail, setLoginEmail] = useState("");
+    const [loginPassword, setLoginPassword] = useState("");
   
-
-    // login logic
-    async function loginUser(event) {
-      event.preventDefault()
+    const [user, setUser] = useState({});
   
-      const response = await fetch('http://localhost:1337/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      })
+    onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
   
-      const data = await response.json()
-  
-      if (data.user) {
-        localStorage.setItem('token', data.user)
-        alert('Login successful')
-        window.location.href = '/dashboard'
-        console.log({
-          email: data.get('email'),
-          password: data.get('password'),
-          });
-      } else {
-        alert('Please check your username and password')
+    const register = async () => {
+      try {
+        const user = await createUserWithEmailAndPassword(
+          auth,
+          registerEmail,
+          registerPassword
+        );
+        console.log(user);
+      } catch (error) {
+        console.log(error.message);
       }
-    }
-
-
-    // Register logic
-
-	async function registerUser(event) {
-		event.preventDefault()
-
-		const response = await fetch('http://localhost:1337/api/register', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({
-				name,
-				email,
-				password,
-			}),
-		})
-
-		const data = await response.json()
-
-		if (data.status === 'ok') {
-			setAuth(true)
-		}
-	}
+    };
+  
+    const login = async () => {
+      try {
+        const user = await signInWithEmailAndPassword(
+          auth,
+          loginEmail,
+          loginPassword
+        );
+        console.log(user);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+  
+    const logout = async () => {
+      await signOut(auth);
+    };
 
 
 
     return (
     <div className='auth'>
 
-    {auth ? 
+    {user ? 
     <Tooltip title={t('Profile')} arrow>     
-      <IconButton size="small" sx={{ ml: 2 }}>
-        <AccountCircleIcon style={{width:'36px', height:'36px'}}/>
+      <IconButton onClick={logout} size="small" sx={{ ml: 2 }}>
+        <AccountCircleIcon style={{width:'36px', height:'36px'}}/>{user?.email}
       </IconButton>
     </Tooltip>
     :
@@ -158,8 +147,8 @@ export default function Auth() {
                 name="email"
                 autoComplete="email"
                 autoFocus
-				        value={email}
-				        onChange={(e) => setEmail(e.target.value)}
+				        value={loginEmail}
+				        onChange={(e) => setLoginEmail(e.target.value)}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -177,8 +166,8 @@ export default function Auth() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-				        value={password}
-				        onChange={(e) => setPassword(e.target.value)}
+				        value={loginPassword}
+				        onChange={(e) => setLoginPassword(e.target.value)}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -196,7 +185,7 @@ export default function Auth() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
-                onClick={loginUser}
+                onClick={login}
               >
                 Sign In
               </Button>
@@ -231,26 +220,6 @@ export default function Auth() {
             Register
           </DialogContentText>
           
-          <TextField
-                margin="normal"
-                required
-                fullWidth
-                id="name"
-                label="Name"
-                name="name"
-                autoComplete="name"
-                autoFocus
-				        value={name}
-				        onChange={(e) => setName(e.target.value)}
-                InputProps={{
-                  startAdornment: (
-                    <InputAdornment position="start">
-                      <EmojiObjectsIcon />
-                    </InputAdornment>
-                  ),
-                }}
-              />
-
 
           <TextField
                 margin="normal"
@@ -261,8 +230,8 @@ export default function Auth() {
                 name="email"
                 autoComplete="email"
                 autoFocus
-				        value={email}
-				        onChange={(e) => setEmail(e.target.value)}
+				        value={registerEmail}
+				        onChange={(e) => setRegisterEmail(e.target.value)}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -281,8 +250,8 @@ export default function Auth() {
                 type="password"
                 id="password"
                 autoComplete="current-password"
-				        value={password}
-				        onChange={(e) => setPassword(e.target.value)}
+				        value={registerPassword}
+				        onChange={(e) => setRegisterPassword(e.target.value)}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
@@ -300,7 +269,7 @@ export default function Auth() {
                 fullWidth
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}	
-                onClick={registerUser}			
+                onClick={register}			
               >
                 Sign Up
               </Button>
