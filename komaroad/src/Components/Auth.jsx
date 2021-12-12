@@ -35,6 +35,9 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  signInWithPopup,
+  GoogleAuthProvider,
+  GithubAuthProvider 
 } from "firebase/auth";
 import { auth } from "../firebase";
 
@@ -108,6 +111,21 @@ export default function Auth() {
     const logout = async () => {
       await signOut(auth);
     };
+
+
+
+    // Google
+    const signInWithGoogle = async () => {
+      const provider = new GoogleAuthProvider();
+      signInWithPopup(auth, provider)
+    }
+
+
+    //Github
+    const signInWithGithub = async () => {
+      const provider = new GithubAuthProvider();
+      signInWithPopup(auth, provider)
+    }
 
 
 
@@ -194,6 +212,17 @@ export default function Auth() {
                   <Link href="#" variant="body2">
                     Forgot password?
                   </Link>
+                </Grid>
+                
+              </Grid>           
+              <Grid container>
+                <Grid item xs>
+                <IconButton onClick={signInWithGoogle} size="small" sx={{ ml: 2 }}>
+                  <PersonAddIcon style={{width:'36px', height:'36px'}}/>
+                </IconButton>
+                <IconButton onClick={signInWithGithub} size="small" sx={{ ml: 2 }}>
+                  <EmojiObjectsIcon style={{width:'36px', height:'36px'}}/>
+                </IconButton>
                 </Grid>
                 
               </Grid>           
