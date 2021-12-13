@@ -40,15 +40,17 @@ import {
   GithubAuthProvider 
 } from "firebase/auth";
 import { auth } from "../firebase";
-
-
-
+import GoogleIcon from '@mui/icons-material/Google';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 
 export default function Auth() {
 
     const { t } = useTranslation();
 
-  
+ 
 
     const [openLogin, setOpenLogin] = React.useState(false);
     const [openRegister, setOpenRegister] = React.useState(false);
@@ -75,6 +77,8 @@ export default function Auth() {
     const [registerPassword, setRegisterPassword] = useState("");
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
+    
+    
   
     const [user, setUser] = useState({});
   
@@ -90,8 +94,10 @@ export default function Auth() {
           registerPassword
         );
         console.log(user);
+        handleCloseRegister()
       } catch (error) {
         console.log(error.message);
+        
       }
     };
   
@@ -103,6 +109,7 @@ export default function Auth() {
           loginPassword
         );
         console.log(user);
+        handleCloseLogin()
       } catch (error) {
         console.log(error.message);
       }
@@ -118,6 +125,7 @@ export default function Auth() {
     const signInWithGoogle = async () => {
       const provider = new GoogleAuthProvider();
       signInWithPopup(auth, provider)
+      handleCloseLogin()
     }
 
 
@@ -125,7 +133,15 @@ export default function Auth() {
     const signInWithGithub = async () => {
       const provider = new GithubAuthProvider();
       signInWithPopup(auth, provider)
+      handleCloseLogin()
     }
+
+
+    
+    const [showPassword, setShowPassword] = useState(false);
+    const handleClickShowPassword = () => setShowPassword(!showPassword);
+    const handleMouseDownPassword = () => setShowPassword(!showPassword);
+
 
 
 
@@ -148,11 +164,9 @@ export default function Auth() {
 
   
       <Dialog open={openLogin} onClose={handleCloseLogin} >
-        <DialogTitle className='dialogbg'>Login</DialogTitle>
+        <DialogTitle className='dialogbg'>{t('Login')}</DialogTitle>
         <DialogContent className='dialogbg'>
-          <DialogContentText>
-            Login 
-          </DialogContentText>
+          
           
            
 
@@ -161,6 +175,7 @@ export default function Auth() {
                 required
                 fullWidth
                 id="email"
+                helperText={t('email_helper')}
                 label="Email Address"
                 name="email"
                 autoComplete="email"
@@ -181,10 +196,11 @@ export default function Auth() {
                 fullWidth
                 name="password"
                 label="Password"
-                type="password"
                 id="password"
                 autoComplete="current-password"
 				        value={loginPassword}
+                type={showPassword ? "text" : "password"}
+                helperText={t('password_helper')}
 				        onChange={(e) => setLoginPassword(e.target.value)}
                 InputProps={{
                   startAdornment: (
@@ -192,6 +208,18 @@ export default function Auth() {
                       <LockIcon />
                     </InputAdornment>
                   ),
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        edge="end"
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  )
                 }}
               />
               <FormControlLabel
@@ -213,19 +241,16 @@ export default function Auth() {
                     Forgot password?
                   </Link>
                 </Grid>
-                
-              </Grid>           
-              <Grid container>
-                <Grid item xs>
-                <IconButton onClick={signInWithGoogle} size="small" sx={{ ml: 2 }}>
-                  <PersonAddIcon style={{width:'36px', height:'36px'}}/>
+                <Grid >
+                <IconButton onClick={signInWithGoogle} size="small" sx={{ ml: 1 }}>
+                  <GoogleIcon style={{width:'36px', height:'36px'}}/>
                 </IconButton>
-                <IconButton onClick={signInWithGithub} size="small" sx={{ ml: 2 }}>
-                  <EmojiObjectsIcon style={{width:'36px', height:'36px'}}/>
+                <IconButton onClick={signInWithGithub} size="small" sx={{ ml: 1 }}>
+                  <GitHubIcon style={{width:'36px', height:'36px'}}/>
                 </IconButton>
                 </Grid>
-                
               </Grid>           
+                      
               
 
         </DialogContent>
@@ -243,10 +268,10 @@ export default function Auth() {
 
 
       <Dialog open={openRegister} onClose={handleCloseRegister} >
-        <DialogTitle className='dialogbg'>Register</DialogTitle>
+        <DialogTitle className='dialogbg'>{t('register')}</DialogTitle>
         <DialogContent className='dialogbg'>
-          <DialogContentText>
-            Register
+        <DialogContentText>
+          {t('register_desc')}<EmojiEventsIcon/>
           </DialogContentText>
           
 
@@ -256,6 +281,7 @@ export default function Auth() {
                 fullWidth
                 id="email"
                 label="Email Address"
+                helperText={t('email_helper')}
                 name="email"
                 autoComplete="email"
                 autoFocus
@@ -276,23 +302,82 @@ export default function Auth() {
                 fullWidth
                 name="password"
                 label="Password"
-                type="password"
+                type={showPassword ? "text" : "password"}
                 id="password"
                 autoComplete="current-password"
 				        value={registerPassword}
 				        onChange={(e) => setRegisterPassword(e.target.value)}
+                helperText={t('password_helper')}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">
                       <LockIcon />
                     </InputAdornment>
                   ),
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        edge="end"
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  )
                 }}
               />
-              <FormControlLabel
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Repeat password"
+                type={showPassword ? "text" : "password"}
+                id="repeat password"
+                autoComplete="current-password"
+				        value={registerPassword}
+				        onChange={(e) => setRegisterPassword(e.target.value)}
+                helperText={t('password_helper_2')}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <LockIcon />
+                    </InputAdornment>
+                  ),
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        aria-label="toggle password visibility"
+                        onClick={handleClickShowPassword}
+                        onMouseDown={handleMouseDownPassword}
+                        edge="end"
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  )
+                }}
+              />
+              
+              <Grid container>
+                <Grid item xs>
+                <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
+                </Grid>
+                <Grid >
+                <IconButton onClick={signInWithGoogle} size="small" sx={{ ml: 1 }}>
+                  <GoogleIcon style={{width:'36px', height:'36px'}}/>
+                </IconButton>
+                <IconButton onClick={signInWithGithub} size="small" sx={{ ml: 1 }}>
+                  <GitHubIcon style={{width:'36px', height:'36px'}}/>
+                </IconButton>
+                </Grid>
+              </Grid>       
+                
               <Button
                 type="submit"
                 fullWidth

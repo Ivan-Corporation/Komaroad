@@ -53,5 +53,11 @@
     "created": "Created",
     "click_to_change": "Click to change",
     "click_to_go": "Click to go",
-    "download": "Download"
+    "download": "Download",
+    "login": "Login",
+    "register": "Register",
+    "register_desc": "This auth needs you only if you want to save progress and achievements",
+    "password_helper": "Password should be at least 6 characters",
+    "password_helper_2": "Lets pretend that you repeated :)",
+    "email_helper": "Just for posibility to save your progress"
 }

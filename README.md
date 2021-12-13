@@ -19,10 +19,14 @@
 <li> lazy loading на роадмапы + кнопки</li>
 <li>SEO first part</li>
 <li>think about too large images... - webp</li>
+<li>Авторизация и регистрация</li>
 ✔✔✔✔✔✔✔✔✔✔✔✔
 
 
-<li>Авторизация и регистрация</li>
+
+<li>drawer - profile, achievements, settings, logout</li>
+<li>Простенький профиль для ачивок в будущем</li>
+
 <li>На прогрессе что-то навроде степпера с основными компонентами дерева роадмапы</li>
 
 
