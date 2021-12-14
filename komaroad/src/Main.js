@@ -23,6 +23,8 @@ import './Styles/titleDark.scss';
 import Terms from './Components/Terms';
 // Not this)
 import About from './Components/About';
+import Trophies from './Components/Trophies';
+import Profile from './Components/Profile';
 
 
 
@@ -112,12 +114,12 @@ const classes = useStyles();
                         <Container className='stars' maxWidth="sm">
                         <Grid container spacing={3}>
 
-                        <Auth/>
+                        <Auth theme={theme}/>
                         
-                        <LanguageFlags/>
+                        <LanguageFlags theme={theme}/>
 
 
-                      <KomaSphere/>
+                        <KomaSphere theme={theme}/>
 
                       </Grid>
 
@@ -185,6 +187,8 @@ const classes = useStyles();
              <Route exact path="/" component={MainContent}/>
 
              <Route exact path='/secret' component={Secret}/>
+             <Route exact path='/profile' component={Profile}/>
+             <Route exact path='/trophies' component={Trophies}/>
         </Switch>
         </Suspense>
       <Footer/>

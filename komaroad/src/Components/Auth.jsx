@@ -51,9 +51,9 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import Divider from '@mui/material/Divider';
 import PersonAdd from '@mui/icons-material/PersonAdd';
 import Settings from '@mui/icons-material/Settings';
-import Logout from '@mui/icons-material/Logout';
-
-
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import ListItemText from '@mui/material/ListItemText';
+import FaceIcon from '@mui/icons-material/Face';
 
 
 export default function Auth() {
@@ -106,7 +106,7 @@ export default function Auth() {
         console.log(user);
         handleCloseRegister()
       } catch (error) {
-        console.log(error.message);
+        alert(error.message);
         
       }
     };
@@ -121,7 +121,7 @@ export default function Auth() {
         console.log(user);
         handleCloseLogin()
       } catch (error) {
-        console.log(error.message);
+        alert(error.message);
       }
     };
   
@@ -192,7 +192,8 @@ export default function Auth() {
           sx: {
             overflow: 'visible',
             filter: 'drop-shadow(0px 2px 8px rgba(0,0,0,0.32))',
-            mt: 1.5,
+            mt: 1.0,
+            
             '& .MuiAvatar-root': {
               width: 32,
               height: 32,
@@ -204,7 +205,7 @@ export default function Auth() {
               display: 'block',
               position: 'absolute',
               top: 0,
-              right: 247,
+              right: 103,
               width: 10,
               height: 10,
               bgcolor: 'background.paper',
@@ -216,31 +217,41 @@ export default function Auth() {
         transformOrigin={{ horizontal: 'right', vertical: 'top' }}
         anchorOrigin={{ horizontal: 'right', vertical: 'bottom' }}
       >
-        <MenuItem>
-          <Avatar /> {user?.email}
-        </MenuItem>
-        <MenuItem>
-          <Avatar /> Achievements
-        </MenuItem>
-        <Divider />
+        <Link href="/profile" underline="none">
         <MenuItem>
           <ListItemIcon>
-            <PersonAdd fontSize="small" />
+            <FaceIcon fontSize="medium" />
           </ListItemIcon>
-          Add another account
+          <ListItemText>{t('profile')}</ListItemText>         
         </MenuItem>
+        </Link>
+        <Divider  variant="middle" />
+        <Link href="/trophies" underline="none">
         <MenuItem>
           <ListItemIcon>
-            <Settings fontSize="small" />
+            <EmojiEventsIcon fontSize="medium" />
           </ListItemIcon>
-          Settings
+          <ListItemText>{t('trophies')}</ListItemText>         
         </MenuItem>
+        </Link>    
+        <Divider variant="middle"/>   
+        <Link href="/settings" underline="none">
         <MenuItem>
           <ListItemIcon>
-            <Logout fontSize="small" />
+            <Settings fontSize="medium" />
           </ListItemIcon>
-          Logout
+          <ListItemText>{t('settings')}</ListItemText>
         </MenuItem>
+        </Link>
+        <Divider  variant="middle"/>
+        <Link onClick={logout} underline="none">
+        <MenuItem >
+          <ListItemIcon>
+            <ExitToAppIcon fontSize="medium" />
+          </ListItemIcon>
+          <ListItemText>{t('logout')}</ListItemText>
+        </MenuItem>
+        </Link>
       </Menu>
   
       <Dialog open={openLogin} onClose={handleCloseLogin} >
