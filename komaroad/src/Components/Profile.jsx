@@ -84,7 +84,6 @@ export default function Profile() {
               <Typography align='center' variant="h3" className='roadtext'>
                 <b>{t('profile')}</b>
               </Typography>
-              
             </Grid>
 
             

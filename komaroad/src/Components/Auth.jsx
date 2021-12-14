@@ -3,7 +3,7 @@ import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -37,7 +37,8 @@ import {
   signOut,
   signInWithPopup,
   GoogleAuthProvider,
-  GithubAuthProvider 
+  GithubAuthProvider ,
+  sendPasswordResetEmail
 } from "firebase/auth";
 import { auth } from "../firebase";
 import GoogleIcon from '@mui/icons-material/Google';
@@ -54,9 +55,29 @@ import Settings from '@mui/icons-material/Settings';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import ListItemText from '@mui/material/ListItemText';
 import FaceIcon from '@mui/icons-material/Face';
+import { db} from "../firebase";
+import {
+  collection,
+  getDocs,
+  addDoc,
+  updateDoc,
+  deleteDoc,
+  doc,
+  setDoc
+} from "firebase/firestore";
+
 
 
 export default function Auth() {
+
+
+  const databaseRef = collection(db, 'users');
+ 
+        
+
+  const [users, setUsers] = useState([]);
+  
+
 
     const { t } = useTranslation();
 
@@ -83,19 +104,32 @@ export default function Auth() {
       setOpenRegister(false);
     };
 
+    const [username, setUsername] = useState("");
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
     const [loginEmail, setLoginEmail] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
     
     
+
+
+
   
     const [user, setUser] = useState({});
   
     onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      
+ 
+   
     });
   
+    const forgotPassword = (email) => {
+      return sendPasswordResetEmail(auth, email);
+    };
+
+
+
     const register = async () => {
       try {
         const user = await createUserWithEmailAndPassword(
@@ -104,10 +138,10 @@ export default function Auth() {
           registerPassword
         );
         console.log(user);
+        addDoc(databaseRef, { Username: username, Email: registerEmail, })
         handleCloseRegister()
       } catch (error) {
-        alert(error.message);
-        
+        alert(error.message);        
       }
     };
   
@@ -328,7 +362,7 @@ export default function Auth() {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link href="#" variant="body2">
+                  <Link onClick={forgotPassword} variant="body2">
                     Forgot password?
                   </Link>
                 </Grid>
@@ -366,6 +400,26 @@ export default function Auth() {
           </DialogContentText>
           
 
+          <TextField
+                margin="normal"
+                required
+                fullWidth
+                id="username"
+                label="username"
+                helperText={t('username_helper')}
+                name="username"
+                autoComplete="username"
+                autoFocus
+				        value={username}
+				        onChange={(e) => setUsername(e.target.value)}
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <AccountBoxIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
           <TextField
                 margin="normal"
                 required
