@@ -3,7 +3,7 @@ import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
-import { useState,useEffect } from 'react'
+import { useState,useEffect,useRef  } from 'react'
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -38,7 +38,8 @@ import {
   signInWithPopup,
   GoogleAuthProvider,
   GithubAuthProvider ,
-  sendPasswordResetEmail
+  sendPasswordResetEmail,
+  getAuth
 } from "firebase/auth";
 import { auth } from "../firebase";
 import GoogleIcon from '@mui/icons-material/Google';
@@ -65,6 +66,8 @@ import {
   doc,
   setDoc
 } from "firebase/firestore";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -104,7 +107,7 @@ export default function Auth() {
       setOpenRegister(false);
     };
 
-    const [username, setUsername] = useState("");
+    const [displayName , setDisplayName ] = useState("");
     const [registerEmail, setRegisterEmail] = useState("");
     const [registerPassword, setRegisterPassword] = useState("");
     const [loginEmail, setLoginEmail] = useState("");
@@ -119,14 +122,12 @@ export default function Auth() {
   
     onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
-      
- 
-   
+        
     });
-  
-    const forgotPassword = (email) => {
-      return sendPasswordResetEmail(auth, email);
-    };
+
+
+
+    
 
 
 
@@ -135,13 +136,18 @@ export default function Auth() {
         const user = await createUserWithEmailAndPassword(
           auth,
           registerEmail,
-          registerPassword
+          registerPassword,
+          displayName
         );
-        console.log(user);
-        addDoc(databaseRef, { Username: username, Email: registerEmail, })
+        toast.success("Send!", {
+          pauseOnHover: true
+      });
+        addDoc(databaseRef, { name: displayName , email: registerEmail, })
         handleCloseRegister()
       } catch (error) {
-        alert(error.message);        
+        toast.error("Please check the credentials", {
+          pauseOnHover: true
+      });        
       }
     };
   
@@ -150,13 +156,17 @@ export default function Auth() {
         const user = await signInWithEmailAndPassword(
           auth,
           loginEmail,
-          loginPassword
+          loginPassword,
+          displayName
         );
-        console.log(user);
+        toast.success("Send!", {
+          pauseOnHover: true
+      });
         handleCloseLogin()
       } catch (error) {
-        alert(error.message);
-      }
+        toast.error("Please check the credentials", {
+          pauseOnHover: true
+      });      }
     };
   
     const logout = async () => {
@@ -170,6 +180,10 @@ export default function Auth() {
       const provider = new GoogleAuthProvider();
       signInWithPopup(auth, provider)
       handleCloseLogin()
+      toast.success("Success", {
+        pauseOnHover: true
+    });
+      addDoc(databaseRef, { email: registerEmail, })
     }
 
 
@@ -178,6 +192,10 @@ export default function Auth() {
       const provider = new GithubAuthProvider();
       signInWithPopup(auth, provider)
       handleCloseLogin()
+      toast.success("Success", {
+        pauseOnHover: true
+    });
+      addDoc(databaseRef, { email: registerEmail })
     }
 
     
@@ -197,16 +215,36 @@ export default function Auth() {
     };
 
 
-
+    //forgor TODO
+    const sendPasswordResetEmailHand = async (auth, loginEmail) => {
+      try {    
+        const user = await sendPasswordResetEmail(
+          loginEmail
+          )
+        console.log(user); 
+        toast.success("Send!", {
+          pauseOnHover: true
+      });
+        
+      }catch(error) {
+        toast.success("Send!", {
+          pauseOnHover: true
+      });
+        
+      }
+  };
 
 
     return (
     <div className='auth'>
-
+    <ToastContainer 
+    position="top-center"
+    autoClose={5000}
+    />
     {user ? 
     <Tooltip title={t('Profile')} arrow>     
       <IconButton onClick={handleClick} size="small" sx={{ ml: 2 }}>
-        <AccountCircleIcon style={{width:'36px', height:'36px'}}/>
+        <AccountCircleIcon style={{width:'36px', height:'36px'}}/>{user.loginEmail}
       </IconButton>
     </Tooltip>
     :
@@ -362,7 +400,7 @@ export default function Auth() {
               </Button>
               <Grid container>
                 <Grid item xs>
-                  <Link onClick={forgotPassword} variant="body2">
+                  <Link onClick={sendPasswordResetEmailHand} variant="body2">
                     Forgot password?
                   </Link>
                 </Grid>
@@ -410,8 +448,8 @@ export default function Auth() {
                 name="username"
                 autoComplete="username"
                 autoFocus
-				        value={username}
-				        onChange={(e) => setUsername(e.target.value)}
+				        value={displayName }
+				        onChange={(e) => setDisplayName (e.target.value)}
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">

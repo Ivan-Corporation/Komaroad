@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-export default function Profile() {
+export default function Settings() {
 
     const { t } = useTranslation();
 
