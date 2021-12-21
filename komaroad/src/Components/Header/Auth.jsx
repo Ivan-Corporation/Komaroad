@@ -17,7 +17,7 @@ import Grid from '@mui/material/Grid';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import '../Styles/auth.css';
+import '../../Styles/auth.css';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -41,7 +41,7 @@ import {
   sendPasswordResetEmail,
   getAuth
 } from "firebase/auth";
-import { auth } from "../firebase";
+import { auth } from "../../firebase";
 import GoogleIcon from '@mui/icons-material/Google';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Visibility from '@mui/icons-material/Visibility';
@@ -56,7 +56,7 @@ import Settings from '@mui/icons-material/Settings';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import ListItemText from '@mui/material/ListItemText';
 import FaceIcon from '@mui/icons-material/Face';
-import { db} from "../firebase";
+import { db } from "../../firebase";
 import {
   collection,
   getDocs,

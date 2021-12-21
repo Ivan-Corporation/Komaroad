@@ -4,7 +4,6 @@ import Tooltip from '@mui/material/Tooltip';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Footer from './Components/Footer';
 import MainContent from './Components/MainContent';
@@ -26,16 +25,23 @@ import About from './Components/About';
 import Trophies from './Components/Trophies';
 import Profile from './Components/Profile';
 
-
-
 import { BrowserRouter as Switch,Route} from "react-router-dom";
-import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 
 import { useTranslation } from "react-i18next";
-import LanguageFlags from './Components/LanguageFlags';
+import LanguageFlags from './Components/Header/LanguageFlags';
 import KomaSphere from './Components/KomaSphere';
 import {Helmet} from 'react-helmet'
-import Auth from './Components/Auth';
+import Auth from './Components/Header/Auth';
+import {
+  createTheme,
+  makeStyles,
+  ThemeProvider,
+} from "@material-ui/core/styles";
+import { useHistory } from "react-router-dom";
+import { UserState } from "./UserContext";
+import AuthModal from "./Authentication/AuthModal";
+import UserSidebar from "./Authentication/UserSidebar";
+
 
 
 
@@ -100,6 +106,10 @@ export default function Main() {
 
 const classes = useStyles();
 
+
+  const { user } = UserState();
+
+
   return (
     <React.Fragment>
       <ThemeProvider theme={theme}>
@@ -114,7 +124,14 @@ const classes = useStyles();
                         <Container className='stars' maxWidth="sm">
                         <Grid container spacing={3}>
 
-                        <Auth theme={theme}/>
+
+                        {/* Two version of auth */}
+
+                        {/* <Auth theme={theme}/> */}
+                        <div className='auth'>
+                        {user ? <UserSidebar /> : <AuthModal />}
+                        </div>
+
                         
                         <LanguageFlags theme={theme}/>
 

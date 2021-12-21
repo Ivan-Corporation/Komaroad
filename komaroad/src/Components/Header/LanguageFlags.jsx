@@ -8,7 +8,7 @@ import cookies from 'js-cookie'
 
 import LanguageIcon from '@mui/icons-material/Language';
 
-import '../Styles/flags.css';
+import '../../Styles/flags.css';
 
 import { useTranslation } from "react-i18next";
 import i18next from 'i18next'

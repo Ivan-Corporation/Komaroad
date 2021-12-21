@@ -8,6 +8,7 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 import HttpApi from 'i18next-http-backend';
 import 'flag-icon-css/css/flag-icon.min.css'
 import FallbackLoading from './FallbackLoading';
+import { UserContext } from "./UserContext";
 
 
  //Localisaton
@@ -35,9 +36,11 @@ import FallbackLoading from './FallbackLoading';
 ReactDOM.render(
   <Suspense fallback={FallbackLoading} >
   <React.StrictMode>
+    <UserContext>
     <BrowserRouter>
     <Main />
     </BrowserRouter>
+    </UserContext>
   </React.StrictMode>
   </Suspense>,
   document.getElementById('root')
