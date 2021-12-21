@@ -63,5 +63,8 @@
     "profile": "Profile",
     "trophies": "Trophies",
     "settings": "Settings",
-    "logout": "Logout"
+    "logout": "Logout",
+    "drawer1": "Achievements",
+    "drawer2": "Settings",
+    "drawer3": "In Process"
 }

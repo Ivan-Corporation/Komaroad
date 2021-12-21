@@ -28,7 +28,7 @@ export default function Secret() {
                 <title>{t('really?')}</title>
                 <link rel="canonical" href="http://komaroad.ru/secret" />
             </Helmet>
-            <Grid container spacing={12} justifyContent="center"  className='roadtext'>
+            <Grid container spacing={12} justifyContent="center" className='roadtext'>
             <AwesomeButton
             type="secondary"
             size="big"

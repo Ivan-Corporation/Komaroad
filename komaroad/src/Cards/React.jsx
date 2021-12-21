@@ -224,7 +224,7 @@ export default function Math() {
       </ListItem>
 
       <Divider/>
-      <Link href='https://github.com/Ivan-Corporation/React-Komaroad' target='_blank' className='localisation-links'>
+      <Link href='https://github.com/Ivan-Corporation/React-Komaroad' target='_blank' color="inherit" underline="none">
       <ListItem className={classes.paddingList}>
         <ListItemAvatar >
           <Avatar style={{ width: '45px', height: '45px' }} >

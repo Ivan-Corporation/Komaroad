@@ -8,6 +8,22 @@ import { auth, db } from "../firebase";
 import { doc, setDoc } from "firebase/firestore";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import CssBaseline from '@mui/material/CssBaseline';
+import Typography from '@mui/material/Typography';
+import Divider from '@mui/material/Divider';
+import { Link, List, ListItem, ListItemText } from '@material-ui/core';
+import MailIcon from '@mui/icons-material/Mail';
+import { styled, useTheme } from '@mui/material/styles';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import { Trans } from 'react-i18next';
+import '../Styles/roadmap.css';
+import { useTranslation } from "react-i18next";
+import Tooltip from '@mui/material/Tooltip';
+
+
+
+
+
 
 
 const useStyles = makeStyles({
@@ -29,9 +45,15 @@ const useStyles = makeStyles({
   },
   logout: {
     height: "5%",
+    width: "80%",
+    backgroundColor: "orange",
+    margin: 35,
+
+  },
+  list: {
+    height: "100%",
     width: "100%",
-    backgroundColor: "#EEBC1D",
-    marginTop: 20,
+    fontSize: "17px",
   },
   picture: {
     width: 100,
@@ -39,9 +61,16 @@ const useStyles = makeStyles({
     cursor: "pointer",
     backgroundColor: "#EEBC1D",
     objectFit: "contain",
+    '&:hover': {
+      width: 106,
+      height: 106,
+      transition: "all ease .5s",
+ },  
   },
   
 });
+
+
 
 export default function UserSidebar() {
   const classes = useStyles();
@@ -72,25 +101,28 @@ export default function UserSidebar() {
     toggleDrawer();
   };
 
-  
+  const { t } = useTranslation();
 
   return (
     <div>
       {["left"].map((anchor) => (
         <React.Fragment key={anchor}>
+          <Tooltip title={t('Profile')} arrow>      
           <Avatar
             onClick={toggleDrawer(anchor, true)}
             style={{
-              height: 38,
-              width: 38,
-              marginLeft: 15,
+              height: 36,
+              width: 36,
+              marginLeft: 20,
+              marginTop: 5,
               cursor: "pointer",
               backgroundColor: "#EEBC1D",
             }}
             src={user.photoURL}
             alt={user.displayName || user.email}
           />
-          <Drawer
+          </Tooltip>
+          <Drawer 
             anchor={anchor}
             open={state[anchor]}
             onClose={toggleDrawer(anchor, false)}
@@ -100,8 +132,9 @@ export default function UserSidebar() {
                 <Avatar
                   className={classes.picture}
                   src={user.photoURL}
-                  alt={user.displayName || user.email}
+                  alt={user.displayName || user.email} 
                 />
+                {t('profile')}
                 <span
                   style={{
                     width: "100%",
@@ -110,20 +143,87 @@ export default function UserSidebar() {
                     fontWeight: "bolder",
                     wordWrap: "break-word",
                   }}
-                >
+                > 
                   {user.displayName || user.email}
-                </span>
-                
+                </span>               
+        
+
+
+                <Divider />
+
+ 
+              <List className={classes.list}>
+
+                <Divider/>
+
+                <Link href='https://github.com/Ivan-Corporation/React-Komaroad' target='_blank' color="inherit" underline="none" className='localisation-links'>
+                <ListItem >
+                  <ListItemAvatar>
+
+                    <div className="">
+                    <Avatar style={{ width: '45px', height: '45px' }} className='localisation-icons'>
+                      <MailIcon/>
+                    </Avatar>
+                    </div>
+
+                  </ListItemAvatar>
+                  <Trans i18nKey="drawer1">
+                  <ListItemText
+                      />
+                      </Trans>
+                </ListItem>
+                </Link>
+
+                <Divider/>
+                <Link href='https://github.com/Ivan-Corporation/React-Komaroad' target='_blank' color="inherit" underline="none" className='localisation-links'>
+                <ListItem>
+                  <ListItemAvatar>
+                    <Avatar style={{ width: '45px', height: '45px' }} className='localisation-icons'>
+                      <MailIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <Trans i18nKey="drawer2">
+                  <ListItemText/>
+                  </Trans>
+                </ListItem>
+                </Link>
+
+
+                  <Divider/>
+
+                <Link href='https://github.com/Ivan-Corporation/React-Komaroad' target='_blank' color="inherit" underline="none" className='localisation-links'>
+                <ListItem >
+                  <ListItemAvatar>
+                    <Avatar style={{ width: '45px', height: '45px' }} className='localisation-icons'>
+                      <MailIcon />
+                    </Avatar>
+                  </ListItemAvatar>
+                  <Trans i18nKey="drawer3">
+                  <ListItemText/>
+                      </Trans>
+                </ListItem>
+                </Link>
+
+                <Divider/>     
+               
+
+            
+
+
+              </List>
+        </div>
+        <Divider />
               </div>
               <Button
                 variant="contained"
                 className={classes.logout}
                 onClick={logOut}
               >
-                Выйти
+                {t('logout')}
               </Button>
-            </div>
           </Drawer>
+
+
         </React.Fragment>
       ))}
     </div>

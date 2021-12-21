@@ -29,7 +29,7 @@ import { BrowserRouter as Switch,Route} from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
 import LanguageFlags from './Components/Header/LanguageFlags';
-import KomaSphere from './Components/KomaSphere';
+import KomaSphere from './Components/Header/KomaSphere';
 import {Helmet} from 'react-helmet'
 import Auth from './Components/Header/Auth';
 import {

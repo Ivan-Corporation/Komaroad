@@ -2,8 +2,9 @@
     position: absolute;
     left: 0;
     padding-right: 20px;
-    padding-top: 20px;  
+    padding-top: 18px;  
 }
+
 .dialogbg {
     background: linear-gradient(to left,rgb(224, 146, 0), 27%, rgb(255, 255, 255));
 }

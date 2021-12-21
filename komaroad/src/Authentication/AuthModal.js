@@ -12,7 +12,10 @@ import GoogleButton from "react-google-button";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
+import { useTranslation } from "react-i18next";
+import Tooltip from '@mui/material/Tooltip';
+import IconButton from '@mui/material/IconButton';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -78,24 +81,20 @@ export default function AuthModal() {
       });
   };
 
+  const { t } = useTranslation();
+
+
   return (
     <div>
       <ToastContainer 
     position="top-center"
     autoClose={5000}
     />
-      <Button
-        variant="contained"
-        style={{
-          width: 85,
-          height: 40,
-          marginLeft: 15,
-          backgroundColor: "#EEBC1D",
-        }}
-        onClick={handleOpen}
-      >
-        Войти
-      </Button>
+      <Tooltip title={t('Login')} arrow>
+      <IconButton onClick={handleOpen} size="small" sx={{ ml: 2 }}>
+        <PersonAddIcon style={{width:'36px', height:'36px'}}/>
+      </IconButton>
+    </Tooltip>
       <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"

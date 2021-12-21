@@ -35,3 +35,8 @@
     color: rgb(255, 145, 0);
     text-decoration-color: rgb(255, 145, 0);
   }
+  
+.localisation-icons:hover {
+    background-color: rgb(255, 145, 0);
+    text-decoration-color: rgb(255, 145, 0);
+  }
