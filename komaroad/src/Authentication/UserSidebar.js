@@ -19,6 +19,10 @@ import { Trans } from 'react-i18next';
 import '../Styles/roadmap.css';
 import { useTranslation } from "react-i18next";
 import Tooltip from '@mui/material/Tooltip';
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+import SettingsIcon from '@mui/icons-material/Settings';
+import HourglassBottomIcon from '@mui/icons-material/HourglassBottom';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 
 
@@ -162,7 +166,7 @@ export default function UserSidebar() {
 
                     <div className="">
                     <Avatar style={{ width: '45px', height: '45px' }} className='localisation-icons'>
-                      <MailIcon/>
+                      <EmojiEventsIcon/>
                     </Avatar>
                     </div>
 
@@ -179,7 +183,7 @@ export default function UserSidebar() {
                 <ListItem>
                   <ListItemAvatar>
                     <Avatar style={{ width: '45px', height: '45px' }} className='localisation-icons'>
-                      <MailIcon />
+                      <SettingsIcon />
                     </Avatar>
                   </ListItemAvatar>
                   <Trans i18nKey="drawer2">
@@ -195,7 +199,7 @@ export default function UserSidebar() {
                 <ListItem >
                   <ListItemAvatar>
                     <Avatar style={{ width: '45px', height: '45px' }} className='localisation-icons'>
-                      <MailIcon />
+                      <HourglassBottomIcon />
                     </Avatar>
                   </ListItemAvatar>
                   <Trans i18nKey="drawer3">
@@ -219,7 +223,7 @@ export default function UserSidebar() {
                 className={classes.logout}
                 onClick={logOut}
               >
-                {t('logout')}
+                <LogoutIcon style={{paddingRight:'5px'}}/>{t('logout')}
               </Button>
           </Drawer>
 

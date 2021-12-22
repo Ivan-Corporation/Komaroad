@@ -75,24 +75,6 @@ const Login = ({ handleClose }) => {
   };
 
 
-    //forgor TODO
-    const sendPasswordResetEmailHand = async (auth, loginEmail) => {
-      try {    
-        const user = await sendPasswordResetEmail(
-          loginEmail
-          )
-        console.log(user); 
-        toast.success("Send!", {
-          pauseOnHover: true
-      });
-        
-      }catch(error) {
-        toast.success("Send!", {
-          pauseOnHover: true
-      });
-        
-      }
-  };
 
   const [showPassword, setShowPassword] = useState(false);
   const handleClickShowPassword = () => setShowPassword(!showPassword);
@@ -112,6 +94,7 @@ const Login = ({ handleClose }) => {
       <ToastContainer 
     position="top-center"
     autoClose={5000}
+    limit={3}
     />
       <TextField
         variant="outlined"

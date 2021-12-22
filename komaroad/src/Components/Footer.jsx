@@ -59,7 +59,7 @@ export default function Footer() {
   <Divider variant="middle" />
 
   <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-  <Link color="inherit" href='https://ivan-corporation.github.io/Komolio/' >
+  <Link color="inherit" href='https://ivan-corporation.github.io/Komolio/' target='_blank'>
   {t('author')}
   </Link>
   </Typography>

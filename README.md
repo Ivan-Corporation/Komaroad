@@ -20,13 +20,17 @@
 <li>SEO first part</li>
 <li>think about too large images... - webp</li>
 <li>Авторизация и регистрация</li>
+<li>drawer - profile, achievements, settings, logout</li>
 ✔✔✔✔✔✔✔✔✔✔✔✔
 
 
 
-<li>drawer - profile, achievements, settings, logout</li>
+
+
 <li>Простенький профиль для ачивок в будущем</li>
 <li>Добавить луну и солнце? через тернарки?</li>
+<li>Картинки роадмапов в формат webp</li>
+<li>Обернуть всё в box и sceleton?</li>
 
 
 <li>На прогрессе что-то навроде степпера с основными компонентами дерева роадмапы</li>

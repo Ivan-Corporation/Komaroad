@@ -12,6 +12,7 @@ import Brightness3Icon from '@material-ui/icons/Brightness3';
 import Brightness7Icon from '@material-ui/icons/Brightness7';
 import FallbackLoading from './FallbackLoading';
 
+import './Styles/auth.css';
 import './Styles/PlanetCircle.css';
 import './Styles/stars.css';
 import './Styles/flags.css';
@@ -41,6 +42,7 @@ import { useHistory } from "react-router-dom";
 import { UserState } from "./UserContext";
 import AuthModal from "./Authentication/AuthModal";
 import UserSidebar from "./Authentication/UserSidebar";
+import Settings from './Components/Settings';
 
 
 
@@ -204,8 +206,8 @@ const classes = useStyles();
              <Route exact path="/" component={MainContent}/>
 
              <Route exact path='/secret' component={Secret}/>
-             <Route exact path='/profile' component={Profile}/>
              <Route exact path='/trophies' component={Trophies}/>
+             <Route exact path='/settings' component={Settings}/>
         </Switch>
         </Suspense>
       <Footer/>

@@ -98,6 +98,7 @@ const Signup = ({ handleClose }) => {
     <ToastContainer 
     position="top-center"
     autoClose={5000}
+    limit={3}
     />
       <TextField
         variant="outlined"

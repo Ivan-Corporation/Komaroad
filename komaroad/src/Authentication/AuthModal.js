@@ -9,7 +9,7 @@ import { useState } from "react";
 import { UserState } from "../UserContext";
 import { auth } from "../firebase";
 import GoogleButton from "react-google-button";
-import { GoogleAuthProvider, signInWithPopup,GithubAuthProvider } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup,GithubAuthProvider,sendPasswordResetEmail } from "firebase/auth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useTranslation } from "react-i18next";
@@ -24,6 +24,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Grid from '@mui/material/Grid';
 import Checkbox from '@mui/material/Checkbox';
+import Link from '@mui/material/Link';
 
 
 
@@ -95,16 +96,51 @@ export default function AuthModal() {
       });
   };
 
-  const signInWithGithub = async () => {
-      const provider = new GithubAuthProvider();
-      signInWithPopup(auth, provider)
-      handleClose();
-      toast.success("Success", {
-        pauseOnHover: true
-    });
+    const githubProvider = new GithubAuthProvider();
+
+    const signInWithGithub = async () => {
+      
+      signInWithPopup(auth, githubProvider)
+      
+      .then((res) => {
+        const credential = GithubAuthProvider.credentialFromResult(res);
+        const token = credential.accessToken;
+
+        // The signed-in user info.
+        const user = res.user;
+        toast.success("Успех", {
+          pauseOnHover: true
+      }); 
+
+        handleClose();
+      })
+      .catch((error) => {
+        toast.error("Guthub не прошёл", {
+          pauseOnHover: true
+      }); 
+        return;
+      });
+  };
+
+
+//forgor TODO
+const sendPasswordResetEmailHand = async (auth, loginEmail) => {
+  try {    
+    const user = await sendPasswordResetEmail(
+      loginEmail
+      )
+    console.log(user); 
+    toast.success("Send!", {
+      pauseOnHover: true
+  });
+    
+  }catch(error) {
+    toast.success("Send!", {
+      pauseOnHover: true
+  });
+    
   }
-
-
+};
 
   const { t } = useTranslation();
 
@@ -114,6 +150,7 @@ export default function AuthModal() {
       <ToastContainer 
     position="top-center"
     autoClose={5000}
+    limit={3}
     />
       <Tooltip title={t('Login')} arrow>
       <IconButton onClick={handleOpen} size="small" sx={{ ml: 2 }}>
@@ -154,12 +191,17 @@ export default function AuthModal() {
             {value === 0 && <Login handleClose={handleClose} />}        
             {value === 1 && <Signup handleClose={handleClose} />}
             <Grid container className={classes.google}>
-                <Grid item xs className={classes.remember}>
+                {value === 1 && <Grid item xs className={classes.remember}>
                 <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
                 label="Remember me"
               />
-                </Grid>
+                </Grid>}
+                {value === 0 && <Grid item xs className={classes.remember}>
+                  <Link onClick={sendPasswordResetEmailHand} variant="subtitle2" underline="hover" style={{cursor: 'pointer'}}>
+                    Forgot password?
+                  </Link>
+                </Grid>}
                 <Grid >
                 <IconButton onClick={signInWithGoogle} size="small" sx={{ ml: 1 }}>
                   <GoogleIcon style={{width:'36px', height:'36px'}} color='primary'/>
