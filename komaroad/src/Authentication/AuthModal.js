@@ -9,13 +9,24 @@ import { useState } from "react";
 import { UserState } from "../UserContext";
 import { auth } from "../firebase";
 import GoogleButton from "react-google-button";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup,GithubAuthProvider } from "firebase/auth";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useTranslation } from "react-i18next";
 import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
+import Divider from '@mui/material/Divider';
+import LoginIcon from '@mui/icons-material/Login';
+import LogoutIcon from '@mui/icons-material/Logout';
+import GoogleIcon from '@mui/icons-material/Google';
+import GitHubIcon from '@mui/icons-material/GitHub';
+import FormControlLabel from '@mui/material/FormControlLabel';
+import Grid from '@mui/material/Grid';
+import Checkbox from '@mui/material/Checkbox';
+
+
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -25,7 +36,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
   },
   paper: {
-    width: 400,
+    width: 450,
     backgroundColor: theme.palette.background.paper,
     color: "white",
     borderRadius: 10,
@@ -36,10 +47,13 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
     textAlign: "center",
-    marginLeft: '19%',
-    gap: 20,
     fontSize: 20,
   },
+  remember: {
+    textAlign: 'left',
+    color: '#6495ED',
+    paddingTop: '3px'
+  }
 }));
 
 export default function AuthModal() {
@@ -81,6 +95,17 @@ export default function AuthModal() {
       });
   };
 
+  const signInWithGithub = async () => {
+      const provider = new GithubAuthProvider();
+      signInWithPopup(auth, provider)
+      handleClose();
+      toast.success("Success", {
+        pauseOnHover: true
+    });
+  }
+
+
+
   const { t } = useTranslation();
 
 
@@ -111,8 +136,7 @@ export default function AuthModal() {
           <div className={classes.paper}>
             <AppBar
               position="static"
-              style={{
-                backgroundColor: "transparent",
+              style={{               
                 color: "white",
               }}
             >
@@ -121,21 +145,30 @@ export default function AuthModal() {
                 onChange={handleChange}
                 variant="fullWidth"
                 style={{ borderRadius: 10 }}
-              >
-                <Tab label="Войти" />
-                <Tab label="Регистрация" />
+              >                
+
+                <Tab icon={<LoginIcon />} label="Войти" />
+                <Tab icon={<LogoutIcon />} label="Регистрация" />
               </Tabs>
             </AppBar>
-            {value === 0 && <Login handleClose={handleClose} />}
+            {value === 0 && <Login handleClose={handleClose} />}        
             {value === 1 && <Signup handleClose={handleClose} />}
-            <Box className={classes.google}>
-              
-              <GoogleButton
-                style={{ width: "70%", outline: "none"}}
-                onClick={signInWithGoogle}
-                label='Войти с Google'
-              /> 
-            </Box>
+            <Grid container className={classes.google}>
+                <Grid item xs className={classes.remember}>
+                <FormControlLabel
+                control={<Checkbox value="remember" color="primary" />}
+                label="Remember me"
+              />
+                </Grid>
+                <Grid >
+                <IconButton onClick={signInWithGoogle} size="small" sx={{ ml: 1 }}>
+                  <GoogleIcon style={{width:'36px', height:'36px'}} color='primary'/>
+                </IconButton>
+                <IconButton onClick={signInWithGithub} size="small" sx={{ ml: 1 }}>
+                  <GitHubIcon style={{width:'36px', height:'36px'}} color='primary'/>
+                </IconButton>
+                </Grid>
+              </Grid>       
           </div>
         </Fade>
       </Modal>
