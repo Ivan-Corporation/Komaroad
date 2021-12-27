@@ -33,7 +33,7 @@
   animation: twiddle 5s linear infinite alternate; 
 }
 .introImage:hover{
-  animation: pulse 5s linear infinite; 
+  animation: pulse 5s ease-in-out infinite; 
 }
 
 @keyframes twiddle {

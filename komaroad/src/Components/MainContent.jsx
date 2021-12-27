@@ -15,6 +15,8 @@ import { useTranslation } from "react-i18next";
 import Tooltip from '@mui/material/Tooltip';
 
 import { BrowserRouter as Router, Link } from "react-router-dom";
+import Box from '@mui/material/Box';
+import Skeleton from '@mui/material/Skeleton';
 
 // check for localhost
 import '../Images/CardsImage/England.jpg'
@@ -69,15 +71,20 @@ export default function MainContent() {
   const { t } = useTranslation();
 
   const [posts, setPosts] = useState([]);
+  const [loader, setLoader] = useState(false);
   const postsCollectionRef = collection(db, "posts");
 
   useEffect(() => {
+    setLoader(true)
+    setTimeout(async () => {
     const getPosts = async () => {
       const data = await getDocs(postsCollectionRef);
       setPosts(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
-
+    setLoader(false)
     getPosts();
+    
+  }, 1300);
   }, []);
 
 
@@ -158,6 +165,8 @@ export default function MainContent() {
 
     const classes = useStyles();
 
+    
+    
 
   return (
     <>
@@ -171,7 +180,10 @@ export default function MainContent() {
 
           <Grid align="center" className={classes.cardsTopPadding} container spacing={4} >
 
-          {posts.map(({ id, route, img, name, description, date }) => (
+          
+          
+          {!loader ? posts.map(({ id, route, img, name, description, date }) => (
+            
               <Grid item key={id} xs={12} sm={6} md={4}>
               <Link to={route} style={{ textDecoration: 'none' }}>
               <CardActionArea>
@@ -198,9 +210,16 @@ export default function MainContent() {
                   </CardActions>               
                 </Card>
                 </CardActionArea>  
-                </Link>      
+                </Link>     
               </Grid>
-          ))} 
+          )) : [1, 2, 3].map(loading => (
+            <Grid item key={loading} xs={12} sm={6} md={4}>
+              <Skeleton variant="rectangular" width={280} height={318} />
+              </Grid>
+              ))}
+          
+          
+
       </Grid>
      
      <Typography variant="h4" align="center" paragraph>

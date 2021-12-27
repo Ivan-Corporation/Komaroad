@@ -8,7 +8,6 @@ import logo from '../../Images/logo-koma.png'
 import HistoryIcon from '../../Images/icons/history.png';
 
 import '../../Styles/PlanetCircle.css';
-import '../../Styles/stars.css';
 import '../../Styles/flags.css';
 
 

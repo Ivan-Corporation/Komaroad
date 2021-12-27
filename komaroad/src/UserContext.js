@@ -55,7 +55,6 @@ export const UserContext = ({ children }) => {
   return (
     <User.Provider
       value={{
-        alert,
         user,
         loading,
         achievements,

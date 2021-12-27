@@ -14,7 +14,8 @@ import FallbackLoading from './FallbackLoading';
 
 import './Styles/auth.css';
 import './Styles/PlanetCircle.css';
-import './Styles/stars.css';
+import './Styles/header/stars.css';
+import './Styles/header/cloud.css';
 import './Styles/flags.css';
 import './Styles/title.scss';
 import './Styles/titleDark.scss';
@@ -123,13 +124,36 @@ const classes = useStyles();
                 <link href="http://komaroad.ru" />
             </Helmet>
                         <div className={darkMode ? classes.darkMode : classes.lightMode}>
-                        <Container className='stars' maxWidth="sm">
+                        <Container className={darkMode ? 'stars' : ''} maxWidth="sm">
+                          <div className={darkMode ? 'shooting-star' : ''}></div>
+                          {!darkMode 
+                          ? 
+                          <>
+                          <div id="Clouds">
+                          <div class="demo-Cloud demo-Foreground"></div>
+                          <div class="demo-Cloud demo-Background"></div>
+                          <div class="demo-Cloud demo-Foreground"></div>
+                          <div class="demo-Cloud demo-Background"></div>
+                          <div class="demo-Cloud demo-Foreground"></div>
+                          <div class="demo-Cloud demo-Background"></div>
+                          <div class="demo-Cloud demo-Background"></div>
+                          <div class="demo-Cloud demo-Foreground"></div>
+                          <div class="demo-Cloud demo-Background"></div>
+                          <div class="demo-Cloud demo-Background"></div>
+                        </div>
+                          </>
+                          : 
+                          <div/>
+                          }
                         <Grid container spacing={3}>
 
 
                         {/* Two version of auth */}
 
                         {/* <Auth theme={theme}/> */}
+
+
+
                         <div className='auth'>
                         {user ? <UserSidebar /> : <AuthModal />}
                         </div>

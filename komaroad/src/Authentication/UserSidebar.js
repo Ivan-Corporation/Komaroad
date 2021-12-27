@@ -160,7 +160,7 @@ export default function UserSidebar() {
 
                 <Divider/>
 
-                <Link href='https://github.com/Ivan-Corporation/React-Komaroad' target='_blank' color="inherit" underline="none" className='localisation-links'>
+                <Link href='/trophies' color="inherit" underline="none" className='localisation-links'>
                 <ListItem >
                   <ListItemAvatar>
 
@@ -179,7 +179,7 @@ export default function UserSidebar() {
                 </Link>
 
                 <Divider/>
-                <Link href='https://github.com/Ivan-Corporation/React-Komaroad' target='_blank' color="inherit" underline="none" className='localisation-links'>
+                <Link href='/settings' color="inherit" underline="none" className='localisation-links'>
                 <ListItem>
                   <ListItemAvatar>
                     <Avatar style={{ width: '45px', height: '45px' }} className='localisation-icons'>
@@ -195,7 +195,7 @@ export default function UserSidebar() {
 
                   <Divider/>
 
-                <Link href='https://github.com/Ivan-Corporation/React-Komaroad' target='_blank' color="inherit" underline="none" className='localisation-links'>
+                <Link href='/' color="inherit" underline="none" className='localisation-links'>
                 <ListItem >
                   <ListItemAvatar>
                     <Avatar style={{ width: '45px', height: '45px' }} className='localisation-icons'>

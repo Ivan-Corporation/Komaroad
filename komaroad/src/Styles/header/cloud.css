@@ -1,0 +1,108 @@
+@keyframes FadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes Float {
+    from { transform: translateX(100%) translateZ(0); }
+    to { transform: translateX(-15%) translateZ(0); }
+  }
+  
+  @keyframes FadeFloat {
+    0%, 100% { opacity: 0; }
+    5%, 90% { opacity: 1; }
+  }
+  
+  #Clouds {
+    position: absolute;
+    top: 0; right: 0; bottom: 650px; left: 0;
+    margin: auto;
+    height: 20%;
+    overflow: hidden;
+    animation: FadeIn 3s ease-out;
+    user-select: none;
+  }
+
+
+  .demo-Cloud { 
+    position: absolute;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    height: 70px;
+    animation-duration: 120s;
+    animation-iteration-count: infinite;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+    animation-name: Float, FadeFloat;
+    z-index: 0;
+
+  }
+  
+  .demo-Cloud.demo-Foreground { 
+    height: 12%;
+    min-height: 20px;
+    z-index: 3;
+  }
+  .demo-Cloud.demo-Background { 
+    height: 10% / 1.1; 
+    min-height: 18px;
+    animation-duration: 120s * 1.75;
+  }
+  
+  .demo-Cloud:nth-child(3n) { 
+  animation-delay: -162s; 
+  top: 31%;
+  }
+  .demo-Cloud.demo-Foreground:nth-child(3n) {
+  animation-duration: 84s;
+  height: 27.5%;
+  }
+  .demo-Cloud.demo-Background:nth-child(3n) {
+  animation-duration: 114s;
+  height: 69%;
+  }
+  
+  .demo-Cloud:nth-child(3n+2) { 
+  animation-delay: -144s; 
+  top: 40%;
+  }
+  .demo-Cloud.demo-Foreground:nth-child(3n+2) {
+  animation-duration: 88s;
+  height: 30%;
+  }
+  .demo-Cloud.demo-Background:nth-child(3n+2) {
+  animation-duration: 118s;
+  height: 50%;
+  }
+  
+  .demo-Cloud:nth-child(3n+1) { 
+  animation-delay: -90s; 
+  top: 30%;
+  }
+  .demo-Cloud.demo-Foreground:nth-child(3n+1) {
+  animation-duration: 100s;
+  height: 22.5%;
+  }
+  .demo-Cloud.demo-Background:nth-child(3n+1) {
+  animation-duration: 130s;
+  height: 5.84%;
+  }
+  
+  .demo-Cloud { 
+    background-image: url(https://lh3.googleusercontent.com/proxy/ygd3DYRif6mtYdw5xrywqQjOoE7l-SnHo7xpkHnW3nORkk9yHBbgtJ26aeP19wn0ljKmNAYleTUQ8SS52JOaFrMX8PTem7cb-CbXlRZuCg);
+  }
+  
+  .demo-Cloud.demo-Background {
+    background-image: url(https://envisionimages.co.uk/wp-content/uploads/2019/03/clouds-png-hd-images-hd-wallpapers-cloud-free-no-onsite-technicians-no-servers-no-computers-at-the-best-price-3543.png);
+  }
+  
+  #animationDemo {
+    background-image: radial-gradient(circle, var(--oj-core-warning-3)  0%, var(--oj-core-warning-2) 70%, var(--oj-core-warning-1)  100%);
+  }
+  
+  .demoContainer {
+    position:relative;
+    height:340px; 
+    border:1px solid;
+  }

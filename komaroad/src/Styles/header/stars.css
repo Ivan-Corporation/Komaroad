@@ -1,0 +1,114 @@
+.stars::before,
+.stars::after,
+.stars::before,
+.stars::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: .2vmin;
+  height: .2vmin;
+  border-radius: 50%;
+  color: transparent;
+  animation: blink 12s linear infinite;
+}
+
+
+.stars::after {
+  box-shadow: 80vw 14vh .2vmin rgb(255, 255, 255),
+              88vw 18vh .1vmin rgb(255, 255, 255),
+              77vw 11vh .2vmin rgb(255, 255, 255),
+              2vw 6vh .1vmin rgb(255, 255, 255),
+              12vw 16vh .2vmin rgb(255, 255, 255),
+              85vw 22vh .1vmin rgb(255, 255, 255),
+              91vw 14vh .2vmin rgb(255, 255, 255),
+              98vw 15vh .1vmin rgb(255, 255, 255),
+              94vw 29vh .2vmin rgb(255, 255, 255),
+              29vw 19vh .1vmin rgb(255, 255, 255),
+              94vw 12vh .1vmin rgb(255, 255, 255),
+              30vw 6vh .2vmin rgb(255, 255, 255),
+              15vw 1vh .1vmin rgb(255, 255, 255),
+              12vw 16vh .1vmin rgb(255, 255, 255),
+              69vw 11vh .2vmin rgb(255, 255, 255),
+              79vw 5vh .2vmin rgb(255, 255, 255),
+              89vw 5vh .2vmin rgb(255, 255, 255),
+              69vw 2vh .2vmin rgb(255, 255, 255),
+              24vw 21vh .1vmin rgb(255, 255, 255),
+              23vw 17vh .2vmin rgb(255, 255, 255),
+              14vw 20vh .2vmin rgb(255, 255, 255),
+              5vw 29vh .2vmin rgb(255, 255, 255),
+              75vw 29vh .2vmin rgb(255, 255, 255),
+              76vw 23vh .2vmin rgb(255, 255, 255),
+              7vw 14vh .2vmin rgb(255, 255, 255),
+              65vw 8vh .2vmin rgb(255, 255, 255),
+              66vw 21vh .1vmin rgb(255, 255, 255);
+                     
+}
+
+@keyframes blink{
+  0%{opacity: .1;}
+  33%{opacity: .5;}
+  50%{opacity: 1;}
+  77%{opacity: .5;}
+  100%{opacity: .1;}
+  }
+
+
+
+
+
+
+
+  
+
+.shooting-star{  
+    opacity: 0;
+    width: 2px;
+    height: 2px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.1), 0 0 0 8px rgba(255, 255, 255, 0.1), 0 0 20px rgba(255, 255, 255, 1)  ;
+    animation:  animate 3s linear 1;
+}
+.shooting-star::before{
+  content: '';
+  position: absolute;
+  transform: translateY(-50%);
+  
+  width: 150px;
+  height: 1px;
+  background: linear-gradient(90deg, #fff, transparent);
+}
+
+@keyframes animate {
+  0%
+  {
+      transform: rotate(315deg) translateX(0);
+      opacity: 0;
+  }20%
+  {
+      opacity: 1;
+
+  }
+  70%
+  {
+      opacity: 0;
+
+  }
+  100%
+  {
+      transform: rotate(315deg) translateX(-1000px);
+      opacity: 0;
+
+  }
+  
+}
+.shooting-star:nth-child(1){
+  top: 0;
+  right: -150px;
+  left:initial;
+  animation-delay: 6s ;
+  animation-duration: 9s;
+}
+
