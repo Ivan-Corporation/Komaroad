@@ -17,6 +17,7 @@ import Tooltip from '@mui/material/Tooltip';
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
+import LinearWithValueLabel from './Progress/LinearProgressWithLabel';
 
 // check for localhost
 import '../Images/CardsImage/England.jpg'
@@ -53,7 +54,7 @@ const useStyles = makeStyles((theme) => ({
       paddingBottom: theme.spacing(12),
     },
     card: {
-      height: '24rem',
+      height: '26rem',
       display: 'flex',
       flexDirection: 'column',
     },
@@ -65,6 +66,8 @@ const useStyles = makeStyles((theme) => ({
     },
   }));
   
+
+
 
 export default function MainContent() {
 
@@ -200,6 +203,7 @@ export default function MainContent() {
                     <Typography align="center" variant="subtitle2">
                     {t(description)}
                     </Typography>
+                    <LinearWithValueLabel/>
                   </CardContent>                  
                   <CardActions>
                   <Tooltip title={t('created')} arrow>
@@ -247,6 +251,7 @@ export default function MainContent() {
                     <Typography align="center" variant="subtitle2">
                     {description}
                     </Typography>
+                    <LinearWithValueLabel/>
                   </CardContent>
                   
                   <CardActions>

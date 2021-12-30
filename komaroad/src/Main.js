@@ -15,7 +15,7 @@ import FallbackLoading from './FallbackLoading';
 import './Styles/auth.css';
 import './Styles/PlanetCircle.css';
 import './Styles/header/stars.css';
-import './Styles/header/cloud.css';
+import './Styles/header/cloud.scss';
 import './Styles/flags.css';
 import './Styles/title.scss';
 import './Styles/titleDark.scss';
@@ -125,7 +125,7 @@ const classes = useStyles();
             </Helmet>
                         <div className={darkMode ? classes.darkMode : classes.lightMode}>
                         <Container className={darkMode ? 'stars' : ''} maxWidth="sm">
-                          <div className={darkMode ? 'shooting-star' : ''}></div>
+                          <div className={darkMode ? 'shooting-star' : 'height2px'}></div>
                           {!darkMode 
                           ? 
                           <>
@@ -139,8 +139,8 @@ const classes = useStyles();
                           <div class="demo-Cloud demo-Background"></div>
                           <div class="demo-Cloud demo-Foreground"></div>
                           <div class="demo-Cloud demo-Background"></div>
-                          <div class="demo-Cloud demo-Background"></div>
-                        </div>
+                          <div class="demo-Cloud demo-Background"></div>                        
+                          </div>                                                        
                           </>
                           : 
                           <div/>

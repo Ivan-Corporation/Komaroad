@@ -6,13 +6,14 @@ import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import react from '../Images/Roadmaps/react-roadmap.png'
+import react from '../Images/Roadmaps/react-roadmap.webp'
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 import '../Styles/roadmap.css';
 import '../Styles/listItem.scss';
 
-import LinkIcon from '@mui/icons-material/Link';import Divider from '@material-ui/core/Divider';
+import LinkIcon from '@mui/icons-material/Link';
+import Divider from '@material-ui/core/Divider';
 import LocalPoliceIcon from '@mui/icons-material/LocalPolice';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import ImageIcon from '@material-ui/icons/Image';
@@ -37,6 +38,7 @@ import ZoomOutMapIcon from '@mui/icons-material/ZoomOutMap';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
 import {Helmet} from 'react-helmet'
+import LinearProgressWithLabel from './../Components/Progress/LinearProgressWithLabel';
 
 
 
@@ -55,7 +57,8 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '25px',
     paddingBottom: '25px',
 
-  }
+  },
+
 }));
 
 
@@ -97,7 +100,15 @@ export default function Math() {
         {t('react_text1')}
       </Typography>
 
-
+      
+      <hr/>
+      
+      <Typography variant="h5"align='center'>
+        <b><u>{t('Your Progress')}</u></b>
+      </Typography>
+      <LinearProgressWithLabel />
+     
+     
 
       <Typography variant="subtitle2" className='roadtext'>
       {t('picture_rec')}

@@ -21,6 +21,7 @@
     overflow: hidden;
     animation: FadeIn 3s ease-out;
     user-select: none;
+
   }
 
 
@@ -90,11 +91,11 @@
   }
   
   .demo-Cloud { 
-    background-image: url(https://raw.githubusercontent.com/Ivan-Corporation/Komaroad/main/cloud1.png?token=AN5HRXB7KR3IUESGCOG5OWDBZIBYI);
+    background-image: url(https://pbs.twimg.com/media/FHrQq2PXEAYGi6g?format=png&name=small);
   }
   
   .demo-Cloud.demo-Background {
-    background-image: url(https://raw.githubusercontent.com/Ivan-Corporation/Komaroad/main/cloud2.png?token=AN5HRXFVTS46CD2WJGWYJO3BZIBY2);
+    background-image: url(https://pbs.twimg.com/media/FHrQq2PX0AMcyMt?format=png&name=large);
   }
   
   #animationDemo {
@@ -106,3 +107,7 @@
     height:340px; 
     border:1px solid;
   }
+
+.height2px {
+  height: 2px;
+}
