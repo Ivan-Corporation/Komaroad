@@ -28,7 +28,8 @@
 
 <li>Accessibility?</li>
 
-
+<h3 align='center'> How it's possible?</h3>
+<img src='./wtf.png'>
 
 
 
