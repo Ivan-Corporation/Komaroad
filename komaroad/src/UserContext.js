@@ -14,24 +14,26 @@ export const UserContext = ({ children }) => {
 
 
   // achievements
-  useEffect(() => {
-    if (user) {
-      const coinRef = doc(db, "achievements", user?.uid);
-      var unsubscribe = onSnapshot(coinRef, (achievement) => {
-        if (achievement.exists()) {
-          console.log(achievement.data().achievements);
-          setAchievements(achievement.data().achievements);
-        } else {
-          console.log("No Items in Watchlist");
-        }
-      });
+  // useEffect(() => {
+  //   if (user) {
+  //     const coinRef = doc(db, "achievements", user?.uid);
+  //     var unsubscribe = onSnapshot(coinRef, (achievement) => {
+  //       if (achievement.exists()) {
+  //         console.log(achievement.data().achievements);
+  //         setAchievements(achievement.data().achievements);
+  //       } else {
+  //         console.log("No Items in Watchlist");
+  //       }
+  //     });
 
-      return () => {
-        unsubscribe();
-      };
-    }
-  }, [user]);
+  //     return () => {
+  //       unsubscribe();
+  //     };
+  //   }
+  // }, [user]);
 
+
+  
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
       if (user) setUser(user);

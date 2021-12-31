@@ -38,7 +38,6 @@ import ZoomOutMapIcon from '@mui/icons-material/ZoomOutMap';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Button from '@mui/material/Button';
 import {Helmet} from 'react-helmet'
-import LinearProgressWithLabel from './../Components/Progress/LinearProgressWithLabel';
 
 
 
@@ -101,13 +100,7 @@ export default function Math() {
       </Typography>
 
       
-      <hr/>
-      
-      <Typography variant="h5"align='center'>
-        <b><u>{t('Your Progress')}</u></b>
-      </Typography>
-      <LinearProgressWithLabel />
-     
+  
      
 
       <Typography variant="subtitle2" className='roadtext'>
