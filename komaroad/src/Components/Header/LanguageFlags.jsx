@@ -38,6 +38,11 @@ export default function LanguageFlags() {
           country_code: 'de',
           name: 'Deutsch'
         },
+        {
+          code: 'ua',
+          country_code: 'ua',
+          name: 'Ukraine'
+        },
       ]
 
     const { t } = useTranslation();

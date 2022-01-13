@@ -17,7 +17,7 @@ import { UserContext } from "./UserContext";
  .use(LanguageDetector)
  .use(HttpApi)
  .init({
-   supportedLngs: ['en','ru','fr','de'],
+   supportedLngs: ['en','ru','fr','de','ua'],
    fallbackLng: "en",
    detection: {
      order: ['cookie', 'localStorage', 'htmlTag', 'path', 'subdomain'],
