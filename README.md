@@ -1,7 +1,19 @@
 <h1 align='center'> Komaroad - Экстериоризация</h1>
 <h3 align='center'>Мой проект, призванный помочь людям систематизировать изучение конкретной области знаний в наш век информационных технологий, где проблема заключается не в недостатке информации, а в ее переизбытке</h3>
 
+<<<<<<< HEAD
 Demo - 
+=======
+<h4 align='center'>Примеры:</h4>
+<img src='1.png'/>
+<img src='2.png'/>
+<img src='3.png'/>
+<img src='4.png'/>
+<img src='5.png'/>
+<img src='6.png'/>
+<img src='7.png'/>
+
+>>>>>>> 9e60e6610f2dd96fbeefacb843687c06917346d9
 <hr>
 <ul>
 <li>Сами Roadmaps в виде изображений</li>
@@ -30,5 +42,15 @@ Demo -
 
 <li>Accessibility?</li>
 
+<<<<<<< HEAD
 </ul>
 
+=======
+<h3 align='center'> How it's possible?</h3>
+<img src='./wtf.png'>
+
+
+
+
+</ul>
+>>>>>>> 9e60e6610f2dd96fbeefacb843687c06917346d9
