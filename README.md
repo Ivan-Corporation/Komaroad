@@ -3,7 +3,7 @@
 
 
 <h3 align='center'>Видео по локализации на базе этого репозитория:</h3>
-https://www.youtube.com/watch?v=H_OdNo4dxTE
+<media src='https://www.youtube.com/watch?v=H_OdNo4dxTE'/>
 
 
 <h4 align='center'>Примеры:</h4>
