@@ -1,4 +1,4 @@
-<h1 align='center'> Komaroad - Экстериоризация</h1>
+<h1 align='center'> Komaroad - Exteriorization</h1>
 <h3 align='center'>My project, designed to help people systematize the study of a particular field of knowledge in our age of information technology, where the problem is not a lack of information, but its overabundance</h3>
 
 
