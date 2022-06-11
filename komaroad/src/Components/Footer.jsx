@@ -6,6 +6,7 @@ import Link from '@material-ui/core/Link';
 import Divider from '@material-ui/core/Divider';
 import { useTranslation } from "react-i18next";
 import Tooltip from '@mui/material/Tooltip';
+import { RepositoryMetrics } from 'repository-metrics';
 
 
 function Copyright() {
@@ -29,7 +30,7 @@ function Copyright() {
       },
   }));
 
-export default function Footer() {
+export default function Footer(props) {
 
  const classes = useStyles();
 
@@ -38,6 +39,7 @@ export default function Footer() {
   return ( 
   <div className={classes.footer}>
     
+  
   <Container style={{ maxWidth: '25vh', paddingBottom: '5px' }} >
 
   <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
@@ -69,8 +71,19 @@ export default function Footer() {
   </Container>
 
   <Copyright />
-
-
+  <div>
+      {!props.darkMode? <RepositoryMetrics 
+      owner='Ivan-Corporation' 
+      repo='Komaroad' 
+      theme='light' 
+      />
+      :
+      <RepositoryMetrics 
+      owner='Ivan-Corporation' 
+      repo='Komaroad' 
+      theme='dark' 
+      />}
+    </div>
 </div>
   )
 }

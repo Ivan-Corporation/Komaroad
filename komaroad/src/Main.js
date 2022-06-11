@@ -27,12 +27,12 @@ import About from './Components/About';
 import Trophies from './Components/Trophies';
 import Profile from './Components/Profile';
 
-import { BrowserRouter as Switch,Route} from "react-router-dom";
+import { BrowserRouter as Switch, Route } from "react-router-dom";
 
 import { useTranslation } from "react-i18next";
 import LanguageFlags from './Components/Header/LanguageFlags';
 import KomaSphere from './Components/Header/KomaSphere';
-import {Helmet} from 'react-helmet'
+import { Helmet } from 'react-helmet'
 import Auth from './Components/Header/Auth';
 import {
   createTheme,
@@ -76,7 +76,7 @@ export default function Main() {
   }
 
   const [darkMode, setDarkMode] = useStickyState(true, 'DarkMode?');
- 
+
   const theme = createTheme({
     palette: {
       type: darkMode ? "dark" : "light",
@@ -84,30 +84,30 @@ export default function Main() {
   })
 
   const useStyles = makeStyles((theme) => ({
-  
-  heroContent: {
-    padding: theme.spacing(8, 0, 6),
-  },
-  planet: {
+
+    heroContent: {
+      padding: theme.spacing(8, 0, 6),
+    },
+    planet: {
       paddingLeft: '100px'
-  },
-  lightMode: {
-    background: "linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(255,136,0,1) 0%, rgba(247,247,247,1) 82%);"
-},
-  darkMode: {
-    background: "linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(210,90,0,1) 0%, #303030 92%);",    
-},
-  title: {
-    color: '#e6e3e3',
-     margin: 'auto',
-    fontFamily: 'Montserrat',
-    fontSize: '60px',
-    textTransform: 'uppercase',
-  },
+    },
+    lightMode: {
+      background: "linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(255,136,0,1) 0%, rgba(247,247,247,1) 82%);"
+    },
+    darkMode: {
+      background: "linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(210,90,0,1) 0%, #303030 92%);",
+    },
+    title: {
+      color: '#e6e3e3',
+      margin: 'auto',
+      fontFamily: 'Montserrat',
+      fontSize: '60px',
+      textTransform: 'uppercase',
+    },
 
-}));
+  }));
 
-const classes = useStyles();
+  const classes = useStyles();
 
 
   const { user } = UserState();
@@ -117,126 +117,126 @@ const classes = useStyles();
     <React.Fragment>
       <ThemeProvider theme={theme}>
 
-      <CssBaseline />
-            <Helmet>
-                <meta name='Komaroad' content={t("about_1")} />
-                <title>Komaroad</title>
-                <link href="http://komaroad.ru" />
-            </Helmet>
-                        <div className={darkMode ? classes.darkMode : classes.lightMode}>
-                        <Container className={darkMode ? 'stars' : ''} maxWidth="sm">
-                          <div className={darkMode ? 'shooting-star' : 'height2px'}></div>
-                          {!darkMode 
-                          ? 
-                          <>
-                          <div id="Clouds">
-                          <div class="demo-Cloud demo-Foreground"></div>
-                          <div class="demo-Cloud demo-Background"></div>
-                          <div class="demo-Cloud demo-Foreground"></div>
-                          <div class="demo-Cloud demo-Background"></div>
-                          <div class="demo-Cloud demo-Foreground"></div>
-                          <div class="demo-Cloud demo-Background"></div>
-                          <div class="demo-Cloud demo-Background"></div>
-                          <div class="demo-Cloud demo-Foreground"></div>
-                          <div class="demo-Cloud demo-Background"></div>
-                          <div class="demo-Cloud demo-Background"></div>                        
-                          </div>                                                        
-                          </>
-                          : 
-                          <div/>
-                          }
-                        <Grid container spacing={3}>
+        <CssBaseline />
+        <Helmet>
+          <meta name='Komaroad' content={t("about_1")} />
+          <title>Komaroad</title>
+          <link href="http://komaroad.ru" />
+        </Helmet>
+        <div className={darkMode ? classes.darkMode : classes.lightMode}>
+          <Container className={darkMode ? 'stars' : ''} maxWidth="sm">
+            <div className={darkMode ? 'shooting-star' : 'height2px'}></div>
+            {!darkMode
+              ?
+              <>
+                <div id="Clouds">
+                  <div class="demo-Cloud demo-Foreground"></div>
+                  <div class="demo-Cloud demo-Background"></div>
+                  <div class="demo-Cloud demo-Foreground"></div>
+                  <div class="demo-Cloud demo-Background"></div>
+                  <div class="demo-Cloud demo-Foreground"></div>
+                  <div class="demo-Cloud demo-Background"></div>
+                  <div class="demo-Cloud demo-Background"></div>
+                  <div class="demo-Cloud demo-Foreground"></div>
+                  <div class="demo-Cloud demo-Background"></div>
+                  <div class="demo-Cloud demo-Background"></div>
+                </div>
+              </>
+              :
+              <div />
+            }
+            <Grid container spacing={3}>
 
 
-                        {/* Two version of auth */}
+              {/* Two version of auth */}
 
-                        {/* <Auth theme={theme}/> */}
-
-
-
-                        <div className='auth'>
-                        {user ? <UserSidebar /> : <AuthModal />}
-                        </div>
-
-                        
-                        <LanguageFlags theme={theme}/>
+              {/* <Auth theme={theme}/> */}
 
 
-                        <KomaSphere theme={theme}/>
 
-                      </Grid>
+              <div className='auth'>
+                {user ? <UserSidebar /> : <AuthModal />}
+              </div>
 
-                          <h1 className={darkMode ? "center__text1 glitch1 is-glitching1" : "center__text glitch is-glitching"} align="center" data-text="Komaroad">Komaroad</h1>
 
-                        
-                          <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                          <b>{t('learn_systematically')}</b>
-                          </Typography>
-                          <div className={classes.heroButtons}>
+              <LanguageFlags theme={theme} />
 
-                            <Grid container spacing={2} justifyContent="center">
-                              <Grid item>
-                              <Tooltip title="Telegram" arrow>
-                                      <Button
-                                        variant="contained"
-                                        color="primary"
-                                        className={classes.button}
-                                        endIcon={<SendIcon/>}
-                                        href='https://t.me/KomarIvan'
-                                      >
-                                        {t('write_me')}
-                                      </Button>
-                                      </Tooltip>
-                                      </Grid>
 
-                                  <Grid item>
-                                    <Tooltip title={t('click_to_change')} arrow>
-                                  {darkMode ? <Button
-                                        variant="contained"
-                                        color='default'
-                                        className={classes.button}
-                                        endIcon={<Brightness7Icon/>}
-                                        onClick={()=> setDarkMode(!darkMode)}
-                                      >
-                                        {t('light_mode')}
-                                      </Button> 
-                                      : 
-                                      <Button
-                                        variant="contained"
-                                        color='secondary'
-                                        className={classes.button}
-                                        endIcon={<Brightness3Icon/>}
-                                        onClick={()=> setDarkMode(!darkMode)}
-                                      >
-                                        {t('dark_mode')}
-                                      </Button> 
-                                    }
-                                    </Tooltip>
-                              </Grid>
-                            </Grid>
-                          </div>
-                        </Container>
+              <KomaSphere theme={theme} />
 
-                      </div>
-         <Suspense fallback={FallbackLoading}>
-         <Switch>
-             <Route exact path="/math" component={Math}/>             
-             <Route exact path="/history" component={History}/>
-             <Route exact path="/react" component={ReactR}/>
+            </Grid>
 
-             <Route exact path="/about" component={About}/>
-             <Route exact path="/terms" component={Terms}/>
+            <h1 className={darkMode ? "center__text1 glitch1 is-glitching1" : "center__text glitch is-glitching"} align="center" data-text="Komaroad">Komaroad</h1>
 
-             <Route exact path="/" component={MainContent}/>
 
-             <Route exact path='/secret' component={Secret}/>
-             <Route exact path='/trophies' component={Trophies}/>
-             <Route exact path='/settings' component={Settings}/>
-        </Switch>
+            <Typography variant="h5" align="center" color="textSecondary" paragraph>
+              <b>{t('learn_systematically')}</b>
+            </Typography>
+            <div className={classes.heroButtons}>
+
+              <Grid container spacing={2} justifyContent="center">
+                <Grid item>
+                  <Tooltip title="Telegram" arrow>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      className={classes.button}
+                      endIcon={<SendIcon />}
+                      href='https://t.me/KomarIvan'
+                    >
+                      {t('write_me')}
+                    </Button>
+                  </Tooltip>
+                </Grid>
+
+                <Grid item>
+                  <Tooltip title={t('click_to_change')} arrow>
+                    {darkMode ? <Button
+                      variant="contained"
+                      color='default'
+                      className={classes.button}
+                      endIcon={<Brightness7Icon />}
+                      onClick={() => setDarkMode(!darkMode)}
+                    >
+                      {t('light_mode')}
+                    </Button>
+                      :
+                      <Button
+                        variant="contained"
+                        color='secondary'
+                        className={classes.button}
+                        endIcon={<Brightness3Icon />}
+                        onClick={() => setDarkMode(!darkMode)}
+                      >
+                        {t('dark_mode')}
+                      </Button>
+                    }
+                  </Tooltip>
+                </Grid>
+              </Grid>
+            </div>
+          </Container>
+
+        </div>
+        <Suspense fallback={FallbackLoading}>
+          <Switch>
+            <Route exact path="/math" component={Math} />
+            <Route exact path="/history" component={History} />
+            <Route exact path="/react" component={ReactR} />
+
+            <Route exact path="/about" component={About} />
+            <Route exact path="/terms" component={Terms} />
+
+            <Route exact path="/" component={MainContent} />
+
+            <Route exact path='/secret' component={Secret} />
+            <Route exact path='/trophies' component={Trophies} />
+            <Route exact path='/settings' component={Settings} />
+          </Switch>
         </Suspense>
-      <Footer/>
-      
+        <Footer darkMode={darkMode}/>
+
       </ThemeProvider>
-    </React.Fragment>   
+    </React.Fragment>
   );
 }
