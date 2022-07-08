@@ -155,11 +155,12 @@ export default function Main() {
 
 
               <div className='auth'>
-                {user ? <UserSidebar /> : <AuthModal />}
+                {user ? <UserSidebar darkMode={darkMode}/> : <AuthModal />}
               </div>
 
 
-              <LanguageFlags theme={theme} />
+              <LanguageFlags theme={theme} /> 
+              
 
 
               <KomaSphere theme={theme} />

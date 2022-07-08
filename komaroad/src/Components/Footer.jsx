@@ -71,19 +71,7 @@ export default function Footer(props) {
   </Container>
 
   <Copyright />
-  <div>
-      {!props.darkMode? <RepositoryMetrics 
-      owner='Ivan-Corporation' 
-      repo='Komaroad' 
-      theme='light' 
-      />
-      :
-      <RepositoryMetrics 
-      owner='Ivan-Corporation' 
-      repo='Komaroad' 
-      theme='dark' 
-      />}
-    </div>
+ 
 </div>
   )
 }

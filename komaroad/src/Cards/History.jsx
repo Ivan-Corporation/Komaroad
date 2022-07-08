@@ -9,7 +9,8 @@ import history1 from '../Images/Roadmaps/History-roadmap1.webp'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
 import { List, ListItem, ListItemText } from '@material-ui/core';
-import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
 
 import '../Styles/roadmap.css';
 
@@ -142,38 +143,17 @@ export default function History(props) {
         </Grid>
 
         
-        <TransformWrapper>
-        {({ zoomIn, zoomOut, resetTransform}) => (
-          <React.Fragment>
-            <Grid container spacing={2} justifyContent="center" >
-            <div className='roadmapbuttons'>
-            <ButtonGroup size="large" color="primary">
-             <Button onClick={() => zoomIn()} variant="contained" >
-             <ZoomInIcon />
-             </Button>
-             <Button onClick={() => resetTransform()} variant="contained" >
-             <ZoomOutMapIcon />
-             </Button>
-             <Button onClick={() => zoomOut()} variant="contained" >
-             <ZoomOutIcon />
-             </Button>
-
-             
-              
-           </ButtonGroup>
-           </div>
-           </Grid>
+        
            <hr/>
            <div className='roadmapt'>
-        <TransformComponent>      
+           <Zoom>
         <img
         alt="History"
         src={history1} className='roadmap' loading="lazy"/> 
-        </TransformComponent>
+        </Zoom>
         </div>
-        </React.Fragment>
-        )}
-        </TransformWrapper>
+      
+       
 
         <Divider/>
 

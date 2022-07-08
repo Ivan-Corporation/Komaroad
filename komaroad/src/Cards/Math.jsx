@@ -40,12 +40,9 @@ import ImageIcon from '@material-ui/icons/Image';
 
 import {Helmet} from 'react-helmet'
 
-import ZoomInIcon from '@mui/icons-material/ZoomIn';
-import ZoomOutIcon from '@mui/icons-material/ZoomOut';
-import ZoomOutMapIcon from '@mui/icons-material/ZoomOutMap';
-import ButtonGroup from '@mui/material/ButtonGroup';
-import Button from '@mui/material/Button';
 
+import Zoom from 'react-medium-image-zoom'
+import 'react-medium-image-zoom/dist/styles.css'
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',   
@@ -138,38 +135,15 @@ export default function Math() {
         </Grid>
        
 
-        <TransformWrapper>
-        {({ zoomIn, zoomOut, resetTransform, ...rest }) => (
-          <React.Fragment>
-            <Grid container spacing={2} justifyContent="center" >
-            <div className='roadmapbuttons'>
-            <ButtonGroup size="large" color="primary">
-             <Button onClick={() => zoomIn()} variant="contained" >
-             <ZoomInIcon />
-             </Button>
-             <Button onClick={() => resetTransform()} variant="contained" >
-             <ZoomOutMapIcon />
-             </Button>
-             <Button onClick={() => zoomOut()} variant="contained" >
-             <ZoomOutIcon />
-             </Button>
-
-             
-              
-           </ButtonGroup>
-           </div>
-           </Grid>
+        <Zoom>
            <hr/>
            <div className='roadmapt'>
-        <TransformComponent>      
         <img
         alt="Math"
         src={math} className='roadmap' loading="lazy"/> 
-        </TransformComponent>
         </div>
-        </React.Fragment>
-        )}
-        </TransformWrapper>
+        </Zoom>
+
 
 
       <Divider />

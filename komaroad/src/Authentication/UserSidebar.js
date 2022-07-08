@@ -24,6 +24,7 @@ import SettingsIcon from '@mui/icons-material/Settings';
 import HourglassBottomIcon from '@mui/icons-material/HourglassBottom';
 import LogoutIcon from '@mui/icons-material/Logout';
 
+import { RepositoryMetrics } from 'repository-metrics';
 
 
 
@@ -76,7 +77,7 @@ const useStyles = makeStyles({
 
 
 
-export default function UserSidebar() {
+export default function UserSidebar(darkMode) {
   const classes = useStyles();
   const [state, setState] = React.useState({
     right: false,
@@ -210,7 +211,21 @@ export default function UserSidebar() {
 
                 <Divider/>     
                
-
+                  <ListItem>
+                  <div>
+      {!darkMode? <RepositoryMetrics 
+      owner='Ivan-Corporation' 
+      repo='Komaroad' 
+      theme='light' 
+      />
+      :
+      <RepositoryMetrics 
+      owner='Ivan-Corporation' 
+      repo='Komaroad' 
+      theme='dark' 
+      />}
+    </div>
+                  </ListItem>
             
 
 
